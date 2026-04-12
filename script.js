@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const siteKey = document.body.dataset.portfolioSite || "tobi";
+  const siteKey = document.body.dataset.portfolioSite || "main";
 
   window.addEventListener("load", () => {
     const loader = document.getElementById("pageLoader");
@@ -131,11 +131,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   renderPortfolioSections(siteKey);
+  renderSiteNetwork(siteKey);
 });
 
 function renderPortfolioSections(siteKey) {
   const data = window.PORTFOLIO_CONTENT?.[siteKey];
   if (!data) return;
+  const sharedProjects = getProjectsForSite(siteKey);
 
   const heroMount = document.getElementById("pageHeroMount");
   if (heroMount) {
@@ -248,7 +250,7 @@ function renderPortfolioSections(siteKey) {
         `).join("")}
       </div>
       <div class="projects-grid" id="portfolioProjectGrid">
-        ${data.projects.map((project, index) => renderProjectCard(project, index)).join("")}
+        ${sharedProjects.map((project, index) => renderProjectCard(project, index)).join("")}
       </div>
     `;
 
@@ -309,8 +311,9 @@ function renderPortfolioSections(siteKey) {
 
 function renderProjectCard(project, index) {
   const tags = project.tags.join(" ");
-  const visual = project.image
-    ? `<div class="project-image"><img src="${project.image}" alt="${project.title}" loading="lazy"></div>`
+  const projectImage = getProjectImage(project);
+  const visual = projectImage
+    ? `<div class="project-image"><img src="${projectImage}" alt="${project.title}" loading="lazy"></div>`
     : `
       <div class="project-image project-placeholder-card">
         <div class="project-placeholder">
@@ -326,18 +329,67 @@ function renderProjectCard(project, index) {
       <div class="project-content">
         <div class="project-meta">
           <span class="project-badge">${project.type}</span>
+          ${project.sourceLabel ? `<span class="project-source">${project.sourceLabel}</span>` : ""}
         </div>
         <h3>${project.title}</h3>
         <p>${project.description}</p>
-        ${project.services ? `
-          <div class="project-services">
-            ${project.services.map((item) => `<span class="project-service">${item}</span>`).join("")}
-          </div>
-        ` : ""}
+        ${project.note ? `<p class="project-note">${project.note}</p>` : ""}
         <a href="${project.url}" target="_blank" class="project-link">View Reference</a>
       </div>
     </div>
   `;
+}
+
+function getProjectsForSite(siteKey) {
+  const sharedProjects = Array.isArray(window.PORTFOLIO_PROJECTS) ? window.PORTFOLIO_PROJECTS : [];
+
+  return sharedProjects
+    .filter((project) => {
+      if (siteKey === "main") {
+        return project.source !== "reference";
+      }
+
+      return Array.isArray(project.sites) && project.sites.includes(siteKey);
+    })
+    .map((project) => ({
+      title: project.title,
+      type: getProjectType(project),
+      description: project.summary,
+      url: project.url,
+      image: project.image,
+      tags: getProjectTags(project),
+      note: project.note,
+      sourceLabel: project.sourceLabel
+    }));
+}
+
+function getProjectType(project) {
+  const platformMap = {
+    wordpress: "WordPress",
+    laravel: "Laravel",
+    php: "PHP",
+    ecwid: "eCommerce",
+    node: "Node.js"
+  };
+
+  return platformMap[project.platform] || formatFilterLabel(project.platform || "Project");
+}
+
+function getProjectTags(project) {
+  const baseTags = Array.isArray(project.tags) ? project.tags : [];
+  const platformTag = project.platform ? [project.platform] : [];
+  const sourceTag = project.source ? [project.source] : [];
+  return [...new Set([...baseTags, ...platformTag, ...sourceTag])];
+}
+
+function getProjectImage(project) {
+  if (project.image) return project.image;
+
+  if (!project.url || project.url.includes("upwork.com")) {
+    return `${getAssetPath()}default.png`;
+  }
+
+  return `https://image.thum.io/get/width/1200/noanimate/${project.url}`;
 }
 
 function bindProjectFilters() {
@@ -370,11 +422,25 @@ function formatFilterLabel(value) {
     ecommerce: "eCommerce",
     "my-work": "My Work",
     upwork: "Upwork",
+    "my-work": "My Work",
+    "portfolio-case": "Portfolio Case",
     shopify: "Shopify",
     squarespace: "Squarespace",
     webflow: "Webflow",
     seo: "SEO",
     api: "API",
+    react: "React",
+    javascript: "JavaScript",
+    frontend: "Frontend",
+    content: "Content",
+    marketing: "Marketing",
+    support: "Support",
+    node: "Node.js",
+    fixes: "Fixes",
+    database: "Database",
+    debugging: "Debugging",
+    automation: "Automation",
+    ecommerce: "eCommerce",
     application: "Application"
   };
 
@@ -384,7 +450,29 @@ function formatFilterLabel(value) {
 function getAssetPath() {
   return window.location.pathname.includes("/work/") ||
     window.location.pathname.includes("/dev/") ||
-    window.location.pathname.includes("/marketing/")
+    window.location.pathname.includes("/marketing/") ||
+    window.location.pathname.includes("/tobi/")
     ? "../"
     : "";
+}
+
+function renderSiteNetwork(siteKey) {
+  const footerLinkGroups = document.querySelectorAll("[data-site-network]");
+  if (!footerLinkGroups.length) return;
+
+  const sites = [
+    { key: "tobi", label: "PHP & WordPress", url: "https://tobi.holyprofweb.com/" },
+    { key: "work", label: "Freelance work", url: "https://work.holyprofweb.com/" },
+    { key: "dev", label: "Development", url: "https://dev.holyprofweb.com/" },
+    { key: "marketing", label: "Marketing", url: "https://marketing.holyprofweb.com/" }
+  ];
+
+  footerLinkGroups.forEach((group) => {
+    group.innerHTML = sites
+      .map((site) => {
+        const currentLabel = site.key === siteKey ? "Current site" : site.label;
+        return `<a href="${site.url}" ${site.key === siteKey ? 'aria-current="page"' : ""}>${currentLabel}</a>`;
+      })
+      .join("");
+  });
 }
