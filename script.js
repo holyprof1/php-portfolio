@@ -126,7 +126,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   renderPortfolioSections(siteKey);
-  renderSiteNetwork(siteKey);
 });
 
 async function loadPortfolioData() {
@@ -334,6 +333,7 @@ function renderPortfolioSections(siteKey) {
   }
 
   renderFaqSection(data);
+  renderExtraSections(data);
   injectStructuredData(siteKey, data, sharedProjects);
 }
 
@@ -593,6 +593,47 @@ function renderFaqSection(data) {
   `;
 }
 
+function renderExtraSections(data) {
+  const sections = Array.isArray(data.extraSections) ? data.extraSections.filter((item) => item.title || item.text) : [];
+  const existing = document.getElementById("extraSections");
+
+  if (!sections.length) {
+    if (existing) existing.remove();
+    return;
+  }
+
+  let section = existing;
+  if (!section) {
+    section = document.createElement("section");
+    section.className = "extra-sections";
+    section.id = "extraSections";
+    section.innerHTML = '<div class="container" id="extraSectionsMount"></div>';
+
+    const faqSection = document.getElementById("faq");
+    const contactSection = document.getElementById("contact");
+    const anchor = faqSection || contactSection;
+    if (anchor?.parentNode) {
+      anchor.parentNode.insertBefore(section, anchor);
+    }
+  }
+
+  const mount = document.getElementById("extraSectionsMount");
+  if (!mount) return;
+
+  mount.innerHTML = `
+    <div class="extra-sections-grid">
+      ${sections.map((item, index) => `
+        <article class="extra-section-card" data-aos="fade-up" data-aos-delay="${index * 60}">
+          ${item.tag ? `<span class="section-tag">${item.tag}</span>` : ""}
+          <h2 class="section-title">${item.title}</h2>
+          <p class="section-subtitle">${item.text}</p>
+          ${item.buttonLabel && item.buttonHref ? `<a class="btn btn-outline" href="${item.buttonHref}">${item.buttonLabel}</a>` : ""}
+        </article>
+      `).join("")}
+    </div>
+  `;
+}
+
 function injectStructuredData(siteKey, data, projects) {
   const existing = document.getElementById("dynamicStructuredData");
   if (existing) existing.remove();
@@ -671,25 +712,4 @@ function injectStructuredData(siteKey, data, projects) {
   });
 
   document.head.appendChild(script);
-}
-
-function renderSiteNetwork(siteKey) {
-  const footerLinkGroups = document.querySelectorAll("[data-site-network]");
-  if (!footerLinkGroups.length) return;
-
-  const sites = [
-    { key: "tobi", label: "PHP & WordPress", url: "https://tobi.holyprofweb.com/" },
-    { key: "work", label: "Freelance work", url: "https://work.holyprofweb.com/" },
-    { key: "dev", label: "Development", url: "https://dev.holyprofweb.com/" },
-    { key: "marketing", label: "Marketing", url: "https://marketing.holyprofweb.com/" }
-  ];
-
-  footerLinkGroups.forEach((group) => {
-    group.innerHTML = sites
-      .map((site) => {
-        const currentLabel = site.key === siteKey ? "Current site" : site.label;
-        return `<a href="${site.url}" ${site.key === siteKey ? 'aria-current="page"' : ""}>${currentLabel}</a>`;
-      })
-      .join("");
-  });
 }

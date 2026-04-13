@@ -120,7 +120,8 @@ window.PORTFOLIO_CONTENT = {
     ],
     "faqTag": "Client FAQ",
     "faqTitle": "Frequently Asked Questions",
-    "faqIntro": "Quick answers to the things clients usually ask before we start work."
+    "faqIntro": "Quick answers to the things clients usually ask before we start work.",
+    "extraSections": []
   },
   "tobi": {
     "hero": {
@@ -242,7 +243,8 @@ window.PORTFOLIO_CONTENT = {
     ],
     "faqTag": "Client FAQ",
     "faqTitle": "Frequently Asked Questions",
-    "faqIntro": "Quick answers to the things clients usually ask before we start work."
+    "faqIntro": "Quick answers to the things clients usually ask before we start work.",
+    "extraSections": []
   },
   "marketing": {
     "hero": {
@@ -364,7 +366,16 @@ window.PORTFOLIO_CONTENT = {
     ],
     "faqTag": "Client FAQ",
     "faqTitle": "Frequently Asked Questions",
-    "faqIntro": "The quick questions clients ask before handing over SEO, ads support, listings, or feed cleanup work."
+    "faqIntro": "The quick questions clients ask before handing over SEO, ads support, listings, or feed cleanup work.",
+    "extraSections": [
+      {
+        "tag": "Listings Support",
+        "title": "Need help with ads, listings, or feeds?",
+        "text": "I can step in on campaign landing pages, Merchant Center issues, business listings, feed cleanup, and the site changes that support better visibility.",
+        "buttonLabel": "Start a Project",
+        "buttonHref": "#contact"
+      }
+    ]
   },
   "dev": {
     "hero": {
@@ -488,7 +499,8 @@ window.PORTFOLIO_CONTENT = {
     ],
     "faqTag": "Client FAQ",
     "faqTitle": "Frequently Asked Questions",
-    "faqIntro": "Quick answers to the things clients usually ask before we start work."
+    "faqIntro": "Quick answers to the things clients usually ask before we start work.",
+    "extraSections": []
   },
   "work": {
     "hero": {
@@ -611,6 +623,7 @@ window.PORTFOLIO_CONTENT = {
     ],
     "faqTag": "Client FAQ",
     "faqTitle": "Frequently Asked Questions",
-    "faqIntro": "Quick answers to the things clients usually ask before we start work."
+    "faqIntro": "Quick answers to the things clients usually ask before we start work.",
+    "extraSections": []
   }
 };

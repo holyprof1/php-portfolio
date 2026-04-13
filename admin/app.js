@@ -23,7 +23,8 @@ const state = {
   content: {},
   projects: [],
   activeSite: "main",
-  projectSearch: ""
+  projectSearch: "",
+  sessionPassword: ""
 };
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -206,6 +207,19 @@ function renderSiteEditor() {
         ${renderTextarea("FAQ intro", "faqIntro", site.faqIntro || "", 3)}
         ${renderTextarea("FAQ items", "faq", faqToLines(site.faq), 8, "Use: question | answer")}
       </section>
+
+      <section class="editor-panel editor-panel-wide">
+        <div class="panel-head">
+          <div>
+            <span class="section-eyebrow">Extra Sections</span>
+            <h4>Add or duplicate flexible content blocks</h4>
+          </div>
+          <button type="button" class="secondary-button" id="addExtraSectionButton">Add Section</button>
+        </div>
+        <div class="stack-list">
+          ${renderExtraSectionEditors(site.extraSections || [])}
+        </div>
+      </section>
     </div>
   `;
 
@@ -229,6 +243,47 @@ function bindSiteEditor() {
       input.value = "";
     });
   });
+
+  const addExtraSectionButton = document.getElementById("addExtraSectionButton");
+  if (addExtraSectionButton) {
+    addExtraSectionButton.addEventListener("click", () => {
+      const site = state.content[state.activeSite];
+      site.extraSections = Array.isArray(site.extraSections) ? site.extraSections : [];
+      site.extraSections.push(createEmptyExtraSection());
+      renderSiteEditor();
+      syncAdvancedEditors();
+    });
+  }
+
+  siteEditorMount.querySelectorAll("[data-extra-field]").forEach((field) => {
+    field.addEventListener("input", () => {
+      const site = state.content[state.activeSite];
+      const index = Number(field.dataset.extraIndex);
+      const key = field.dataset.extraField;
+      site.extraSections[index][key] = field.value.trim();
+      syncAdvancedEditors();
+    });
+  });
+
+  siteEditorMount.querySelectorAll("[data-extra-duplicate]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const site = state.content[state.activeSite];
+      const index = Number(button.dataset.extraDuplicate);
+      site.extraSections.splice(index + 1, 0, { ...site.extraSections[index] });
+      renderSiteEditor();
+      syncAdvancedEditors();
+    });
+  });
+
+  siteEditorMount.querySelectorAll("[data-extra-remove]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const site = state.content[state.activeSite];
+      const index = Number(button.dataset.extraRemove);
+      site.extraSections.splice(index, 1);
+      renderSiteEditor();
+      syncAdvancedEditors();
+    });
+  });
 }
 
 function renderProjectList() {
@@ -246,7 +301,10 @@ function renderProjectList() {
           <h4 class="project-editor-title">${escapeHtml(project.title || `Project ${index + 1}`)}</h4>
           <p class="project-editor-subtitle">${escapeHtml(project.platform || "No platform yet")} ${project.source ? `• ${escapeHtml(project.source)}` : ""}</p>
         </div>
-        <button type="button" class="danger-button remove-project-button" data-project-remove="${index}">Remove</button>
+        <div class="inline-actions">
+          <button type="button" class="secondary-button duplicate-project-button" data-project-duplicate="${index}">Duplicate</button>
+          <button type="button" class="danger-button remove-project-button" data-project-remove="${index}">Remove</button>
+        </div>
       </div>
 
       <div class="project-editor-grid">
@@ -302,6 +360,16 @@ function bindProjectEditors() {
     button.addEventListener("click", () => {
       const index = Number(button.dataset.projectRemove);
       state.projects.splice(index, 1);
+      renderProjectList();
+      renderDashboardMetrics();
+      syncAdvancedEditors();
+    });
+  });
+
+  projectList.querySelectorAll("[data-project-duplicate]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const index = Number(button.dataset.projectDuplicate);
+      state.projects.splice(index + 1, 0, JSON.parse(JSON.stringify(state.projects[index])));
       renderProjectList();
       renderDashboardMetrics();
       syncAdvancedEditors();
@@ -478,15 +546,25 @@ async function handleAssetUpload(file, path, projectIndex) {
   formData.append("file", file);
 
   try {
+    const password = await promptForPassword("upload an image");
+    if (!password) {
+      setStatus("Upload cancelled.");
+      return;
+    }
+
     setStatus("Uploading image...");
 
     const response = await fetch("upload.php", {
       method: "POST",
+      headers: {
+        "X-Admin-Password": password
+      },
       body: formData
     });
 
     const result = await response.json();
     if (!response.ok || !result.ok) {
+      if (response.status === 403) state.sessionPassword = "";
       throw new Error(result.message || "Upload failed.");
     }
 
@@ -512,11 +590,17 @@ async function saveAllChanges() {
   try {
     state.content = JSON.parse(contentEditor.value);
     state.projects = JSON.parse(projectsEditor.value);
+    const password = await promptForPassword("save changes");
+    if (!password) {
+      setStatus("Save cancelled.");
+      return;
+    }
 
     const response = await fetch("save.php", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "X-Admin-Password": password
       },
       body: JSON.stringify({
         content: state.content,
@@ -526,6 +610,7 @@ async function saveAllChanges() {
 
     const result = await response.json();
     if (!response.ok || !result.ok) {
+      if (response.status === 403) state.sessionPassword = "";
       throw new Error(result.message || "Save failed.");
     }
 
@@ -570,6 +655,16 @@ function createEmptyProject() {
     image: "",
     tags: [],
     sites: ["main"]
+  };
+}
+
+function createEmptyExtraSection() {
+  return {
+    tag: "",
+    title: "",
+    text: "",
+    buttonLabel: "",
+    buttonHref: ""
   };
 }
 
@@ -673,6 +768,56 @@ function getPreviewHref(path) {
   }
 
   return `../${path.replace(/^\.?\//, "")}`;
+}
+
+async function promptForPassword(action) {
+  const password = window.prompt(`Enter admin password to ${action}:`);
+  if (!password) return "";
+  state.sessionPassword = password;
+  return password;
+}
+
+function renderExtraSectionEditors(sections) {
+  if (!sections.length) {
+    return '<p class="empty-state">No extra sections yet. Add one when you want another SEO-focused block on this page.</p>';
+  }
+
+  return sections.map((section, index) => `
+    <article class="stack-card">
+      <div class="project-editor-header">
+        <div>
+          <h4 class="project-editor-title">${escapeHtml(section.title || `Section ${index + 1}`)}</h4>
+          <p class="project-editor-subtitle">${escapeHtml(section.tag || "Extra section")}</p>
+        </div>
+        <div class="inline-actions">
+          <button type="button" class="secondary-button" data-extra-duplicate="${index}">Duplicate</button>
+          <button type="button" class="danger-button" data-extra-remove="${index}">Remove</button>
+        </div>
+      </div>
+      <div class="project-editor-grid">
+        <label>
+          <span>Tag</span>
+          <input type="text" data-extra-field="tag" data-extra-index="${index}" value="${escapeAttribute(section.tag || "")}">
+        </label>
+        <label>
+          <span>Title</span>
+          <input type="text" data-extra-field="title" data-extra-index="${index}" value="${escapeAttribute(section.title || "")}">
+        </label>
+        <label>
+          <span>Button label</span>
+          <input type="text" data-extra-field="buttonLabel" data-extra-index="${index}" value="${escapeAttribute(section.buttonLabel || "")}">
+        </label>
+        <label>
+          <span>Button href</span>
+          <input type="text" data-extra-field="buttonHref" data-extra-index="${index}" value="${escapeAttribute(section.buttonHref || "")}" placeholder="#contact">
+        </label>
+      </div>
+      <label>
+        <span>Text</span>
+        <textarea rows="4" data-extra-field="text" data-extra-index="${index}">${escapeHtml(section.text || "")}</textarea>
+      </label>
+    </article>
+  `).join("");
 }
 
 function setStatus(message, isError = false) {

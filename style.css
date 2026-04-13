@@ -398,6 +398,25 @@ body {
   background: var(--section-bg);
 }
 
+.extra-sections {
+  padding: 0 0 40px;
+  background: var(--section-bg);
+}
+
+.extra-sections-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.extra-section-card {
+  padding: 32px;
+  border-radius: 28px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow: 0 24px 60px rgba(12, 18, 36, 0.18);
+}
+
 .skills {
   background: #0a1520;
 }

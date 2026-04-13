@@ -2,11 +2,15 @@
 header('Content-Type: application/json');
 header('X-Robots-Tag: noindex, nofollow', true);
 
+require_once __DIR__ . DIRECTORY_SEPARATOR . 'auth.php';
+
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
   http_response_code(405);
   echo json_encode(['ok' => false, 'message' => 'Method not allowed.']);
   exit;
 }
+
+requireAdminPassword();
 
 $rawInput = file_get_contents('php://input');
 $payload = json_decode($rawInput, true);
