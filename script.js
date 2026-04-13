@@ -126,6 +126,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   renderPortfolioSections(siteKey);
+  renderSiteNetwork(siteKey);
 });
 
 async function loadPortfolioData() {
@@ -333,7 +334,6 @@ function renderPortfolioSections(siteKey) {
   }
 
   renderFaqSection(data);
-  renderExtraSections(data);
   injectStructuredData(siteKey, data, sharedProjects);
 }
 
@@ -398,38 +398,6 @@ function getProjectType(project, siteKey) {
     if (project.tags?.includes("ecommerce")) return "Listings & Feed Support";
     if (project.tags?.includes("content")) return "Content Visibility Work";
     return "Marketing Delivery";
-  }
-
-  if (siteKey === "technical-seo") {
-    if (project.tags?.includes("seo")) return "Technical SEO Project";
-    if (project.tags?.includes("marketing")) return "Visibility Support";
-    if (project.tags?.includes("ecommerce")) return "Merchant & Feed Support";
-    if (project.tags?.includes("content")) return "Content SEO Work";
-    return "SEO Delivery";
-  }
-
-  if (siteKey === "ecommerce-support") {
-    if (project.tags?.includes("ecommerce")) return "eCommerce Support";
-    if (project.tags?.includes("seo")) return "Store SEO Improvement";
-    if (project.tags?.includes("marketing")) return "Store Growth Support";
-    return "Store Delivery";
-  }
-
-  if (siteKey === "wordpress-developer") {
-    if (project.tags?.includes("support")) return "WordPress Support";
-    return "WordPress Build";
-  }
-
-  if (siteKey === "php-developer") {
-    if (project.tags?.includes("api")) return "PHP Integration";
-    if (project.tags?.includes("support")) return "PHP Support";
-    return "PHP Development";
-  }
-
-  if (siteKey === "laravel-developer") {
-    if (project.tags?.includes("database")) return "Laravel System";
-    if (project.tags?.includes("support")) return "Laravel Support";
-    return "Laravel Build";
   }
 
   if (siteKey === "work" || siteKey === "main") {
@@ -581,12 +549,12 @@ function formatFilterLabel(value) {
 }
 
 function getAssetPath() {
-  const segments = window.location.pathname.split("/").filter(Boolean);
-  if (!segments.length) return "";
-
-  const lastSegment = segments[segments.length - 1];
-  const depth = lastSegment.includes(".") ? segments.length - 1 : segments.length;
-  return "../".repeat(depth);
+  return window.location.pathname.includes("/work/") ||
+    window.location.pathname.includes("/dev/") ||
+    window.location.pathname.includes("/marketing/") ||
+    window.location.pathname.includes("/tobi/")
+    ? "../"
+    : "";
 }
 
 function renderFaqSection(data) {
@@ -625,47 +593,6 @@ function renderFaqSection(data) {
   `;
 }
 
-function renderExtraSections(data) {
-  const sections = Array.isArray(data.extraSections) ? data.extraSections.filter((item) => item.title || item.text) : [];
-  const existing = document.getElementById("extraSections");
-
-  if (!sections.length) {
-    if (existing) existing.remove();
-    return;
-  }
-
-  let section = existing;
-  if (!section) {
-    section = document.createElement("section");
-    section.className = "extra-sections";
-    section.id = "extraSections";
-    section.innerHTML = '<div class="container" id="extraSectionsMount"></div>';
-
-    const faqSection = document.getElementById("faq");
-    const contactSection = document.getElementById("contact");
-    const anchor = faqSection || contactSection;
-    if (anchor?.parentNode) {
-      anchor.parentNode.insertBefore(section, anchor);
-    }
-  }
-
-  const mount = document.getElementById("extraSectionsMount");
-  if (!mount) return;
-
-  mount.innerHTML = `
-    <div class="extra-sections-grid">
-      ${sections.map((item, index) => `
-        <article class="extra-section-card" data-aos="fade-up" data-aos-delay="${index * 60}">
-          ${item.tag ? `<span class="section-tag">${item.tag}</span>` : ""}
-          <h2 class="section-title">${item.title}</h2>
-          <p class="section-subtitle">${item.text}</p>
-          ${item.buttonLabel && item.buttonHref ? `<a class="btn btn-outline" href="${item.buttonHref}">${item.buttonLabel}</a>` : ""}
-        </article>
-      `).join("")}
-    </div>
-  `;
-}
-
 function injectStructuredData(siteKey, data, projects) {
   const existing = document.getElementById("dynamicStructuredData");
   if (existing) existing.remove();
@@ -675,12 +602,7 @@ function injectStructuredData(siteKey, data, projects) {
     tobi: "https://tobi.holyprofweb.com/",
     work: "https://work.holyprofweb.com/",
     dev: "https://dev.holyprofweb.com/",
-    marketing: "https://marketing.holyprofweb.com/",
-    "wordpress-developer": "https://tobi.holyprofweb.com/wordpress-developer/",
-    "php-developer": "https://tobi.holyprofweb.com/php-developer/",
-    "laravel-developer": "https://tobi.holyprofweb.com/laravel-developer/",
-    "technical-seo": "https://tobi.holyprofweb.com/technical-seo/",
-    "ecommerce-support": "https://tobi.holyprofweb.com/ecommerce-support/"
+    marketing: "https://marketing.holyprofweb.com/"
   };
 
   const pageUrl = urls[siteKey] || urls.main;
@@ -749,4 +671,25 @@ function injectStructuredData(siteKey, data, projects) {
   });
 
   document.head.appendChild(script);
+}
+
+function renderSiteNetwork(siteKey) {
+  const footerLinkGroups = document.querySelectorAll("[data-site-network]");
+  if (!footerLinkGroups.length) return;
+
+  const sites = [
+    { key: "tobi", label: "PHP & WordPress", url: "https://tobi.holyprofweb.com/" },
+    { key: "work", label: "Freelance work", url: "https://work.holyprofweb.com/" },
+    { key: "dev", label: "Development", url: "https://dev.holyprofweb.com/" },
+    { key: "marketing", label: "Marketing", url: "https://marketing.holyprofweb.com/" }
+  ];
+
+  footerLinkGroups.forEach((group) => {
+    group.innerHTML = sites
+      .map((site) => {
+        const currentLabel = site.key === siteKey ? "Current site" : site.label;
+        return `<a href="${site.url}" ${site.key === siteKey ? 'aria-current="page"' : ""}>${currentLabel}</a>`;
+      })
+      .join("");
+  });
 }
