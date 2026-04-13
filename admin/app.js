@@ -3,7 +3,12 @@ const SITE_CONFIG = [
   { key: "tobi", label: "Tobi", description: "PHP, WordPress, and Laravel focused page." },
   { key: "work", label: "Work", description: "Freelance and proposal-friendly profile." },
   { key: "dev", label: "Dev", description: "Engineering, APIs, and technical systems page." },
-  { key: "marketing", label: "Marketing", description: "SEO, listings, ads, and growth support page." }
+  { key: "marketing", label: "Marketing", description: "SEO, listings, ads, and growth support page." },
+  { key: "wordpress-developer", label: "WordPress", description: "WordPress service page for a tighter keyword lane." },
+  { key: "php-developer", label: "PHP", description: "PHP-focused service page for backend and custom support." },
+  { key: "laravel-developer", label: "Laravel", description: "Laravel-focused service page for systems and admin flows." },
+  { key: "technical-seo", label: "SEO", description: "Technical SEO service page for search visibility intent." },
+  { key: "ecommerce-support", label: "eCom", description: "eCommerce support page for stores, feeds, and fixes." }
 ];
 
 const dashboardMetrics = document.getElementById("dashboardMetrics");

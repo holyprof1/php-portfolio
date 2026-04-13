@@ -15,7 +15,9 @@
     "sites": [
       "main",
       "tobi",
-      "work"
+      "work",
+      "wordpress-developer",
+      "technical-seo"
     ]
   },
   {
@@ -36,7 +38,9 @@
       "main",
       "tobi",
       "work",
-      "marketing"
+      "marketing",
+      "wordpress-developer",
+      "technical-seo"
     ]
   },
   {
@@ -55,7 +59,9 @@
     "sites": [
       "main",
       "tobi",
-      "work"
+      "work",
+      "wordpress-developer",
+      "technical-seo"
     ]
   },
   {
@@ -75,7 +81,9 @@
       "main",
       "tobi",
       "work",
-      "marketing"
+      "marketing",
+      "wordpress-developer",
+      "technical-seo"
     ]
   },
   {
@@ -94,7 +102,9 @@
     ],
     "sites": [
       "work",
-      "marketing"
+      "marketing",
+      "wordpress-developer",
+      "technical-seo"
     ]
   },
   {
@@ -113,7 +123,9 @@
     ],
     "sites": [
       "work",
-      "marketing"
+      "marketing",
+      "wordpress-developer",
+      "technical-seo"
     ]
   },
   {
@@ -131,7 +143,9 @@
     ],
     "sites": [
       "work",
-      "marketing"
+      "marketing",
+      "technical-seo",
+      "ecommerce-support"
     ]
   },
   {
@@ -149,7 +163,9 @@
     ],
     "sites": [
       "work",
-      "marketing"
+      "marketing",
+      "technical-seo",
+      "ecommerce-support"
     ]
   },
   {
@@ -168,7 +184,9 @@
     ],
     "sites": [
       "work",
-      "marketing"
+      "marketing",
+      "technical-seo",
+      "ecommerce-support"
     ]
   },
   {
@@ -187,7 +205,9 @@
     "sites": [
       "main",
       "work",
-      "marketing"
+      "marketing",
+      "technical-seo",
+      "ecommerce-support"
     ]
   },
   {
@@ -206,7 +226,9 @@
     "sites": [
       "main",
       "work",
-      "marketing"
+      "marketing",
+      "technical-seo",
+      "ecommerce-support"
     ]
   },
   {
@@ -222,7 +244,8 @@
       "content"
     ],
     "sites": [
-      "work"
+      "work",
+      "technical-seo"
     ]
   },
   {
@@ -238,7 +261,8 @@
       "content"
     ],
     "sites": [
-      "work"
+      "work",
+      "technical-seo"
     ]
   },
   {
@@ -254,7 +278,8 @@
       "content"
     ],
     "sites": [
-      "work"
+      "work",
+      "technical-seo"
     ]
   },
   {
@@ -270,7 +295,8 @@
       "content"
     ],
     "sites": [
-      "work"
+      "work",
+      "technical-seo"
     ]
   },
   {
@@ -286,7 +312,8 @@
       "content"
     ],
     "sites": [
-      "work"
+      "work",
+      "technical-seo"
     ]
   },
   {
@@ -304,7 +331,8 @@
     ],
     "sites": [
       "work",
-      "marketing"
+      "marketing",
+      "technical-seo"
     ]
   },
   {
@@ -320,7 +348,8 @@
       "content"
     ],
     "sites": [
-      "work"
+      "work",
+      "technical-seo"
     ]
   },
   {
@@ -338,7 +367,8 @@
     ],
     "sites": [
       "work",
-      "marketing"
+      "marketing",
+      "technical-seo"
     ]
   },
   {
@@ -358,7 +388,9 @@
     "sites": [
       "main",
       "tobi",
-      "dev"
+      "dev",
+      "php-developer",
+      "laravel-developer"
     ]
   },
   {
@@ -380,7 +412,9 @@
       "main",
       "tobi",
       "work",
-      "dev"
+      "dev",
+      "wordpress-developer",
+      "php-developer"
     ]
   },
   {
@@ -401,7 +435,9 @@
       "main",
       "tobi",
       "work",
-      "dev"
+      "dev",
+      "php-developer",
+      "laravel-developer"
     ]
   },
   {
@@ -422,7 +458,9 @@
     "sites": [
       "main",
       "work",
-      "dev"
+      "dev",
+      "php-developer",
+      "laravel-developer"
     ]
   },
   {
@@ -443,7 +481,9 @@
       "main",
       "tobi",
       "work",
-      "dev"
+      "dev",
+      "php-developer",
+      "laravel-developer"
     ]
   }
 ]

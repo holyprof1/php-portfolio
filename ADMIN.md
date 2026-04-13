@@ -13,6 +13,11 @@ This repo now has one shared project source.
   - `work`
   - `dev`
   - `marketing`
+  - `wordpress-developer`
+  - `php-developer`
+  - `laravel-developer`
+  - `technical-seo`
+  - `ecommerce-support`
 - Change `tags` to control the filters
 
 ## Edit page copy
