@@ -273,12 +273,13 @@ function renderProjectList() {
       </div>
 
       ${renderProjectAssetField(index, project.image || "")}
-      ${renderProjectTextarea("Summary", "summary", project.summary, index, 3)}
-      ${renderProjectTextarea("Note", "note", project.note, index, 2)}
-      <div class="project-editor-actions">
-        <button type="button" class="secondary-button duplicate-project-button" data-project-duplicate="${index}">Duplicate This Project</button>
-      </div>
-      ${renderProjectSiteCopy(index, project)}
+      <details class="project-optional-copy">
+        <summary>Optional custom wording</summary>
+        <div class="project-optional-copy-body">
+          ${renderProjectTextarea("Custom summary", "summary", project.summary, index, 3)}
+          ${renderProjectTextarea("Custom note", "note", project.note, index, 2)}
+        </div>
+      </details>
 
       <div class="checkbox-group project-sites" data-project-sites="${index}">
         <span>Show on</span>
@@ -326,19 +327,6 @@ function bindProjectEditors() {
     });
   });
 
-  projectList.querySelectorAll("[data-project-duplicate]").forEach((button) => {
-    button.addEventListener("click", () => {
-      const index = Number(button.dataset.projectDuplicate);
-      const duplicate = cloneProject(state.projects[index]);
-      duplicate.title = duplicate.title ? `${duplicate.title} Copy` : "Project Copy";
-      state.projects.splice(index + 1, 0, duplicate);
-      renderProjectList();
-      renderDashboardMetrics();
-      syncAdvancedEditors();
-      setStatus("Project duplicated. You can now edit the version for another site.");
-    });
-  });
-
   projectList.querySelectorAll("[data-project-sites]").forEach((group) => {
     group.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
       checkbox.addEventListener("change", () => {
@@ -358,33 +346,6 @@ function bindProjectEditors() {
     });
   });
 
-  projectList.querySelectorAll("[data-project-sitecopy]").forEach((field) => {
-    field.addEventListener("input", () => {
-      const index = Number(field.dataset.projectIndex);
-      const siteKey = field.dataset.projectSite;
-      const name = field.dataset.projectSitecopy;
-      const value = field.value.trim();
-      const project = state.projects[index];
-      project.siteCopy = project.siteCopy || {};
-      project.siteCopy[siteKey] = project.siteCopy[siteKey] || {};
-
-      if (value) {
-        project.siteCopy[siteKey][name] = value;
-      } else {
-        delete project.siteCopy[siteKey][name];
-
-        if (!Object.keys(project.siteCopy[siteKey]).length) {
-          delete project.siteCopy[siteKey];
-        }
-
-        if (!Object.keys(project.siteCopy).length) {
-          delete project.siteCopy;
-        }
-      }
-
-      syncAdvancedEditors();
-    });
-  });
 }
 
 function renderField(label, path, value, hint = "") {
@@ -444,58 +405,6 @@ function renderProjectTextarea(label, name, value, index, rows) {
     <label>
       <span>${label}</span>
       <textarea rows="${rows}" data-project-textarea="${name}" data-project-index="${index}">${escapeHtml(value || "")}</textarea>
-    </label>
-  `;
-}
-
-function renderProjectSiteCopy(index, project) {
-  return `
-    <div class="project-sitecopy-grid">
-      ${SITE_CONFIG.map((site) => {
-        const copy = project.siteCopy?.[site.key] || {};
-
-        return `
-          <section class="project-sitecopy-card">
-            <div class="panel-head">
-              <span class="section-eyebrow">${site.label}</span>
-              <h5>Override wording</h5>
-            </div>
-            ${renderProjectSiteCopyField("Title override", "title", copy.title || "", index, site.key)}
-            ${renderProjectSiteCopyField("Source label override", "sourceLabel", copy.sourceLabel || "", index, site.key)}
-            ${renderProjectSiteCopyTextarea("Summary override", "summary", copy.summary || "", index, site.key, 3)}
-            ${renderProjectSiteCopyTextarea("Note override", "note", copy.note || "", index, site.key, 2)}
-          </section>
-        `;
-      }).join("")}
-    </div>
-  `;
-}
-
-function renderProjectSiteCopyField(label, name, value, index, siteKey) {
-  return `
-    <label>
-      <span>${label}</span>
-      <input
-        type="text"
-        data-project-sitecopy="${name}"
-        data-project-site="${siteKey}"
-        data-project-index="${index}"
-        value="${escapeAttribute(value || "")}"
-      >
-    </label>
-  `;
-}
-
-function renderProjectSiteCopyTextarea(label, name, value, index, siteKey, rows) {
-  return `
-    <label>
-      <span>${label}</span>
-      <textarea
-        rows="${rows}"
-        data-project-sitecopy="${name}"
-        data-project-site="${siteKey}"
-        data-project-index="${index}"
-      >${escapeHtml(value || "")}</textarea>
     </label>
   `;
 }

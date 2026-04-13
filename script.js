@@ -207,7 +207,7 @@ function injectSearchUi() {
     searchButton.className = "nav-search-button";
     searchButton.id = "siteSearchToggle";
     searchButton.setAttribute("aria-label", "Search capabilities");
-    searchButton.innerHTML = '<i class="fas fa-search" aria-hidden="true"></i><span>Search</span>';
+    searchButton.innerHTML = "<span>Search</span>";
     navContainer.insertBefore(searchButton, document.getElementById("menuToggle"));
   }
 
@@ -601,7 +601,9 @@ function getProjectTitle(project, siteKey) {
 }
 
 function getProjectSummary(project, siteKey) {
-  return project.siteCopy?.[siteKey]?.summary?.trim() || project.summary;
+  return project.siteCopy?.[siteKey]?.summary?.trim()
+    || project.summary
+    || buildAutoProjectSummary(project, siteKey);
 }
 
 function getProjectNote(project, siteKey) {
@@ -610,6 +612,20 @@ function getProjectNote(project, siteKey) {
 
 function getProjectSourceLabel(project, siteKey) {
   return project.siteCopy?.[siteKey]?.sourceLabel?.trim() || project.sourceLabel;
+}
+
+function buildAutoProjectSummary(project, siteKey) {
+  const title = project.title?.trim() || "this project";
+
+  if (siteKey === "marketing") {
+    return `Handled marketing support for ${title}, covering visibility, positioning, and growth-focused website updates.`;
+  }
+
+  if (siteKey === "dev" || siteKey === "main" || siteKey === "work" || siteKey === "tobi") {
+    return `Built and developed the website for ${title}, covering implementation, structure, and delivery support.`;
+  }
+
+  return `Delivered website support for ${title}.`;
 }
 
 function getProjectType(project, siteKey) {
