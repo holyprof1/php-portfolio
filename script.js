@@ -126,6 +126,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   renderPortfolioSections(siteKey);
+  bindCvModal();
 });
 
 async function loadPortfolioData() {
@@ -155,6 +156,43 @@ function hideLoader() {
 
   window.requestAnimationFrame(() => {
     loader.classList.add("hidden");
+  });
+}
+
+function bindCvModal() {
+  const modal = document.getElementById("cvModal");
+  if (!modal) return;
+
+  const openers = document.querySelectorAll('a[href="#cv-popup"]');
+  const closers = modal.querySelectorAll("[data-cv-close], #cvModalClose");
+
+  const openModal = () => {
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  };
+
+  const closeModal = () => {
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  };
+
+  openers.forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      openModal();
+    });
+  });
+
+  closers.forEach((node) => {
+    node.addEventListener("click", closeModal);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && modal.classList.contains("is-open")) {
+      closeModal();
+    }
   });
 }
 
@@ -523,7 +561,7 @@ function formatFilterLabel(value) {
     "my-work": "My Work",
     upwork: "Upwork",
     "my-work": "My Work",
-    "portfolio-case": "Portfolio Case",
+      "portfolio-case": "Portfolio Case",
     shopify: "Shopify",
     squarespace: "Squarespace",
     webflow: "Webflow",
@@ -531,7 +569,7 @@ function formatFilterLabel(value) {
     api: "API",
     react: "React",
     javascript: "JavaScript",
-    frontend: "Frontend",
+      frontend: "Full Stack",
     content: "Content",
     marketing: "Marketing",
     support: "Support",

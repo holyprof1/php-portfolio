@@ -8,6 +8,7 @@
     "summary": "Business website delivery for a Ghana-based brand with service presentation, trust-building structure, and client-focused messaging.",
     "note": "Useful proof for WordPress delivery, business websites, and cross-border remote client work.",
     "tags": [
+      "frontend",
       "wordpress",
       "content",
       "support",
@@ -28,6 +29,7 @@
     "summary": "Corporate website work with stronger structure, clearer service communication, and practical business-facing delivery.",
     "note": "Strong fit for company websites, service pages, and implementation work.",
     "tags": [
+      "frontend",
       "wordpress",
       "content",
       "support"
@@ -47,6 +49,7 @@
     "summary": "Business website project focused on presentation, credibility, and a cleaner digital experience for the brand.",
     "note": "Helpful proof for service businesses, corporate communication, and SEO-aware page structure.",
     "tags": [
+      "frontend",
       "wordpress",
       "content",
       "seo",
@@ -68,6 +71,7 @@
     "summary": "Marketing-focused work involving visibility support, positioning, and website updates tied to growth outcomes.",
     "note": "Useful proof for SEO support, marketing implementation, and conversion-minded website changes.",
     "tags": [
+      "frontend",
       "marketing",
       "seo",
       "content",
@@ -88,6 +92,7 @@
     "summary": "Corporate recruiting website with clearer trust signals and stronger service presentation.",
     "note": "Good fit for WordPress business website and service-brand delivery.",
     "tags": [
+      "frontend",
       "wordpress",
       "support",
       "content"
@@ -107,6 +112,7 @@
     "summary": "Corporate event website with stronger structure, cleaner messaging, and business-facing delivery.",
     "note": "Useful for service websites, brand presentation, and SEO-aware structure.",
     "tags": [
+      "frontend",
       "wordpress",
       "seo",
       "marketing",
@@ -120,14 +126,15 @@
     ]
   },
   {
-    "title": "Tobi Holyprof Web",
+    "title": "Portfolio Website",
     "url": "https://tobi.holyprofweb.com",
     "platform": "wordpress",
     "source": "my-work",
     "sourceLabel": "My work",
-    "summary": "Personal portfolio environment used to organize proof across development, SEO, and freelance work.",
-    "note": "Useful as proof of structure, branding, and portfolio presentation.",
+    "summary": "Personal portfolio website used to organise proof across full stack development, SEO, and freelance work.",
+    "note": "Useful as proof of structure, branding, resume presentation, and portfolio positioning.",
     "tags": [
+      "frontend",
       "wordpress",
       "content",
       "seo"
@@ -147,6 +154,7 @@
     "summary": "Service-led website with broader digital positioning and clearer client entry points.",
     "note": "Good for website presentation, marketing-friendly structure, and service delivery.",
     "tags": [
+      "frontend",
       "wordpress",
       "marketing",
       "content"
@@ -430,6 +438,7 @@
     "summary": "Learning platform with structured workflows, protected content, and application-style delivery.",
     "note": "Strong proof for Laravel systems, admin workflows, and platform thinking.",
     "tags": [
+      "frontend",
       "laravel",
       "php",
       "database",
@@ -450,6 +459,7 @@
     "summary": "Handled a Stripe setup for saving card details and supporting more advanced payment behavior.",
     "note": "Good proof for payment integration, WordPress engineering, and API logic.",
     "tags": [
+      "frontend",
       "wordpress",
       "php",
       "api",
@@ -472,6 +482,7 @@
     "summary": "General-purpose PHP development delivered in a support window with a strong outcome.",
     "note": "Useful proof for direct PHP support and technical implementation briefs.",
     "tags": [
+      "frontend",
       "php",
       "laravel",
       "support",
@@ -493,6 +504,7 @@
     "summary": "Custom PHP work on a paywalled sports leaderboard flow where business logic mattered.",
     "note": "Useful for backend rules, custom workflows, and business logic delivery.",
     "tags": [
+      "frontend",
       "php",
       "laravel",
       "api",
@@ -514,6 +526,7 @@
     "summary": "Paid creator platform work used to show app-like product thinking beyond standard websites.",
     "note": "Helpful for platform, creator economy, and custom product conversations.",
     "tags": [
+      "frontend",
       "php",
       "laravel",
       "database",

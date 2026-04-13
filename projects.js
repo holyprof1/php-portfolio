@@ -11,7 +11,7 @@ window.PORTFOLIO_PROJECTS = [
     sourceLabel: "My work",
     summary: "Business website delivery for a Ghana-based brand with service presentation, trust-building structure, and client-focused messaging.",
     note: "Useful proof for WordPress delivery, business websites, and cross-border remote client work.",
-    tags: ["wordpress", "content", "support", "seo"],
+    tags: ["frontend", "wordpress", "content", "support", "seo"],
     sites: ["main", "tobi", "work"]
   },
   {
@@ -22,7 +22,7 @@ window.PORTFOLIO_PROJECTS = [
     sourceLabel: "My work",
     summary: "Corporate website work with stronger structure, clearer service communication, and practical business-facing delivery.",
     note: "Strong fit for company websites, service pages, and implementation work.",
-    tags: ["wordpress", "content", "support"],
+    tags: ["frontend", "wordpress", "content", "support"],
     sites: ["main", "tobi", "work"]
   },
   {
@@ -33,7 +33,7 @@ window.PORTFOLIO_PROJECTS = [
     sourceLabel: "My work",
     summary: "Business website project focused on presentation, credibility, and a cleaner digital experience for the brand.",
     note: "Helpful proof for service businesses, corporate communication, and SEO-aware page structure.",
-    tags: ["wordpress", "content", "seo", "support"],
+    tags: ["frontend", "wordpress", "content", "seo", "support"],
     sites: ["main", "tobi", "work", "marketing"]
   },
   {
@@ -44,7 +44,7 @@ window.PORTFOLIO_PROJECTS = [
     sourceLabel: "Marketing work",
     summary: "Marketing-focused work involving visibility support, positioning, and website updates tied to growth outcomes.",
     note: "Useful proof for SEO support, marketing implementation, and conversion-minded website changes.",
-    tags: ["marketing", "seo", "content", "support"],
+    tags: ["frontend", "marketing", "seo", "content", "support"],
     sites: ["main", "work", "marketing"]
   },
   {
@@ -55,7 +55,7 @@ window.PORTFOLIO_PROJECTS = [
     sourceLabel: "My work",
     summary: "Corporate recruiting website with clearer trust signals and stronger service presentation.",
     note: "Good fit for WordPress business website and service-brand delivery.",
-    tags: ["wordpress", "support", "content"],
+    tags: ["frontend", "wordpress", "support", "content"],
     sites: ["main", "tobi", "work"]
   },
   {
@@ -66,18 +66,18 @@ window.PORTFOLIO_PROJECTS = [
     sourceLabel: "My work",
     summary: "Corporate event website with stronger structure, cleaner messaging, and business-facing delivery.",
     note: "Useful for service websites, brand presentation, and SEO-aware structure.",
-    tags: ["wordpress", "seo", "marketing", "support"],
+    tags: ["frontend", "wordpress", "seo", "marketing", "support"],
     sites: ["main", "tobi", "work", "marketing"]
   },
   {
-    title: "Tobi Holyprof Web",
+    title: "Portfolio Website",
     url: "https://tobi.holyprofweb.com",
     platform: "wordpress",
     source: "my-work",
     sourceLabel: "My work",
-    summary: "Personal portfolio environment used to organize proof across development, SEO, and freelance work.",
-    note: "Useful as proof of structure, branding, and portfolio presentation.",
-    tags: ["wordpress", "content", "seo"],
+    summary: "Personal portfolio website used to organise proof across full stack development, SEO, and freelance work.",
+    note: "Useful as proof of structure, branding, resume presentation, and portfolio positioning.",
+    tags: ["frontend", "wordpress", "content", "seo"],
     sites: ["main", "tobi", "work"]
   },
   {
@@ -88,7 +88,7 @@ window.PORTFOLIO_PROJECTS = [
     sourceLabel: "My work",
     summary: "Service-led website with broader digital positioning and clearer client entry points.",
     note: "Good for website presentation, marketing-friendly structure, and service delivery.",
-    tags: ["wordpress", "marketing", "content"],
+    tags: ["frontend", "wordpress", "marketing", "content"],
     sites: ["main", "tobi", "work", "marketing"]
   },
   {
@@ -264,7 +264,7 @@ window.PORTFOLIO_PROJECTS = [
     sourceLabel: "My work",
     summary: "Learning platform with structured workflows, protected content, and application-style delivery.",
     note: "Strong proof for Laravel systems, admin workflows, and platform thinking.",
-    tags: ["laravel", "php", "database", "support"],
+    tags: ["frontend", "laravel", "php", "database", "support"],
     sites: ["main", "tobi", "dev"]
   },
   {
@@ -275,7 +275,7 @@ window.PORTFOLIO_PROJECTS = [
     sourceLabel: "Upwork case",
     summary: "Handled a Stripe setup for saving card details and supporting more advanced payment behavior.",
     note: "Good proof for payment integration, WordPress engineering, and API logic.",
-    tags: ["wordpress", "php", "api", "support", "upwork"],
+    tags: ["frontend", "wordpress", "php", "api", "support", "upwork"],
     sites: ["main", "tobi", "work", "dev"]
   },
   {
@@ -286,7 +286,7 @@ window.PORTFOLIO_PROJECTS = [
     sourceLabel: "Upwork case",
     summary: "General-purpose PHP development delivered in a support window with a strong outcome.",
     note: "Useful proof for direct PHP support and technical implementation briefs.",
-    tags: ["php", "laravel", "support", "upwork"],
+    tags: ["frontend", "php", "laravel", "support", "upwork"],
     sites: ["main", "tobi", "work", "dev"]
   },
   {
@@ -297,7 +297,7 @@ window.PORTFOLIO_PROJECTS = [
     sourceLabel: "Upwork case",
     summary: "Custom PHP work on a paywalled sports leaderboard flow where business logic mattered.",
     note: "Useful for backend rules, custom workflows, and business logic delivery.",
-    tags: ["php", "laravel", "api", "database", "upwork"],
+    tags: ["frontend", "php", "laravel", "api", "database", "upwork"],
     sites: ["main", "work", "dev"]
   },
   {
@@ -308,7 +308,7 @@ window.PORTFOLIO_PROJECTS = [
     sourceLabel: "Portfolio case",
     summary: "Paid creator platform work used to show app-like product thinking beyond standard websites.",
     note: "Helpful for platform, creator economy, and custom product conversations.",
-    tags: ["php", "laravel", "database", "api"],
+    tags: ["frontend", "php", "laravel", "database", "api"],
     sites: ["main", "tobi", "work", "dev"]
   }
 ];

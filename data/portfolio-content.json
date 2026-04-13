@@ -1,21 +1,21 @@
 {
   "main": {
     "hero": {
-      "tag": "Web developer, SEO support, and digital delivery in Nigeria",
+      "tag": "Full stack developer, WordPress developer, SEO support, and digital marketing in Nigeria",
       "title": "Tobi Arowosegbe",
       "typed": [
-        "Web Developer in Nigeria",
-        "WordPress, PHP & Laravel Specialist",
-        "SEO Support and Technical Delivery"
+        "Full Stack Developer in Nigeria",
+        "WordPress, PHP & SEO Specialist",
+        "Digital Marketing and Web Design Support"
       ],
-      "description": "Main portfolio for Tobi Arowosegbe covering web development, WordPress, PHP, Laravel, technical SEO, ecommerce support, and the mixed client work that brings real jobs.",
+      "description": "Main portfolio for Tobi Arowosegbe covering full stack development, WordPress development, PHP, technical SEO, digital marketing support, web design, ecommerce support, and mixed client delivery.",
       "primary": {
         "label": "See My Work",
         "href": "#projects"
       },
       "secondary": {
-        "label": "Start a Project",
-        "href": "#contact"
+        "label": "Download CV",
+        "href": "#cv-popup"
       },
       "stats": [
         {
@@ -34,76 +34,77 @@
     },
     "about": {
       "title": "Main Portfolio",
-      "subtitle": "The broad profile for clients searching web developer, WordPress developer, PHP developer, Laravel developer, or SEO support in Nigeria.",
-      "heading": "Built to cover the keywords that actually bring jobs",
+      "subtitle": "The broad profile for clients who need full stack development, WordPress, PHP, SEO support, digital marketing, and web design in one place.",
+      "heading": "What I do across development, design, and marketing",
       "paragraphs": [
-        "This is the broad main portfolio. It brings together the work and service areas that make sense for client search intent across development, website support, SEO-related implementation, and ecommerce fixes.",
-        "The goal here is simple: make it easy for Google and for clients to understand what I do, what proof exists, and which specialist page to enter next."
+        "I am Tobi Olumide Arowosegbe, also known as Tobi Holyprof, with over 7 years of experience building websites, improving digital visibility, supporting brands with SEO-focused implementation, and delivering full stack and WordPress work for businesses across different industries.",
+        "I work across full stack development, WordPress, PHP, technical SEO, digital marketing support, ecommerce fixes, and web design. If a business needs someone who can both understand the digital problem and implement the real work inside the website, I am a strong fit."
       ],
       "highlights": [
         {
-          "title": "WordPress Development",
-          "text": "Custom builds, updates, fixes, and support work",
-          "icon": "wordpress"
+          "title": "Full Stack Development",
+          "text": "Responsive interfaces, clean layouts, and strong user experience",
+          "icon": "laptop-code"
         },
         {
-          "title": "PHP & Laravel",
-          "text": "Backend systems, custom logic, and application work",
+          "title": "WordPress & PHP",
+          "text": "Custom builds, backend fixes, WooCommerce, and support work",
           "icon": "code"
         },
         {
-          "title": "Technical SEO",
-          "text": "Metadata, structure, speed, and crawl-ready pages",
+          "title": "SEO & Marketing Support",
+          "text": "Technical SEO, landing pages, listings, and content implementation",
           "icon": "search"
         },
         {
-          "title": "eCommerce Support",
-          "text": "Store fixes, feeds, shipping rules, and visibility work",
-          "icon": "shopping-cart"
+          "title": "Web Design & Delivery",
+          "text": "Business websites that look polished and convert better",
+          "icon": "palette"
         }
       ],
       "image": "me.png"
     },
-    "skillsTitle": "What I Do Best",
-    "skillsIntro": "Six clear service lanes for the main portfolio.",
+    "skillsTitle": "Core Services",
+    "skillsIntro": "A broad service mix built around the real work I do for clients.",
     "skillCards": [
       {
+        "title": "Full Stack Development",
+        "text": "HTML, CSS, JavaScript, React.js, PHP, integrations, and responsive product work."
+      },
+      {
         "title": "WordPress Development",
-        "text": "Custom business websites, updates, and support."
+        "text": "Custom themes, plugins, WooCommerce, Elementor, and business website delivery."
       },
       {
         "title": "PHP Development",
-        "text": "Backend fixes, custom features, and technical implementation."
-      },
-      {
-        "title": "Laravel Development",
-        "text": "Structured applications, admin flows, and web systems."
+        "text": "Backend fixes, custom features, integrations, and technical implementation."
       },
       {
         "title": "Technical SEO",
-        "text": "Metadata, page structure, indexing, and crawl readiness."
+        "text": "Metadata, page structure, indexing, keyword alignment, and crawl readiness."
       },
       {
-        "title": "Website Fixes",
-        "text": "Fast troubleshooting for broken pages, forms, and layouts."
+        "title": "Digital Marketing Support",
+        "text": "Content SEO, social media growth support, email marketing, and visibility improvement."
       },
       {
-        "title": "eCommerce Support",
-        "text": "Store edits, product visibility, shipping, and feed-related work."
+        "title": "Website Fixes & eCommerce Support",
+        "text": "Troubleshooting, store fixes, feed support, speed improvements, and maintenance."
       }
     ],
     "filters": [
       "all",
+      "frontend",
       "wordpress",
       "php",
-      "laravel",
       "seo",
+      "marketing",
       "support"
     ],
     "projectsTitle": "Proof of Work",
-    "projectsIntro": "Relevant work, support cases, and portfolio proof mapped to the kinds of projects clients actually search for.",
+    "projectsIntro": "Relevant work across full stack development, WordPress, PHP, SEO support, marketing implementation, and mixed client delivery.",
     "contactTitle": "Send a Project Brief",
-    "contactText": "Available for WordPress, PHP, Laravel, technical SEO, ecommerce support, bug fixes, and mixed web delivery.",
+    "contactText": "Available for full stack development, WordPress development, PHP support, technical SEO, digital marketing implementation, ecommerce fixes, website design, and mixed web delivery.",
     "faq": [
       {
         "question": "Am I available for remote or hybrid work?",
@@ -157,11 +158,11 @@
     },
     "about": {
       "title": "PHP & WordPress Focus",
-      "subtitle": "A narrower profile built for WordPress developer, PHP developer, and Laravel developer searches in Nigeria.",
-      "heading": "A tighter specialist page for the work I want ranked here",
+      "subtitle": "A focused profile for clients who need WordPress, PHP, Laravel, website fixes, and technical support.",
+      "heading": "What I do for clients",
       "paragraphs": [
-        "This page is focused on PHP, WordPress, and Laravel so it feels more relevant for development briefs and cleaner for search intent.",
-        "It leaves out the broader mixed-service noise and keeps the positioning stronger for business websites, backend fixes, migrations, support, and technical delivery."
+        "I build and support WordPress websites, PHP features, Laravel applications, and business websites that need clean structure, strong performance, and dependable delivery.",
+        "I also handle website fixes, migrations, backend support, custom functionality, maintenance, and technical troubleshooting. If you need a developer who can step in, understand the problem, and get the work done, message me and let's connect."
       ],
       "highlights": [
         {
