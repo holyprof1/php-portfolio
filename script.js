@@ -293,9 +293,9 @@ function renderPortfolioSections(siteKey) {
           <div class="contact-copy">
             <p>${data.contactText}</p>
             <div class="contact-links">
-              <a href="mailto:tobiarowosegbe@gmail.com" class="btn btn-primary">Send Email</a>
+                <a href="mailto:admin@holyprofweb.com" class="btn btn-primary">Send Email</a>
               <a href="https://wa.me/2347036074565" target="_blank" class="btn btn-outline">WhatsApp</a>
-              <a href="https://github.com/tobiarowosegbe" target="_blank" class="btn btn-outline">GitHub</a>
+                <a href="https://github.com/holyprof1" target="_blank" class="btn btn-outline">GitHub</a>
             </div>
           </div>
           <form class="contact-form">

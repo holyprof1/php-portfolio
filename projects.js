@@ -4,6 +4,50 @@
 // - Use tags to control filters and page relevance
 window.PORTFOLIO_PROJECTS = [
   {
+    title: "Website Glow Ghana",
+    url: "https://websiteglowgh.com/",
+    platform: "wordpress",
+    source: "my-work",
+    sourceLabel: "My work",
+    summary: "Business website delivery for a Ghana-based brand with service presentation, trust-building structure, and client-focused messaging.",
+    note: "Useful proof for WordPress delivery, business websites, and cross-border remote client work.",
+    tags: ["wordpress", "content", "support", "seo"],
+    sites: ["main", "tobi", "work"]
+  },
+  {
+    title: "Megastruct",
+    url: "https://megastruct.com",
+    platform: "wordpress",
+    source: "my-work",
+    sourceLabel: "My work",
+    summary: "Corporate website work with stronger structure, clearer service communication, and practical business-facing delivery.",
+    note: "Strong fit for company websites, service pages, and implementation work.",
+    tags: ["wordpress", "content", "support"],
+    sites: ["main", "tobi", "work"]
+  },
+  {
+    title: "Radiant CCA Africa",
+    url: "https://radiantccafrica.com/",
+    platform: "wordpress",
+    source: "my-work",
+    sourceLabel: "My work",
+    summary: "Business website project focused on presentation, credibility, and a cleaner digital experience for the brand.",
+    note: "Helpful proof for service businesses, corporate communication, and SEO-aware page structure.",
+    tags: ["wordpress", "content", "seo", "support"],
+    sites: ["main", "tobi", "work", "marketing"]
+  },
+  {
+    title: "Proxy Club",
+    url: "https://proxyclub.io",
+    platform: "wordpress",
+    source: "marketing",
+    sourceLabel: "Marketing work",
+    summary: "Marketing-focused work involving visibility support, positioning, and website updates tied to growth outcomes.",
+    note: "Useful proof for SEO support, marketing implementation, and conversion-minded website changes.",
+    tags: ["marketing", "seo", "content", "support"],
+    sites: ["main", "work", "marketing"]
+  },
+  {
     title: "KNP Talent Group",
     url: "https://knptalentgroup.com",
     platform: "wordpress",
