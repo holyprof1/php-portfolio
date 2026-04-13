@@ -556,8 +556,7 @@ function renderProjectCard(project, index) {
         <h3>${project.title}</h3>
         <p>${project.description}</p>
         ${project.note ? `<p class="project-note">${project.note}</p>` : ""}
-        ${project.url ? `<p class="project-reference-url">URL: <a href="${project.url}" target="_blank" rel="noopener">${formatProjectUrl(project.url)}</a></p>` : ""}
-        <a href="${project.url}" target="_blank" class="project-link">View Reference</a>
+        ${project.url ? `<a href="${project.url}" target="_blank" class="project-link">View Reference</a>` : ""}
       </div>
     </div>
   `;
@@ -582,7 +581,10 @@ function getProjectsForSite(siteKey) {
       type: getProjectType(project, siteKey),
       description: getProjectSummary(project, siteKey),
       url: project.url,
+      imageUrl: project.imageUrl,
       image: project.image,
+      savedPreviewImage: project.savedPreviewImage,
+      imageMode: project.imageMode,
       tags: getProjectTags(project),
       note: getProjectNote(project, siteKey),
       sourceLabel: getProjectSourceLabel(project, siteKey)
@@ -653,33 +655,13 @@ function getProjectTags(project) {
 }
 
 function getProjectImage(project) {
+  if (project.imageUrl) return resolveAssetUrl(project.imageUrl);
   if (project.image) return resolveAssetUrl(project.image);
-
-  const screenshotUrl = getProjectScreenshotUrl(project.url);
-  if (screenshotUrl) return screenshotUrl;
+  if (project.savedPreviewImage && project.imageMode === "saved_preview") {
+    return resolveAssetUrl(project.savedPreviewImage);
+  }
 
   return resolveAssetUrl("default.png");
-}
-
-function getProjectScreenshotUrl(url) {
-  if (!url) return "";
-
-  try {
-    const parsed = new URL(url);
-    if (!/^https?:$/i.test(parsed.protocol)) return "";
-    return `https://s.wordpress.com/mshots/v1/${encodeURIComponent(parsed.href)}?w=1200`;
-  } catch (error) {
-    return "";
-  }
-}
-
-function formatProjectUrl(url) {
-  try {
-    const parsed = new URL(url);
-    return parsed.hostname.replace(/^www\./, "");
-  } catch (error) {
-    return url;
-  }
 }
 
 function resolveAssetUrl(path) {

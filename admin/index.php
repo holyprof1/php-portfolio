@@ -43,8 +43,9 @@ header('X-Robots-Tag: noindex, nofollow', true);
       <div class="admin-help">
         <h2>How to use it</h2>
         <p>For projects, the normal flow is simple: add the title, paste the website URL, choose where it should show, then save.</p>
+        <p>Use Image URL if you already have a direct image. Use Preview image if you want the system to try saving a website preview during save.</p>
         <p>Default pages talk about building the website. Marketing talks about handling marketing support.</p>
-        <p>If image is empty, the public card tries the website screenshot first and falls back to the default image if it cannot load.</p>
+        <p>If nothing usable is available, the public card falls back to the default image.</p>
         <p class="admin-note">If you preview via a static server like Live Server, the dashboard can open but saving needs PHP.</p>
       </div>
     </aside>

@@ -266,6 +266,12 @@ function renderProjectList() {
       <div class="project-editor-grid">
         ${renderProjectField("Title", "title", project.title, index)}
         ${renderProjectField("Website URL", "url", project.url, index, "https://example.com")}
+        ${renderProjectField("Image URL", "imageUrl", project.imageUrl, index, "https://example.com/image.jpg")}
+        ${renderProjectSelect("Preview image", "imageMode", project.imageMode || "default", index, [
+          { value: "saved_preview", label: "Yes, save website preview" },
+          { value: "default", label: "Default image" },
+          { value: "manual", label: "No auto preview" }
+        ])}
       </div>
 
       ${renderProjectSiteSelector(index, project)}
@@ -291,7 +297,7 @@ function renderProjectList() {
 
 function bindProjectEditors() {
   projectList.querySelectorAll("[data-project-field]").forEach((field) => {
-    field.addEventListener("input", () => {
+    const syncProjectField = () => {
       const index = Number(field.dataset.projectIndex);
       const name = field.dataset.projectField;
       state.projects[index][name] = normalizeProjectFieldValue(name, field.value);
@@ -302,7 +308,10 @@ function bindProjectEditors() {
 
       renderDashboardMetrics();
       syncAdvancedEditors();
-    });
+    };
+
+    field.addEventListener("input", syncProjectField);
+    field.addEventListener("change", syncProjectField);
   });
 
   projectList.querySelectorAll("[data-project-textarea]").forEach((field) => {
@@ -405,6 +414,17 @@ function renderProjectTextarea(label, name, value, index, rows) {
   `;
 }
 
+function renderProjectSelect(label, name, value, index, options) {
+  return `
+    <label>
+      <span>${label}</span>
+      <select data-project-field="${name}" data-project-index="${index}">
+        ${options.map((option) => `<option value="${escapeAttribute(option.value)}" ${option.value === value ? "selected" : ""}>${escapeHtml(option.label)}</option>`).join("")}
+      </select>
+    </label>
+  `;
+}
+
 function renderProjectSiteSelector(index, project) {
   return `
     <div class="project-site-selector" data-project-sites="${index}">
@@ -435,7 +455,7 @@ function renderProjectAssetField(index, value) {
   return `
     <div class="asset-field project-asset">
       <label>
-        <span>Project image</span>
+        <span>Uploaded image</span>
         <input type="text" data-project-field="image" data-project-index="${index}" value="${escapeAttribute(value)}" placeholder="images/uploads/project.png">
       </label>
       <div class="asset-row">
@@ -445,7 +465,7 @@ function renderProjectAssetField(index, value) {
         </label>
         <a class="asset-link" href="${getPreviewHref(value)}" target="_blank" rel="noopener">Open file</a>
       </div>
-      <div class="asset-preview">${value ? `<img src="${getPreviewHref(value)}" alt="Project preview">` : '<span>If image is empty, the public site will try the website screenshot first and then fall back to the default image.</span>'}</div>
+      <div class="asset-preview">${value ? `<img src="${getPreviewHref(value)}" alt="Project preview">` : '<span>Priority is: Image URL first, then uploaded image, then saved website preview if enabled, then default image.</span>'}</div>
     </div>
   `;
 }
@@ -609,7 +629,10 @@ function sanitizeProjects(projects) {
     sourceLabel: project.sourceLabel?.trim() || "",
     summary: project.summary?.trim() || "",
     note: project.note?.trim() || "",
+    imageUrl: project.imageUrl?.trim() || "",
     image: project.image?.trim() || "",
+    savedPreviewImage: project.savedPreviewImage?.trim() || "",
+    imageMode: project.imageMode?.trim() || "default",
     tags: Array.isArray(project.tags) ? project.tags.filter(Boolean) : [],
     sites: Array.isArray(project.sites) ? project.sites.filter(Boolean) : [],
     siteCopy: sanitizeSiteCopy(project.siteCopy)
@@ -642,7 +665,10 @@ function createEmptyProject() {
     sourceLabel: "",
     summary: "",
     note: "",
+    imageUrl: "",
     image: "",
+    savedPreviewImage: "",
+    imageMode: "default",
     tags: [],
     sites: ["main"],
     siteCopy: {}
