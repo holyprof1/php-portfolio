@@ -61,7 +61,8 @@
           "text": "Store fixes, feeds, shipping rules, and visibility work",
           "icon": "shopping-cart"
         }
-      ]
+      ],
+      "image": "me.png"
     },
     "skillsTitle": "What I Do Best",
     "skillsIntro": "Six clear service lanes for the main portfolio.",
@@ -105,18 +106,21 @@
     "contactText": "Available for WordPress, PHP, Laravel, technical SEO, ecommerce support, bug fixes, and mixed web delivery.",
     "faq": [
       {
-        "question": "What kind of projects does Tobi Arowosegbe handle?",
-        "answer": "Tobi handles WordPress development, PHP and Laravel work, technical SEO, website fixes, ecommerce support, and mixed digital delivery for businesses."
+        "question": "Am I available for remote or hybrid work?",
+        "answer": "Yes. I take remote work and I can support hybrid setups when the workflow, communication, and responsibilities are clear."
       },
       {
-        "question": "Is a one-page portfolio okay for SEO?",
-        "answer": "Yes, a one-page portfolio can still rank when the search intent is focused, the metadata is strong, the schema is complete, and each specialist page targets its own keyword lane."
+        "question": "How can you contact me?",
+        "answer": "Send an email to admin@holyprofweb.com or message me on WhatsApp at +234 703 607 4565 to discuss the project."
       },
       {
-        "question": "How can one project update appear across multiple portfolio pages?",
-        "answer": "The site uses one shared project source file, so one edit can control the image, tags, and the pages where the project should appear."
+        "question": "Can I handle updates after launch?",
+        "answer": "Yes. I can stay on for fixes, maintenance, content updates, SEO adjustments, and ongoing support after the first delivery."
       }
-    ]
+    ],
+    "faqTag": "Client FAQ",
+    "faqTitle": "Frequently Asked Questions",
+    "faqIntro": "Quick answers to the things clients usually ask before we start work."
   },
   "tobi": {
     "hero": {
@@ -180,7 +184,8 @@
           "text": "Fast troubleshooting and production support",
           "icon": "wrench"
         }
-      ]
+      ],
+      "image": "me.png"
     },
     "skillsTitle": "What I Use",
     "skillsIntro": "Six focused skill signals arranged for clarity.",
@@ -223,29 +228,32 @@
     "contactText": "Available for WordPress development, PHP, Laravel, website fixes, migrations, maintenance, and technical support.",
     "faq": [
       {
-        "question": "Does Tobi work on WordPress-only projects?",
-        "answer": "Yes. This page is built to target WordPress development, fixes, migrations, maintenance, and related support work."
+        "question": "Do I take WordPress-only jobs?",
+        "answer": "Yes. I handle WordPress builds, fixes, migrations, and maintenance without needing the job to turn into a bigger custom app."
       },
       {
-        "question": "Can Tobi handle PHP and Laravel work too?",
-        "answer": "Yes. The PHP and WordPress profile also covers Laravel systems, backend fixes, custom features, and technical support."
+        "question": "Can I also handle PHP and Laravel work?",
+        "answer": "Yes. If the project needs custom backend logic, Laravel features, or deeper PHP support, I can take that on too."
       },
       {
-        "question": "Will one page hurt SEO?",
-        "answer": "No, not by itself. One focused page can still rank if the keyword targeting is clear and the content is aligned with that search intent."
+        "question": "How do you contact me for a build or fix?",
+        "answer": "Email admin@holyprofweb.com or send a WhatsApp message with the brief, timeline, and current site link if you have one."
       }
-    ]
+    ],
+    "faqTag": "Client FAQ",
+    "faqTitle": "Frequently Asked Questions",
+    "faqIntro": "Quick answers to the things clients usually ask before we start work."
   },
   "marketing": {
     "hero": {
-      "tag": "SEO specialist and digital marketing support in Nigeria",
+      "tag": "SEO, ads support, listings, and marketing delivery in Nigeria",
       "title": "Tobi Arowosegbe",
       "typed": [
         "Technical SEO Support",
-        "Content Visibility Strategy",
-        "Google Shopping & Feed Support"
+        "Ads Landing Page Support",
+        "Listings & Feed Cleanup"
       ],
-      "description": "Marketing profile focused on technical SEO, content structure, product feeds, Google Shopping, visibility support, and digital implementation that helps rankings and leads.",
+      "description": "Marketing profile focused on technical SEO, campaign landing page support, business listings, product feeds, Google Merchant Center, and the website changes that help visibility turn into leads.",
       "primary": {
         "label": "View Marketing Work",
         "href": "#projects"
@@ -257,75 +265,76 @@
       "stats": [
         {
           "value": "SEO",
-          "label": "Technical and on-page support"
+          "label": "Fixes and visibility improvements"
         },
         {
-          "value": "Content",
-          "label": "Structure and visibility"
+          "value": "Ads",
+          "label": "Landing page and campaign support"
         },
         {
-          "value": "Feeds",
-          "label": "Merchant and product setup"
+          "value": "Listings",
+          "label": "Feeds, directories, and product data"
         }
       ]
     },
     "about": {
-      "title": "Marketing Focus",
-      "subtitle": "A specialist profile for SEO, digital marketing support, product feeds, and visibility work.",
-      "heading": "Search visibility work with implementation behind it",
+      "title": "Marketing Delivery",
+      "subtitle": "A specialist profile for SEO execution, ads support, listings, feeds, and visibility work.",
+      "heading": "Marketing work that goes beyond advice",
       "paragraphs": [
-        "This portfolio focuses on technical SEO, on-page cleanup, website structure, content support, Google Shopping, and product feed work.",
-        "It is designed for clients who do not just want advice. They want someone who can handle the website changes and visibility tasks that move rankings and leads."
+        "This page is for the marketing effort behind the websites: technical SEO fixes, ad landing page support, content structure, listings, Merchant Center work, and feed cleanup.",
+        "It is meant for clients who want someone that can both think through the visibility problem and enter the site to make the real changes that move traffic, leads, and product discovery."
       ],
       "highlights": [
         {
           "title": "Technical SEO",
-          "text": "Metadata, crawl structure, indexing, and page quality",
+          "text": "Metadata, crawl fixes, indexing, and page quality improvements",
           "icon": "search"
         },
         {
-          "title": "Content Structure",
-          "text": "Internal linking, landing pages, and keyword fit",
-          "icon": "file-alt"
+          "title": "Ads Support",
+          "text": "Landing page updates and campaign-ready page structure",
+          "icon": "bullhorn"
         },
         {
-          "title": "Google Shopping",
-          "text": "Merchant Center, product approval, and feed support",
-          "icon": "shopping-bag"
+          "title": "Listings & Feeds",
+          "text": "Merchant Center, product data, approvals, and directory cleanup",
+          "icon": "list"
         },
         {
           "title": "Visibility Support",
-          "text": "SEO-related edits that connect strategy with delivery",
+          "text": "Content, internal links, and implementation that supports growth",
           "icon": "chart-line"
         }
-      ]
+      ],
+      "image": "me.png"
     },
-    "skillsTitle": "What I Use",
-    "skillsIntro": "Six clean capability signals for the SEO and marketing page.",
+    "skillsTitle": "Marketing Work I Deliver",
+    "skillsIntro": "Focused around the actual growth tasks clients need done.",
     "skillCards": [
       {
         "title": "Technical SEO",
-        "text": "Metadata, crawl fixes, indexing, and structural improvements."
+        "text": "Metadata, crawl fixes, indexing, and structural cleanup."
       },
       {
-        "title": "On-page SEO",
-        "text": "Keyword fit, headings, internal links, and metadata support."
+        "title": "Ads Landing Pages",
+        "text": "Page edits and support for paid traffic and campaign launches."
       },
       {
-        "title": "Content Strategy",
-        "text": "Landing pages, content structure, and visibility planning."
+        "title": "Listings Optimisation",
+        "text": "Business listings, local profile updates, and visibility cleanup."
       },
       {
-        "title": "Google Shopping",
-        "text": "Merchant Center support and product visibility setup."
+        "title": "Merchant Center & Feeds",
+        "text": "Product feed support, approvals, and listing quality fixes."
       },
       {
-        "title": "Product Feeds",
-        "text": "Feed cleanup, sync direction, and approval support."
+        "title": "Content SEO",
+        "text": "Headings, internal links, content structure, and keyword alignment."
       },
       {
-        "title": "Website Updates",
-        "text": "Implementing the actual SEO changes inside the site."
+        "title": "Website Changes",
+        "text": "Implementing the actual updates inside the website, not just giving advice."
       }
     ],
     "filters": [
@@ -335,24 +344,27 @@
       "marketing",
       "ecommerce"
     ],
-    "projectsTitle": "SEO & Visibility Proof",
-    "projectsIntro": "Projects and support cases that fit SEO, content growth, feeds, and search visibility work.",
-    "contactTitle": "Start Marketing Support",
-    "contactText": "Available for technical SEO, on-page cleanup, content structure, product feed work, Google Shopping support, and visibility improvement projects.",
+    "projectsTitle": "SEO, Listings & Growth Proof",
+    "projectsIntro": "Examples tied to SEO improvements, campaign support, listings, feeds, and the marketing work behind better visibility.",
+    "contactTitle": "Start a Marketing Support Project",
+    "contactText": "Available for technical SEO, campaign landing page support, listings work, product feed fixes, Merchant Center support, and visibility improvement projects.",
     "faq": [
       {
-        "question": "What kind of work belongs on the marketing page?",
-        "answer": "This page focuses on SEO websites, content-led websites, ecommerce visibility references, and marketing-friendly project proof."
+        "question": "Am I available for SEO and marketing support right now?",
+        "answer": "Yes. I take technical SEO, landing page support, listings work, feed cleanup, and broader visibility improvement projects."
       },
       {
-        "question": "Why are the project labels different here?",
-        "answer": "The marketing page uses SEO, content, marketing, and ecommerce-style labels so the projects read like marketing proof instead of generic platform talk."
+        "question": "Can I help with ads, listings, and Merchant Center issues?",
+        "answer": "Yes. I can work on ad landing pages, product feeds, Merchant Center approvals, business listings, and the site changes that support those channels."
       },
       {
-        "question": "Can one focused marketing page still rank?",
-        "answer": "Yes. A one-page marketing profile can rank when the keyword intent is tight, the proof is relevant, and the structured data supports the topic clearly."
+        "question": "How can you contact me for marketing work?",
+        "answer": "Send an email to admin@holyprofweb.com or a WhatsApp message with the site, campaign, listing, or feed issue you want fixed."
       }
-    ]
+    ],
+    "faqTag": "Client FAQ",
+    "faqTitle": "Frequently Asked Questions",
+    "faqIntro": "The quick questions clients ask before handing over SEO, ads support, listings, or feed cleanup work."
   },
   "dev": {
     "hero": {
@@ -416,7 +428,8 @@
           "text": "Fixes, performance cleanup, and technical troubleshooting",
           "icon": "bug"
         }
-      ]
+      ],
+      "image": "me.png"
     },
     "skillsTitle": "What I Use",
     "skillsIntro": "Six focused technical signals for the development page.",
@@ -461,18 +474,21 @@
     "contactText": "Available for Node.js, React, PHP, Laravel, APIs, backend systems, debugging, and technical contract work.",
     "faq": [
       {
-        "question": "What kind of development work is shown here?",
-        "answer": "This page focuses on backend systems, APIs, React interfaces, PHP and Laravel delivery, debugging, and custom engineering work."
+        "question": "Do I take dashboard and admin system work?",
+        "answer": "Yes. I handle dashboards, admin flows, API work, React interfaces, and backend implementation where product logic matters."
       },
       {
-        "question": "Is this page better than the main portfolio for technical jobs?",
-        "answer": "Yes. The dev page is narrower and more relevant for technical briefs, engineering conversations, and full stack work."
+        "question": "Can I work with an existing codebase?",
+        "answer": "Yes. I can step into an existing PHP, Laravel, Node.js, or React codebase for fixes, extensions, cleanup, and delivery work."
       },
       {
-        "question": "Can one page still rank for development keywords?",
-        "answer": "Yes, if the page is specific enough, supports the keyword intent, and includes strong proof, metadata, and structured data."
+        "question": "How can a client reach me for technical work?",
+        "answer": "The quickest route is email or WhatsApp with repo context, stack details, and the problem you want solved."
       }
-    ]
+    ],
+    "faqTag": "Client FAQ",
+    "faqTitle": "Frequently Asked Questions",
+    "faqIntro": "Quick answers to the things clients usually ask before we start work."
   },
   "work": {
     "hero": {
@@ -536,7 +552,8 @@
           "text": "SEO support, feeds, and ecommerce fixes",
           "icon": "bullhorn"
         }
-      ]
+      ],
+      "image": "me.png"
     },
     "skillsTitle": "What I Use",
     "skillsIntro": "Six broad service signals for the freelance profile.",
@@ -580,17 +597,20 @@
     "contactText": "Available for Upwork projects, WordPress, PHP, technical SEO, ecommerce fixes, store support, and mixed remote website work.",
     "faq": [
       {
-        "question": "What is the work page for?",
-        "answer": "It is the broad freelance profile for proposals, Upwork conversations, support work, and mixed remote delivery."
+        "question": "Am I available for freelance and remote contracts?",
+        "answer": "Yes. This page is built for freelance, proposal-based, and remote delivery work across websites, support, and mixed technical tasks."
       },
       {
-        "question": "Can the work page cover multiple service types?",
-        "answer": "Yes. This page is intentionally broad so it can support mixed briefs that involve websites, support, ecommerce, and SEO-related tasks."
+        "question": "Can one person handle both fixes and growth tasks?",
+        "answer": "Yes. I can cover website edits, bug fixes, SEO implementation, ecommerce support, and follow-up improvements in the same workflow."
       },
       {
-        "question": "How are the project cards managed?",
-        "answer": "The project cards come from one shared file so one edit can update the image, tags, and the pages where that project should appear."
+        "question": "What is the fastest way to start?",
+        "answer": "Send the project brief by email or WhatsApp with the main problem, expected outcome, and deadline so I can respond with the best next step."
       }
-    ]
+    ],
+    "faqTag": "Client FAQ",
+    "faqTitle": "Frequently Asked Questions",
+    "faqIntro": "Quick answers to the things clients usually ask before we start work."
   }
 }

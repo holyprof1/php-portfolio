@@ -1,15 +1,9 @@
 document.addEventListener("DOMContentLoaded", async () => {
   const siteKey = document.body.dataset.portfolioSite || "main";
+  hideLoader();
   await loadPortfolioData();
 
-  window.addEventListener("load", () => {
-    const loader = document.getElementById("pageLoader");
-    if (!loader) return;
-
-    setTimeout(() => {
-      loader.classList.add("hidden");
-    }, 1000);
-  });
+  window.addEventListener("load", hideLoader, { once: true });
 
   if (document.getElementById("typed")) {
     new Typed("#typed", {
@@ -140,8 +134,8 @@ async function loadPortfolioData() {
 
   try {
     const [contentResponse, projectsResponse] = await Promise.all([
-      fetch(`${basePath}data/portfolio-content.json`, { cache: "no-store" }),
-      fetch(`${basePath}data/projects.json`, { cache: "no-store" })
+      fetch(`${basePath}data/portfolio-content.json`),
+      fetch(`${basePath}data/projects.json`)
     ]);
 
     if (contentResponse.ok) {
@@ -154,6 +148,15 @@ async function loadPortfolioData() {
   } catch (error) {
     console.warn("Falling back to bundled portfolio data.", error);
   }
+}
+
+function hideLoader() {
+  const loader = document.getElementById("pageLoader");
+  if (!loader) return;
+
+  window.requestAnimationFrame(() => {
+    loader.classList.add("hidden");
+  });
 }
 
 function renderPortfolioSections(siteKey) {
@@ -209,7 +212,7 @@ function renderPortfolioSections(siteKey) {
       <div class="about-content">
         <div class="about-image" data-aos="fade-right">
           <div class="about-image-wrapper">
-            <img src="${getAssetPath()}me.png" alt="Tobi Arowosegbe - Full Stack PHP Developer">
+            <img src="${resolveAssetUrl(data.about.image || "me.png")}" alt="Tobi Arowosegbe - Full Stack PHP Developer" loading="lazy">
             <div class="about-image-overlay">
               <p class="overlay-text">Building digital solutions that help businesses grow</p>
             </div>
@@ -390,10 +393,11 @@ function getProjectsForSite(siteKey) {
 
 function getProjectType(project, siteKey) {
   if (siteKey === "marketing") {
-    if (project.tags?.includes("seo")) return "SEO Website";
-    if (project.tags?.includes("marketing")) return "Marketing Website";
-    if (project.tags?.includes("ecommerce")) return "eCommerce Brand";
-    if (project.tags?.includes("content")) return "Content Website";
+    if (project.tags?.includes("seo")) return "SEO Improvement";
+    if (project.tags?.includes("marketing")) return "Growth Campaign Support";
+    if (project.tags?.includes("ecommerce")) return "Listings & Feed Support";
+    if (project.tags?.includes("content")) return "Content Visibility Work";
+    return "Marketing Delivery";
   }
 
   if (siteKey === "work" || siteKey === "main") {
@@ -441,8 +445,17 @@ function getProjectTags(project) {
 }
 
 function getProjectImage(project) {
-  if (project.image) return project.image;
-  return `${getAssetPath()}default.png`;
+  if (project.image) return resolveAssetUrl(project.image);
+  return resolveAssetUrl("default.png");
+}
+
+function resolveAssetUrl(path) {
+  if (!path) return "";
+  if (/^(?:[a-z]+:)?\/\//i.test(path) || path.startsWith("/") || path.startsWith("data:")) {
+    return path;
+  }
+
+  return `${getAssetPath()}${path.replace(/^\.?\//, "")}`;
 }
 
 function bindProjectFilters(projects) {
@@ -565,9 +578,9 @@ function renderFaqSection(data) {
 
   faqMount.innerHTML = `
     <div class="section-header" data-aos="fade-up">
-      <span class="section-tag">SEO FAQ</span>
-      <h2 class="section-title">Frequently Asked Questions</h2>
-      <p class="section-subtitle">Extra context for clients and search engines around the work this page targets.</p>
+      <span class="section-tag">${data.faqTag || "Quick Answers"}</span>
+      <h2 class="section-title">${data.faqTitle || "Frequently Asked Questions"}</h2>
+      <p class="section-subtitle">${data.faqIntro || "Straight answers to the things clients usually ask before we start."}</p>
     </div>
     <div class="faq-list">
       ${data.faq.map((item, index) => `
