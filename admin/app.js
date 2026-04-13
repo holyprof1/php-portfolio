@@ -265,28 +265,24 @@ function renderProjectList() {
 
       <div class="project-editor-grid">
         ${renderProjectField("Title", "title", project.title, index)}
-        ${renderProjectField("URL", "url", project.url, index)}
-        ${renderProjectField("Platform", "platform", project.platform, index, "wordpress, php, laravel...")}
-        ${renderProjectField("Source", "source", project.source, index, "my-work, upwork, reference")}
-        ${renderProjectField("Source label", "sourceLabel", project.sourceLabel, index)}
-        ${renderProjectField("Tags", "tags", (project.tags || []).join(", "), index, "Comma separated")}
+        ${renderProjectField("Website URL", "url", project.url, index, "https://example.com")}
       </div>
 
+      ${renderProjectSiteSelector(index, project)}
       ${renderProjectAssetField(index, project.image || "")}
       <details class="project-optional-copy">
-        <summary>Optional custom wording</summary>
+        <summary>More options</summary>
         <div class="project-optional-copy-body">
+          <div class="project-editor-grid">
+            ${renderProjectField("Platform", "platform", project.platform, index, "wordpress, php, laravel, react...")}
+            ${renderProjectField("Source", "source", project.source, index, "my-work, upwork, reference")}
+            ${renderProjectField("Source label", "sourceLabel", project.sourceLabel, index)}
+            ${renderProjectField("Tags", "tags", (project.tags || []).join(", "), index, "Comma separated")}
+          </div>
           ${renderProjectTextarea("Custom summary", "summary", project.summary, index, 3)}
           ${renderProjectTextarea("Custom note", "note", project.note, index, 2)}
         </div>
       </details>
-
-      <div class="checkbox-group project-sites" data-project-sites="${index}">
-        <span>Show on</span>
-        ${SITE_CONFIG.map((site) => `
-          <label><input type="checkbox" value="${site.key}" ${project.sites?.includes(site.key) ? "checked" : ""}> ${site.label}</label>
-        `).join("")}
-      </div>
     </article>
   `).join("");
 
@@ -409,6 +405,32 @@ function renderProjectTextarea(label, name, value, index, rows) {
   `;
 }
 
+function renderProjectSiteSelector(index, project) {
+  return `
+    <div class="project-site-selector" data-project-sites="${index}">
+      <div class="project-site-group">
+        <span class="project-site-label">Default pages</span>
+        <p>These pages describe the work as building or developing the website.</p>
+        <div class="checkbox-group compact-checkbox-group">
+          ${["main", "tobi", "work"].map((siteKey) => renderProjectSiteCheckbox(siteKey, project)).join("")}
+        </div>
+      </div>
+      <div class="project-site-group">
+        <span class="project-site-label">Special pages</span>
+        <p>Dev talks about development work. Marketing talks about marketing support.</p>
+        <div class="checkbox-group compact-checkbox-group">
+          ${["dev", "marketing"].map((siteKey) => renderProjectSiteCheckbox(siteKey, project)).join("")}
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderProjectSiteCheckbox(siteKey, project) {
+  const site = SITE_CONFIG.find((entry) => entry.key === siteKey);
+  return `<label><input type="checkbox" value="${site.key}" ${project.sites?.includes(site.key) ? "checked" : ""}> ${site.label}</label>`;
+}
+
 function renderProjectAssetField(index, value) {
   return `
     <div class="asset-field project-asset">
@@ -423,7 +445,7 @@ function renderProjectAssetField(index, value) {
         </label>
         <a class="asset-link" href="${getPreviewHref(value)}" target="_blank" rel="noopener">Open file</a>
       </div>
-      <div class="asset-preview">${value ? `<img src="${getPreviewHref(value)}" alt="Project preview">` : '<span>Uses the public fallback image when left empty.</span>'}</div>
+      <div class="asset-preview">${value ? `<img src="${getPreviewHref(value)}" alt="Project preview">` : '<span>If image is empty, the public site will try the website screenshot first and then fall back to the default image.</span>'}</div>
     </div>
   `;
 }

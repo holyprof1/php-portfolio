@@ -311,6 +311,32 @@ textarea {
   gap: 14px;
 }
 
+.project-site-selector {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 16px 0;
+}
+
+.project-site-group {
+  padding: 16px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.project-site-group p {
+  margin: 6px 0 12px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.project-site-label {
+  display: block;
+  color: var(--text);
+  font-weight: 700;
+}
+
 .project-optional-copy {
   margin: 16px 0;
   padding: 14px 16px;
@@ -409,6 +435,11 @@ textarea {
   gap: 14px;
 }
 
+.compact-checkbox-group {
+  grid-template-columns: repeat(3, max-content);
+  align-items: start;
+}
+
 .checkbox-group label {
   display: inline-flex;
   gap: 8px;
@@ -418,6 +449,18 @@ textarea {
 
 .checkbox-group input {
   width: auto;
+}
+
+@media (max-width: 900px) {
+  .project-site-selector,
+  .project-editor-grid,
+  .advanced-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .compact-checkbox-group {
+    grid-template-columns: repeat(2, max-content);
+  }
 }
 
 .empty-state {

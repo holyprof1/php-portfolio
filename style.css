@@ -786,6 +786,18 @@ body {
   margin-top: -2px;
 }
 
+.project-reference-url {
+  color: var(--text-light);
+  font-size: 0.92rem;
+  margin-top: -4px;
+  word-break: break-word;
+}
+
+.project-reference-url a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
 .project-link {
   color: var(--secondary-color);
   font-weight: 700;

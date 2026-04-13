@@ -542,16 +542,8 @@ function renderPortfolioSections(siteKey) {
 function renderProjectCard(project, index) {
   const tags = project.tags.join(" ");
   const projectImage = getProjectImage(project);
-  const visual = projectImage
-    ? `<div class="project-image"><img src="${projectImage}" alt="${project.title}" loading="lazy"></div>`
-    : `
-      <div class="project-image project-placeholder-card">
-        <div class="project-placeholder">
-          <span>${project.placeholder || project.type}</span>
-          <strong>${project.title}</strong>
-        </div>
-      </div>
-    `;
+  const fallbackImage = resolveAssetUrl("default.png");
+  const visual = `<div class="project-image"><img src="${projectImage}" alt="${project.title}" loading="lazy" referrerpolicy="no-referrer" onerror="if(this.dataset.fallbackApplied)return;this.dataset.fallbackApplied='1';this.src='${fallbackImage}'"></div>`;
 
   return `
     <div class="project-card" data-aos="fade-up" data-aos-delay="${index * 40}" data-tags="${tags}">
@@ -564,6 +556,7 @@ function renderProjectCard(project, index) {
         <h3>${project.title}</h3>
         <p>${project.description}</p>
         ${project.note ? `<p class="project-note">${project.note}</p>` : ""}
+        ${project.url ? `<p class="project-reference-url">URL: <a href="${project.url}" target="_blank" rel="noopener">${formatProjectUrl(project.url)}</a></p>` : ""}
         <a href="${project.url}" target="_blank" class="project-link">View Reference</a>
       </div>
     </div>
@@ -630,48 +623,26 @@ function buildAutoProjectSummary(project, siteKey) {
 
 function getProjectType(project, siteKey) {
   if (siteKey === "marketing") {
-    if (project.tags?.includes("seo")) return "SEO Improvement";
-    if (project.tags?.includes("marketing")) return "Growth Campaign Support";
-    if (project.tags?.includes("ecommerce")) return "Listings & Feed Support";
-    if (project.tags?.includes("content")) return "Content Visibility Work";
-    return "Marketing Delivery";
+    return "Marketing Support";
   }
 
-  if (siteKey === "work" || siteKey === "main") {
-    const workMap = {
-      wordpress: "WordPress Website",
-      shopify: "Shopify Reference",
-      squarespace: "Squarespace Reference",
-      webflow: "Webflow Reference",
-      laravel: "Laravel Project",
-      php: "PHP Case"
-    };
-
-    return workMap[project.platform] || formatFilterLabel(project.platform || "Project");
+  if (siteKey === "work" || siteKey === "main" || siteKey === "tobi") {
+    return "Website Build";
   }
 
   if (siteKey === "dev") {
     const devMap = {
-      wordpress: "Integration Case",
-      laravel: "Laravel Platform",
-      php: "Backend Case",
+      wordpress: "Website Development",
+      laravel: "Laravel Development",
+      php: "PHP Development",
       node: "Node.js",
       react: "React"
     };
 
-    return devMap[project.platform] || formatFilterLabel(project.platform || "Project");
+    return devMap[project.platform] || "Development Project";
   }
 
-  const platformMap = {
-    wordpress: "WordPress",
-    laravel: "Laravel",
-    php: "PHP",
-    shopify: "Shopify",
-    squarespace: "Squarespace",
-    webflow: "Webflow"
-  };
-
-  return platformMap[project.platform] || formatFilterLabel(project.platform || "Project");
+  return "Project";
 }
 
 function getProjectTags(project) {
@@ -683,7 +654,32 @@ function getProjectTags(project) {
 
 function getProjectImage(project) {
   if (project.image) return resolveAssetUrl(project.image);
+
+  const screenshotUrl = getProjectScreenshotUrl(project.url);
+  if (screenshotUrl) return screenshotUrl;
+
   return resolveAssetUrl("default.png");
+}
+
+function getProjectScreenshotUrl(url) {
+  if (!url) return "";
+
+  try {
+    const parsed = new URL(url);
+    if (!/^https?:$/i.test(parsed.protocol)) return "";
+    return `https://s.wordpress.com/mshots/v1/${encodeURIComponent(parsed.href)}?w=1200`;
+  } catch (error) {
+    return "";
+  }
+}
+
+function formatProjectUrl(url) {
+  try {
+    const parsed = new URL(url);
+    return parsed.hostname.replace(/^www\./, "");
+  } catch (error) {
+    return url;
+  }
 }
 
 function resolveAssetUrl(path) {
