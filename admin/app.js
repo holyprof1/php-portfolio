@@ -18,6 +18,7 @@ const formatAdvancedButton = document.getElementById("formatAdvancedButton");
 const contentEditor = document.getElementById("contentEditor");
 const projectsEditor = document.getElementById("projectsEditor");
 const adminStatus = document.getElementById("adminStatus");
+const adminQuickSearch = document.getElementById("adminQuickSearch");
 
 const state = {
   content: {},
@@ -71,6 +72,18 @@ function bindAdminActions() {
     state.projectSearch = event.target.value.trim().toLowerCase();
     renderProjectList();
   });
+
+  if (adminQuickSearch) {
+    adminQuickSearch.addEventListener("input", (event) => {
+      state.projectSearch = event.target.value.trim().toLowerCase();
+      projectSearch.value = event.target.value;
+      renderProjectList();
+
+      if (state.projectSearch) {
+        document.getElementById("cardProjects")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+  }
 }
 
 function renderAll() {

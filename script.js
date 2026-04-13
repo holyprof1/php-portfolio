@@ -52,6 +52,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
+  injectSearchUi();
+  bindSearchModal(siteKey);
+
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (event) {
       const target = document.querySelector(this.getAttribute("href"));
@@ -196,6 +199,165 @@ function bindCvModal() {
   });
 }
 
+function injectSearchUi() {
+  const navContainer = document.querySelector(".nav-container");
+  if (navContainer && !document.getElementById("siteSearchToggle")) {
+    const searchButton = document.createElement("button");
+    searchButton.type = "button";
+    searchButton.className = "nav-search-button";
+    searchButton.id = "siteSearchToggle";
+    searchButton.setAttribute("aria-label", "Search capabilities");
+    searchButton.innerHTML = '<i class="fas fa-search" aria-hidden="true"></i><span>Search</span>';
+    navContainer.insertBefore(searchButton, document.getElementById("menuToggle"));
+  }
+
+  if (document.getElementById("siteSearchModal")) return;
+
+  const modal = document.createElement("div");
+  modal.className = "site-search-modal";
+  modal.id = "siteSearchModal";
+  modal.setAttribute("aria-hidden", "true");
+  modal.innerHTML = `
+    <div class="site-search-backdrop" data-search-close></div>
+    <div class="site-search-dialog" role="dialog" aria-modal="true" aria-labelledby="siteSearchTitle">
+      <button type="button" class="site-search-close" id="siteSearchClose" aria-label="Close search">x</button>
+      <div class="site-search-head">
+        <span class="section-tag">Search What I Can Do</span>
+        <h2 id="siteSearchTitle">Type any service, task, platform, or brief</h2>
+        <p>Try things like WordPress fix, Shopify listing, Node.js API, Merchant Center, React dashboard, website redesign, SEO cleanup, landing page, or product feed support.</p>
+      </div>
+      <label class="site-search-input-wrap">
+        <span>Search</span>
+        <input type="search" id="siteSearchInput" placeholder="What do you need help with?">
+      </label>
+      <div class="site-search-results" id="siteSearchResults"></div>
+    </div>
+  `;
+
+  document.body.appendChild(modal);
+}
+
+function bindSearchModal(siteKey) {
+  const modal = document.getElementById("siteSearchModal");
+  const toggle = document.getElementById("siteSearchToggle");
+  if (!modal || !toggle) return;
+
+  const input = document.getElementById("siteSearchInput");
+  const results = document.getElementById("siteSearchResults");
+  const closers = modal.querySelectorAll("[data-search-close], #siteSearchClose");
+
+  const items = buildSearchItems(siteKey);
+
+  const renderSearchResults = (query) => {
+    const normalized = query.trim().toLowerCase();
+
+    if (!normalized) {
+      results.innerHTML = `
+        <div class="search-state">
+          <strong>Capabilities I regularly handle</strong>
+          <p>Full stack builds, WordPress support, PHP fixes, Laravel work, React interfaces, Node.js APIs, technical SEO, Shopify listing support, Merchant Center fixes, product feeds, landing pages, web design, ecommerce support, and digital marketing implementation.</p>
+        </div>
+      `;
+      return;
+    }
+
+    const terms = normalized.split(/\s+/).filter(Boolean);
+    const matches = items
+      .map((item) => {
+        const haystack = `${item.title} ${item.description} ${item.keywords.join(" ")}`.toLowerCase();
+        const score = terms.reduce((sum, term) => sum + (haystack.includes(term) ? 1 : 0), 0);
+        return { ...item, score };
+      })
+      .filter((item) => item.score > 0)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 8);
+
+    if (!matches.length) {
+      results.innerHTML = `
+        <div class="search-state">
+          <strong>Yes, I can likely help with that.</strong>
+          <p>I handle mixed website, SEO, ecommerce, development, and digital support work. Send the brief through the contact form and I can review the task directly.</p>
+        </div>
+      `;
+      return;
+    }
+
+    results.innerHTML = matches.map((item) => `
+      <article class="search-result-card">
+        <div class="search-result-meta">${item.group}</div>
+        <h3>${item.title}</h3>
+        <p>${item.description}</p>
+        ${item.url ? `<a href="${item.url}" target="_blank" rel="noopener">View related proof</a>` : ""}
+      </article>
+    `).join("");
+  };
+
+  const openModal = () => {
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    renderSearchResults("");
+    setTimeout(() => input?.focus(), 40);
+  };
+
+  const closeModal = () => {
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  };
+
+  toggle.addEventListener("click", openModal);
+  closers.forEach((node) => node.addEventListener("click", closeModal));
+  input?.addEventListener("input", () => renderSearchResults(input.value));
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && modal.classList.contains("is-open")) {
+      closeModal();
+    }
+  });
+}
+
+function buildSearchItems(siteKey) {
+  const data = window.PORTFOLIO_CONTENT?.[siteKey] || {};
+  const skillItems = (data.skillCards || []).map((item) => ({
+    group: "Service",
+    title: item.title,
+    description: item.text,
+    keywords: [item.title, item.text]
+  }));
+
+  const projectItems = getProjectsForSite(siteKey).map((item) => ({
+    group: "Proof",
+    title: item.title,
+    description: item.description,
+    keywords: [item.title, item.description, item.note || "", ...(item.tags || [])],
+    url: item.url
+  }));
+
+  const customItems = [
+    {
+      group: "Capability",
+      title: "Shopify Listing & Product Support",
+      description: "Product uploads, listing cleanup, feed fixes, merchandising updates, and storefront support for Shopify and ecommerce workflows.",
+      keywords: ["shopify listing", "shopify product", "merchant center", "product feed", "listing", "ecommerce"]
+    },
+    {
+      group: "Capability",
+      title: "Technical SEO & Visibility Fixes",
+      description: "Metadata updates, crawl cleanup, internal linking, indexing fixes, landing page support, and technical SEO implementation.",
+      keywords: ["seo", "technical seo", "crawl", "indexing", "landing page", "metadata", "merchant center"]
+    },
+    {
+      group: "Capability",
+      title: "Full Stack Product Support",
+      description: "Frontend interfaces, backend logic, PHP, Laravel, Node.js, React, API integrations, debugging, and mixed engineering support.",
+      keywords: ["full stack", "php", "laravel", "node", "nodejs", "react", "api", "dashboard", "ios"]
+    }
+  ];
+
+  return [...skillItems, ...projectItems, ...customItems];
+}
+
 function renderPortfolioSections(siteKey) {
   const data = window.PORTFOLIO_CONTENT?.[siteKey];
   if (!data) return;
@@ -330,33 +492,35 @@ function renderPortfolioSections(siteKey) {
         <div class="contact-layout">
           <div class="contact-copy">
             <p>${data.contactText}</p>
+            <p class="contact-helper">Use the secure form here to send the brief directly. You can also search what you need from the header and see the kind of support, platforms, and proof already covered.</p>
             <div class="contact-links">
                 <a href="mailto:admin@holyprofweb.com" class="btn btn-primary">Send Email</a>
               <a href="https://wa.me/2347036074565" target="_blank" class="btn btn-outline">WhatsApp</a>
                 <a href="https://github.com/holyprof1" target="_blank" class="btn btn-outline">GitHub</a>
             </div>
           </div>
-          <form class="contact-form">
-            <input type="hidden" name="_subject" value="Portfolio enquiry from holyprofweb.com">
+          <form class="contact-form" novalidate>
+            <input type="text" name="website" class="contact-honeypot" tabindex="-1" autocomplete="off">
             <div class="form-row">
               <label>
                 <span>Name</span>
-                <input type="text" name="name" placeholder="Your name">
+                <input type="text" name="name" placeholder="Your name" autocomplete="name" required>
               </label>
               <label>
                 <span>Email</span>
-                <input type="email" name="email" placeholder="your@email.com">
+                <input type="email" name="email" placeholder="your@email.com" autocomplete="email" required>
               </label>
             </div>
             <label>
               <span>Project Type</span>
-              <input type="text" name="project_type" placeholder="Website build, support, SEO, eCommerce...">
+              <input type="text" name="project_type" placeholder="Website build, support, SEO, eCommerce, Shopify listing, landing page...">
             </label>
             <label>
               <span>Project Details</span>
-              <textarea name="message" rows="5" placeholder="Briefly describe what you need."></textarea>
+              <textarea name="message" rows="5" placeholder="Briefly describe what you need." required></textarea>
             </label>
             <button type="submit" class="btn btn-primary form-button">Send Project Enquiry</button>
+            <div class="contact-form-status" aria-live="polite"></div>
           </form>
         </div>
       </div>
@@ -364,9 +528,7 @@ function renderPortfolioSections(siteKey) {
 
     const form = contactMount.querySelector(".contact-form");
     if (form) {
-      form.setAttribute("action", "mailto:admin@holyprofweb.com");
-      form.setAttribute("method", "post");
-      form.setAttribute("enctype", "text/plain");
+      bindContactForm(form);
     }
   }
 
@@ -493,6 +655,40 @@ function resolveAssetUrl(path) {
   }
 
   return `${getAssetPath()}${path.replace(/^\.?\//, "")}`;
+}
+
+function bindContactForm(form) {
+  const status = form.querySelector(".contact-form-status");
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const formData = new FormData(form);
+    const action = `${getAssetPath()}contact.php`;
+
+    if (!formData.get("name") || !formData.get("email") || !formData.get("message")) {
+      if (status) status.textContent = "Please fill in your name, email, and project details.";
+      return;
+    }
+
+    if (status) status.textContent = "Sending your enquiry...";
+
+    try {
+      const response = await fetch(action, {
+        method: "POST",
+        body: formData
+      });
+
+      const result = await response.json();
+      if (!response.ok || !result.ok) {
+        throw new Error(result.message || "Message could not be sent.");
+      }
+
+      form.reset();
+      if (status) status.textContent = result.message || "Your message has been sent.";
+    } catch (error) {
+      if (status) status.textContent = error.message || "Please email admin@holyprofweb.com directly.";
+    }
+  });
 }
 
 function bindProjectFilters(projects) {

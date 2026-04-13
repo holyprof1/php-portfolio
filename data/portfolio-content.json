@@ -104,7 +104,7 @@
     "projectsTitle": "Proof of Work",
     "projectsIntro": "Relevant work across full stack development, WordPress, PHP, SEO support, marketing implementation, and mixed client delivery.",
     "contactTitle": "Send a Project Brief",
-    "contactText": "Available for full stack development, WordPress development, PHP support, technical SEO, digital marketing implementation, ecommerce fixes, website design, and mixed web delivery.",
+    "contactText": "Available for full stack development, WordPress development, PHP support, technical SEO, digital marketing implementation, ecommerce fixes, website design, API integrations, landing pages, Shopify listing support, product feed fixes, Merchant Center cleanup, website troubleshooting, and mixed web delivery. If you need help with a website build, a broken feature, SEO changes, store support, design cleanup, listings work, or a technical task that needs someone hands-on, send the brief and I can review it quickly.",
     "faq": [
       {
         "question": "Am I available for remote or hybrid work?",
@@ -472,7 +472,7 @@
     "projectsTitle": "Technical Proof",
     "projectsIntro": "Engineering-focused projects, support cases, and implementation proof.",
     "contactTitle": "Discuss a Development Project",
-    "contactText": "Available for Node.js, React, PHP, Laravel, APIs, backend systems, debugging, and technical contract work.",
+    "contactText": "Available for Node.js, React, PHP, Laravel, APIs, backend systems, dashboards, iOS app interface support, debugging, integrations, and technical contract work. I can step into a codebase, build new features, clean up rough implementation, or support product delivery when the work needs practical engineering follow-through.",
     "faq": [
       {
         "question": "Do I take dashboard and admin system work?",

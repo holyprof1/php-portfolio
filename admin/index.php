@@ -27,6 +27,19 @@ header('X-Robots-Tag: noindex, nofollow', true);
         <a href="../marketing/" target="_blank" rel="noopener">Open Marketing</a>
       </div>
 
+      <div class="admin-sidebar-tools">
+        <label class="admin-sidebar-search">
+          <span>Quick search</span>
+          <input type="search" id="adminQuickSearch" placeholder="Search projects or jump to editor work">
+        </label>
+        <nav class="admin-sidebar-nav">
+          <a href="#dashboardMetrics">Overview</a>
+          <a href="#cardSites">Sites</a>
+          <a href="#cardProjects">Projects</a>
+          <a href="#cardAdvanced">Advanced</a>
+        </nav>
+      </div>
+
       <div class="admin-help">
         <h2>How to use it</h2>
         <p>Pick a site tab, edit the copy, upload an image, then save all changes.</p>
@@ -52,7 +65,7 @@ header('X-Robots-Tag: noindex, nofollow', true);
 
       <div class="admin-status" id="adminStatus" aria-live="polite"></div>
 
-      <section class="admin-card">
+      <section class="admin-card" id="cardSites">
         <div class="section-head">
           <div>
             <span class="section-eyebrow">Sites</span>
@@ -64,7 +77,7 @@ header('X-Robots-Tag: noindex, nofollow', true);
         <div id="siteEditorMount"></div>
       </section>
 
-      <section class="admin-card">
+      <section class="admin-card" id="cardProjects">
         <div class="section-head">
           <div>
             <span class="section-eyebrow">Projects</span>
@@ -78,7 +91,7 @@ header('X-Robots-Tag: noindex, nofollow', true);
         <div id="projectList" class="project-editor-list"></div>
       </section>
 
-      <section class="admin-card">
+      <section class="admin-card" id="cardAdvanced">
         <div class="section-head">
           <div>
             <span class="section-eyebrow">Advanced</span>
