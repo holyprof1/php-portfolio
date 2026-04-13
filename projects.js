@@ -56,7 +56,7 @@ window.PORTFOLIO_PROJECTS = [
     summary: "Digital services site with stronger SEO and marketing relevance in its structure and messaging.",
     note: "Strong fit for SEO, marketing, and growth-support positioning.",
     tags: ["wordpress", "seo", "marketing", "content"],
-    sites: ["main", "work", "marketing"]
+    sites: ["work", "marketing"]
   },
   {
     title: "Savvy Media Africa",
@@ -67,7 +67,7 @@ window.PORTFOLIO_PROJECTS = [
     summary: "Media-forward website where content flow and visibility support matter more than raw platform talk.",
     note: "Useful for content-led websites, brand positioning, and SEO-friendly structure.",
     tags: ["wordpress", "seo", "marketing", "content"],
-    sites: ["main", "work", "marketing"]
+    sites: ["work", "marketing"]
   },
   {
     title: "Tubowoman",
@@ -78,7 +78,7 @@ window.PORTFOLIO_PROJECTS = [
     summary: "Shopify storefront reference for product presentation, merchandising, and clean ecommerce layout.",
     note: "Useful as a store reference for ecommerce structure and visual product flow.",
     tags: ["shopify", "ecommerce", "marketing"],
-    sites: ["main", "work", "marketing"]
+    sites: ["work", "marketing"]
   },
   {
     title: "LML Planner",
@@ -89,7 +89,7 @@ window.PORTFOLIO_PROJECTS = [
     summary: "Product-led Shopify reference with stronger brand feel and clearer merchandising rhythm.",
     note: "Good reference for cleaner Shopify storefront direction.",
     tags: ["shopify", "ecommerce", "marketing"],
-    sites: ["main", "work", "marketing"]
+    sites: ["work", "marketing"]
   },
   {
     title: "Allbirds",
@@ -100,7 +100,7 @@ window.PORTFOLIO_PROJECTS = [
     summary: "Well-known ecommerce reference for navigation clarity, product pages, and conversion-minded store flow.",
     note: "Helpful benchmark for polished ecommerce structure.",
     tags: ["shopify", "ecommerce", "marketing", "seo"],
-    sites: ["main", "work", "marketing"]
+    sites: ["work", "marketing"]
   },
   {
     title: "Gymshark",
@@ -133,7 +133,7 @@ window.PORTFOLIO_PROJECTS = [
     summary: "Portfolio-style Squarespace reference for softer branding and personal service presentation.",
     note: "Useful for personal brands, portfolios, and visual-first website structure.",
     tags: ["squarespace", "content"],
-    sites: ["main", "work"]
+    sites: ["work"]
   },
   {
     title: "Jonn Donovan",
@@ -144,7 +144,7 @@ window.PORTFOLIO_PROJECTS = [
     summary: "Editorial personal-brand reference with a cleaner content-led layout style.",
     note: "Good fit for personal brand and content presentation reference.",
     tags: ["squarespace", "content"],
-    sites: ["main", "work"]
+    sites: ["work"]
   },
   {
     title: "Mark Foster",
@@ -155,7 +155,7 @@ window.PORTFOLIO_PROJECTS = [
     summary: "Straightforward content-led Squarespace reference for consultants, creators, and coaches.",
     note: "Useful benchmark for simple and effective personal websites.",
     tags: ["squarespace", "content"],
-    sites: ["main", "work"]
+    sites: ["work"]
   },
   {
     title: "Beta Takaki",
@@ -166,7 +166,7 @@ window.PORTFOLIO_PROJECTS = [
     summary: "Visual portfolio reference with a cleaner design-led presentation style.",
     note: "Useful when a project needs a creative portfolio direction.",
     tags: ["squarespace", "content"],
-    sites: ["main", "work"]
+    sites: ["work"]
   },
   {
     title: "Tyler Cellison",
@@ -177,7 +177,7 @@ window.PORTFOLIO_PROJECTS = [
     summary: "Personal portfolio reference for media presentation and personality-led structure.",
     note: "Helpful for creator, media, and personal site direction.",
     tags: ["squarespace", "content"],
-    sites: ["main", "work"]
+    sites: ["work"]
   },
   {
     title: "Aaron Dromero",
@@ -188,7 +188,7 @@ window.PORTFOLIO_PROJECTS = [
     summary: "Visual-first Webflow reference with motion, hierarchy, and stronger premium pacing.",
     note: "Good reference for landing pages and premium portfolio rhythm.",
     tags: ["webflow", "marketing", "content"],
-    sites: ["main", "work", "marketing"]
+    sites: ["work", "marketing"]
   },
   {
     title: "Rodukov",
@@ -199,7 +199,7 @@ window.PORTFOLIO_PROJECTS = [
     summary: "Cleaner art-direction reference with a more visual rhythm and brand-led feel.",
     note: "Useful for clients who want a more custom visual site direction.",
     tags: ["webflow", "content"],
-    sites: ["main", "work"]
+    sites: ["work"]
   },
   {
     title: "Charli Marie",
@@ -210,7 +210,7 @@ window.PORTFOLIO_PROJECTS = [
     summary: "Creator-site reference for personality-driven storytelling and portfolio positioning.",
     note: "Helpful for creator brands and personal portfolio direction.",
     tags: ["webflow", "content", "marketing"],
-    sites: ["main", "work", "marketing"]
+    sites: ["work", "marketing"]
   },
   {
     title: "Docenti LMS",

@@ -37,6 +37,25 @@ header('X-Robots-Tag: noindex, nofollow', true);
         <button type="button" class="primary-button" id="saveAllButton">Save All Changes</button>
       </div>
 
+      <section class="dashboard-grid">
+        <article class="dashboard-card">
+          <span>Total Projects</span>
+          <strong id="metricProjects">0</strong>
+        </article>
+        <article class="dashboard-card">
+          <span>Main Site Projects</span>
+          <strong id="metricMain">0</strong>
+        </article>
+        <article class="dashboard-card">
+          <span>Work Projects</span>
+          <strong id="metricWork">0</strong>
+        </article>
+        <article class="dashboard-card">
+          <span>Marketing Projects</span>
+          <strong id="metricMarketing">0</strong>
+        </article>
+      </section>
+
       <div class="admin-status" id="adminStatus"></div>
 
       <section class="admin-card">

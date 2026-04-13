@@ -105,6 +105,8 @@ function renderProjectEditors() {
 
     projectList.appendChild(fragment);
   });
+
+  renderDashboardMetrics();
 }
 
 async function saveAllChanges() {
@@ -156,4 +158,16 @@ function sanitizeProjects(projects) {
 function setStatus(message, isError = false) {
   adminStatus.textContent = message;
   adminStatus.style.color = isError ? "#ffb9b9" : "#9fe8b5";
+}
+
+function renderDashboardMetrics() {
+  const projectCount = projectEntries.length;
+  const mainCount = projectEntries.filter((project) => project.sites.includes("main")).length;
+  const workCount = projectEntries.filter((project) => project.sites.includes("work")).length;
+  const marketingCount = projectEntries.filter((project) => project.sites.includes("marketing")).length;
+
+  document.getElementById("metricProjects").textContent = String(projectCount);
+  document.getElementById("metricMain").textContent = String(mainCount);
+  document.getElementById("metricWork").textContent = String(workCount);
+  document.getElementById("metricMarketing").textContent = String(marketingCount);
 }

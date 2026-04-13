@@ -42,7 +42,7 @@ window.PORTFOLIO_CONTENT = {
       { title: "Website Fixes", text: "Fast troubleshooting for broken pages, forms, and layouts." },
       { title: "eCommerce Support", text: "Store edits, product visibility, shipping, and feed-related work." }
     ],
-    filters: ["all", "wordpress", "shopify", "squarespace", "webflow", "seo"],
+    filters: ["all", "wordpress", "php", "laravel", "seo", "support"],
     projectsTitle: "Proof of Work",
     projectsIntro: "Relevant work, support cases, and portfolio proof mapped to the kinds of projects clients actually search for.",
     contactTitle: "Send a Project Brief",

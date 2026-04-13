@@ -672,13 +672,11 @@ function renderSiteNetwork(siteKey) {
   ];
 
   footerLinkGroups.forEach((group) => {
-    const siteLinks = sites
+    group.innerHTML = sites
       .map((site) => {
         const currentLabel = site.key === siteKey ? "Current site" : site.label;
         return `<a href="${site.url}" ${site.key === siteKey ? 'aria-current="page"' : ""}>${currentLabel}</a>`;
       })
       .join("");
-
-    group.innerHTML = `${siteLinks}<a href="${getAssetPath()}admin/" rel="nofollow">Admin</a>`;
   });
 }

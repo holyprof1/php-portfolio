@@ -94,10 +94,10 @@
     "filters": [
       "all",
       "wordpress",
-      "shopify",
-      "squarespace",
-      "webflow",
-      "seo"
+      "php",
+      "laravel",
+      "seo",
+      "support"
     ],
     "projectsTitle": "Proof of Work",
     "projectsIntro": "Relevant work, support cases, and portfolio proof mapped to the kinds of projects clients actually search for.",

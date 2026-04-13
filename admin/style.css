@@ -72,6 +72,30 @@ body {
   font-weight: 600;
 }
 
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.dashboard-card {
+  background: linear-gradient(180deg, rgba(35, 169, 242, 0.16), rgba(87, 216, 255, 0.05));
+  border: 1px solid rgba(143, 215, 255, 0.12);
+  border-radius: 18px;
+  padding: 18px;
+}
+
+.dashboard-card span {
+  display: block;
+  color: #b7c8dc;
+  margin-bottom: 10px;
+}
+
+.dashboard-card strong {
+  font-size: 2rem;
+}
+
 .project-editor-list {
   display: grid;
   gap: 20px;
@@ -161,6 +185,10 @@ textarea {
   .admin-shell {
     grid-template-columns: 1fr;
   }
+
+  .dashboard-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 768px) {
@@ -170,5 +198,9 @@ textarea {
 
   .checkbox-group {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
   }
 }
