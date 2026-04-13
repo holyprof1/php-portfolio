@@ -671,6 +671,12 @@ body {
   margin-bottom: 28px;
 }
 
+.projects-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 26px;
+}
+
 .project-filter-btn {
   appearance: none;
   border: 1px solid rgba(46, 182, 255, 0.14);

@@ -1,0 +1,174 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: #0a1320;
+  color: #ecf4ff;
+}
+
+.admin-shell {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  min-height: 100vh;
+}
+
+.admin-sidebar {
+  padding: 28px;
+  background: #0d1a2a;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.admin-sidebar h1,
+.admin-topbar h2,
+.section-head h3 {
+  margin: 0 0 12px;
+}
+
+.admin-sidebar p,
+.admin-topbar p,
+.admin-help p {
+  color: #a4b3c8;
+}
+
+.admin-sidebar-links {
+  display: grid;
+  gap: 10px;
+  margin: 24px 0;
+}
+
+.admin-sidebar-links a {
+  color: #8fd7ff;
+  text-decoration: none;
+}
+
+.admin-main {
+  padding: 28px;
+}
+
+.admin-topbar,
+.section-head,
+.project-editor-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+}
+
+.admin-card {
+  background: #122235;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 22px;
+  margin-bottom: 24px;
+}
+
+.admin-status {
+  min-height: 24px;
+  margin: 14px 0 20px;
+  color: #9fe8b5;
+  font-weight: 600;
+}
+
+.project-editor-list {
+  display: grid;
+  gap: 20px;
+}
+
+.project-editor-card {
+  background: #0f1c2c;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 18px;
+}
+
+.project-editor-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+label,
+.checkbox-group {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+label span,
+.checkbox-group span {
+  font-size: 0.92rem;
+  color: #b7c8dc;
+}
+
+input,
+textarea {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #08121d;
+  color: #ecf4ff;
+  padding: 12px 14px;
+  font: inherit;
+}
+
+.content-editor {
+  min-height: 420px;
+}
+
+.checkbox-group {
+  grid-template-columns: repeat(5, max-content);
+  align-items: center;
+  gap: 14px;
+}
+
+.checkbox-group label {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  margin: 0;
+}
+
+.primary-button,
+.secondary-button,
+.danger-button {
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 18px;
+  font: inherit;
+  cursor: pointer;
+}
+
+.primary-button {
+  background: linear-gradient(135deg, #23a9f2, #57d8ff);
+  color: #fff;
+}
+
+.secondary-button {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ecf4ff;
+}
+
+.danger-button {
+  background: rgba(255, 86, 86, 0.15);
+  color: #ffb9b9;
+}
+
+@media (max-width: 1100px) {
+  .admin-shell {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-editor-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .checkbox-group {
+    grid-template-columns: 1fr 1fr;
+  }
+}

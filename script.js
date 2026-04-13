@@ -1,5 +1,6 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   const siteKey = document.body.dataset.portfolioSite || "main";
+  await loadPortfolioData();
 
   window.addEventListener("load", () => {
     const loader = document.getElementById("pageLoader");
@@ -134,6 +135,27 @@ document.addEventListener("DOMContentLoaded", () => {
   renderSiteNetwork(siteKey);
 });
 
+async function loadPortfolioData() {
+  const basePath = getAssetPath();
+
+  try {
+    const [contentResponse, projectsResponse] = await Promise.all([
+      fetch(`${basePath}data/portfolio-content.json`, { cache: "no-store" }),
+      fetch(`${basePath}data/projects.json`, { cache: "no-store" })
+    ]);
+
+    if (contentResponse.ok) {
+      window.PORTFOLIO_CONTENT = await contentResponse.json();
+    }
+
+    if (projectsResponse.ok) {
+      window.PORTFOLIO_PROJECTS = await projectsResponse.json();
+    }
+  } catch (error) {
+    console.warn("Falling back to bundled portfolio data.", error);
+  }
+}
+
 function renderPortfolioSections(siteKey) {
   const data = window.PORTFOLIO_CONTENT?.[siteKey];
   if (!data) return;
@@ -247,12 +269,14 @@ function renderPortfolioSections(siteKey) {
           </button>
         `).join("")}
       </div>
-      <div class="projects-grid" id="portfolioProjectGrid">
-        ${sharedProjects.map((project, index) => renderProjectCard(project, index)).join("")}
+      <div class="projects-grid" id="portfolioProjectGrid"></div>
+      <div class="projects-actions">
+        <button class="btn btn-outline projects-more-btn" id="projectsShowMore" type="button">View More</button>
       </div>
     `;
 
-    bindProjectFilters();
+    bindProjectFilters(sharedProjects);
+    renderVisibleProjects(sharedProjects);
   }
 
   const contactMount = document.getElementById("contactMount");
@@ -354,7 +378,7 @@ function getProjectsForSite(siteKey) {
     })
     .map((project) => ({
       title: project.title,
-      type: getProjectType(project),
+      type: getProjectType(project, siteKey),
       description: project.summary,
       url: project.url,
       image: project.image,
@@ -364,13 +388,46 @@ function getProjectsForSite(siteKey) {
     }));
 }
 
-function getProjectType(project) {
+function getProjectType(project, siteKey) {
+  if (siteKey === "marketing") {
+    if (project.tags?.includes("seo")) return "SEO Website";
+    if (project.tags?.includes("marketing")) return "Marketing Website";
+    if (project.tags?.includes("ecommerce")) return "eCommerce Brand";
+    if (project.tags?.includes("content")) return "Content Website";
+  }
+
+  if (siteKey === "work" || siteKey === "main") {
+    const workMap = {
+      wordpress: "WordPress Website",
+      shopify: "Shopify Reference",
+      squarespace: "Squarespace Reference",
+      webflow: "Webflow Reference",
+      laravel: "Laravel Project",
+      php: "PHP Case"
+    };
+
+    return workMap[project.platform] || formatFilterLabel(project.platform || "Project");
+  }
+
+  if (siteKey === "dev") {
+    const devMap = {
+      wordpress: "Integration Case",
+      laravel: "Laravel Platform",
+      php: "Backend Case",
+      node: "Node.js",
+      react: "React"
+    };
+
+    return devMap[project.platform] || formatFilterLabel(project.platform || "Project");
+  }
+
   const platformMap = {
     wordpress: "WordPress",
     laravel: "Laravel",
     php: "PHP",
-    ecwid: "eCommerce",
-    node: "Node.js"
+    shopify: "Shopify",
+    squarespace: "Squarespace",
+    webflow: "Webflow"
   };
 
   return platformMap[project.platform] || formatFilterLabel(project.platform || "Project");
@@ -388,24 +445,59 @@ function getProjectImage(project) {
   return `${getAssetPath()}default.png`;
 }
 
-function bindProjectFilters() {
+function bindProjectFilters(projects) {
   const buttons = document.querySelectorAll(".project-filter-btn");
-  const cards = document.querySelectorAll("#portfolioProjectGrid .project-card");
-  if (!buttons.length || !cards.length) return;
+  if (!buttons.length) return;
 
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
       const filter = button.dataset.filter;
       buttons.forEach((item) => item.classList.remove("active"));
       button.classList.add("active");
-
-      cards.forEach((card) => {
-        const tags = card.dataset.tags || "";
-        const visible = filter === "all" || tags.includes(filter);
-        card.style.display = visible ? "block" : "none";
-      });
+      window.PORTFOLIO_PROJECT_STATE = {
+        projects,
+        filter,
+        visibleCount: 6
+      };
+      renderVisibleProjects(projects);
     });
   });
+
+  const showMoreButton = document.getElementById("projectsShowMore");
+  if (showMoreButton) {
+    showMoreButton.addEventListener("click", () => {
+      const currentState = window.PORTFOLIO_PROJECT_STATE || {
+        projects,
+        filter: "all",
+        visibleCount: 6
+      };
+      currentState.visibleCount += 6;
+      window.PORTFOLIO_PROJECT_STATE = currentState;
+      renderVisibleProjects(projects);
+    });
+  }
+}
+
+function renderVisibleProjects(projects) {
+  const state = window.PORTFOLIO_PROJECT_STATE || {
+    projects,
+    filter: "all",
+    visibleCount: 6
+  };
+  const grid = document.getElementById("portfolioProjectGrid");
+  const showMoreButton = document.getElementById("projectsShowMore");
+  if (!grid) return;
+
+  const filteredProjects = projects.filter((project) => state.filter === "all" || project.tags.includes(state.filter));
+  const visibleProjects = filteredProjects.slice(0, state.visibleCount);
+
+  grid.innerHTML = visibleProjects.map((project, index) => renderProjectCard(project, index)).join("");
+
+  if (showMoreButton) {
+    showMoreButton.style.display = filteredProjects.length > visibleProjects.length ? "inline-flex" : "none";
+  }
+
+  window.PORTFOLIO_PROJECT_STATE = state;
 }
 
 function formatFilterLabel(value) {
@@ -580,11 +672,13 @@ function renderSiteNetwork(siteKey) {
   ];
 
   footerLinkGroups.forEach((group) => {
-    group.innerHTML = sites
+    const siteLinks = sites
       .map((site) => {
         const currentLabel = site.key === siteKey ? "Current site" : site.label;
         return `<a href="${site.url}" ${site.key === siteKey ? 'aria-current="page"' : ""}>${currentLabel}</a>`;
       })
       .join("");
+
+    group.innerHTML = `${siteLinks}<a href="${getAssetPath()}admin/" rel="nofollow">Admin</a>`;
   });
 }

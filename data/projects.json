@@ -1,0 +1,462 @@
+[
+  {
+    "title": "KNP Talent Group",
+    "url": "https://knptalentgroup.com",
+    "platform": "wordpress",
+    "source": "my-work",
+    "sourceLabel": "My work",
+    "summary": "Corporate recruiting website with clearer trust signals and stronger service presentation.",
+    "note": "Good fit for WordPress business website and service-brand delivery.",
+    "tags": [
+      "wordpress",
+      "support",
+      "content"
+    ],
+    "sites": [
+      "main",
+      "tobi",
+      "work"
+    ]
+  },
+  {
+    "title": "Atlantic Exhibition",
+    "url": "https://atlanticexhibition.com",
+    "platform": "wordpress",
+    "source": "my-work",
+    "sourceLabel": "My work",
+    "summary": "Corporate event website with stronger structure, cleaner messaging, and business-facing delivery.",
+    "note": "Useful for service websites, brand presentation, and SEO-aware structure.",
+    "tags": [
+      "wordpress",
+      "seo",
+      "marketing",
+      "support"
+    ],
+    "sites": [
+      "main",
+      "tobi",
+      "work",
+      "marketing"
+    ]
+  },
+  {
+    "title": "Tobi Holyprof Web",
+    "url": "https://tobi.holyprofweb.com",
+    "platform": "wordpress",
+    "source": "my-work",
+    "sourceLabel": "My work",
+    "summary": "Personal portfolio environment used to organize proof across development, SEO, and freelance work.",
+    "note": "Useful as proof of structure, branding, and portfolio presentation.",
+    "tags": [
+      "wordpress",
+      "content",
+      "seo"
+    ],
+    "sites": [
+      "main",
+      "tobi",
+      "work"
+    ]
+  },
+  {
+    "title": "Talosmart",
+    "url": "https://talosmart.com",
+    "platform": "wordpress",
+    "source": "my-work",
+    "sourceLabel": "My work",
+    "summary": "Service-led website with broader digital positioning and clearer client entry points.",
+    "note": "Good for website presentation, marketing-friendly structure, and service delivery.",
+    "tags": [
+      "wordpress",
+      "marketing",
+      "content"
+    ],
+    "sites": [
+      "main",
+      "tobi",
+      "work",
+      "marketing"
+    ]
+  },
+  {
+    "title": "Krestel Digital",
+    "url": "https://kresteldigital.com",
+    "platform": "wordpress",
+    "source": "my-work",
+    "sourceLabel": "My work",
+    "summary": "Digital services site with stronger SEO and marketing relevance in its structure and messaging.",
+    "note": "Strong fit for SEO, marketing, and growth-support positioning.",
+    "tags": [
+      "wordpress",
+      "seo",
+      "marketing",
+      "content"
+    ],
+    "sites": [
+      "main",
+      "work",
+      "marketing"
+    ]
+  },
+  {
+    "title": "Savvy Media Africa",
+    "url": "https://savvymediaafrica.com",
+    "platform": "wordpress",
+    "source": "my-work",
+    "sourceLabel": "My work",
+    "summary": "Media-forward website where content flow and visibility support matter more than raw platform talk.",
+    "note": "Useful for content-led websites, brand positioning, and SEO-friendly structure.",
+    "tags": [
+      "wordpress",
+      "seo",
+      "marketing",
+      "content"
+    ],
+    "sites": [
+      "main",
+      "work",
+      "marketing"
+    ]
+  },
+  {
+    "title": "Tubowoman",
+    "url": "https://tubowoman.com",
+    "platform": "shopify",
+    "source": "reference",
+    "sourceLabel": "Shopify reference",
+    "summary": "Shopify storefront reference for product presentation, merchandising, and clean ecommerce layout.",
+    "note": "Useful as a store reference for ecommerce structure and visual product flow.",
+    "tags": [
+      "shopify",
+      "ecommerce",
+      "marketing"
+    ],
+    "sites": [
+      "main",
+      "work",
+      "marketing"
+    ]
+  },
+  {
+    "title": "LML Planner",
+    "url": "https://lmlplanner.com",
+    "platform": "shopify",
+    "source": "reference",
+    "sourceLabel": "Shopify reference",
+    "summary": "Product-led Shopify reference with stronger brand feel and clearer merchandising rhythm.",
+    "note": "Good reference for cleaner Shopify storefront direction.",
+    "tags": [
+      "shopify",
+      "ecommerce",
+      "marketing"
+    ],
+    "sites": [
+      "main",
+      "work",
+      "marketing"
+    ]
+  },
+  {
+    "title": "Allbirds",
+    "url": "https://www.allbirds.com",
+    "platform": "shopify",
+    "source": "reference",
+    "sourceLabel": "Shopify reference",
+    "summary": "Well-known ecommerce reference for navigation clarity, product pages, and conversion-minded store flow.",
+    "note": "Helpful benchmark for polished ecommerce structure.",
+    "tags": [
+      "shopify",
+      "ecommerce",
+      "marketing",
+      "seo"
+    ],
+    "sites": [
+      "main",
+      "work",
+      "marketing"
+    ]
+  },
+  {
+    "title": "Gymshark",
+    "url": "https://row.gymshark.com",
+    "platform": "shopify",
+    "source": "reference",
+    "sourceLabel": "Shopify reference",
+    "summary": "Strong storefront reference for merchandising density, brand energy, and campaign-led ecommerce.",
+    "note": "Useful for high-energy ecommerce and performance-minded store direction.",
+    "tags": [
+      "shopify",
+      "ecommerce",
+      "marketing"
+    ],
+    "sites": [
+      "main",
+      "work",
+      "marketing"
+    ]
+  },
+  {
+    "title": "ColourPop",
+    "url": "https://colourpop.com",
+    "platform": "shopify",
+    "source": "reference",
+    "sourceLabel": "Shopify reference",
+    "summary": "Beauty ecommerce reference for aggressive merchandising, launches, and campaign-style presentation.",
+    "note": "Strong reference for beauty and lifestyle ecommerce direction.",
+    "tags": [
+      "shopify",
+      "ecommerce",
+      "marketing"
+    ],
+    "sites": [
+      "main",
+      "work",
+      "marketing"
+    ]
+  },
+  {
+    "title": "Dola Photo",
+    "url": "https://dolaphoto.com",
+    "platform": "squarespace",
+    "source": "reference",
+    "sourceLabel": "Squarespace reference",
+    "summary": "Portfolio-style Squarespace reference for softer branding and personal service presentation.",
+    "note": "Useful for personal brands, portfolios, and visual-first website structure.",
+    "tags": [
+      "squarespace",
+      "content"
+    ],
+    "sites": [
+      "main",
+      "work"
+    ]
+  },
+  {
+    "title": "Jonn Donovan",
+    "url": "https://jonndonovan.com",
+    "platform": "squarespace",
+    "source": "reference",
+    "sourceLabel": "Squarespace reference",
+    "summary": "Editorial personal-brand reference with a cleaner content-led layout style.",
+    "note": "Good fit for personal brand and content presentation reference.",
+    "tags": [
+      "squarespace",
+      "content"
+    ],
+    "sites": [
+      "main",
+      "work"
+    ]
+  },
+  {
+    "title": "Mark Foster",
+    "url": "https://markfoster.net",
+    "platform": "squarespace",
+    "source": "reference",
+    "sourceLabel": "Squarespace reference",
+    "summary": "Straightforward content-led Squarespace reference for consultants, creators, and coaches.",
+    "note": "Useful benchmark for simple and effective personal websites.",
+    "tags": [
+      "squarespace",
+      "content"
+    ],
+    "sites": [
+      "main",
+      "work"
+    ]
+  },
+  {
+    "title": "Beta Takaki",
+    "url": "https://betatakaki.com",
+    "platform": "squarespace",
+    "source": "reference",
+    "sourceLabel": "Squarespace reference",
+    "summary": "Visual portfolio reference with a cleaner design-led presentation style.",
+    "note": "Useful when a project needs a creative portfolio direction.",
+    "tags": [
+      "squarespace",
+      "content"
+    ],
+    "sites": [
+      "main",
+      "work"
+    ]
+  },
+  {
+    "title": "Tyler Cellison",
+    "url": "https://www.tylercellison.com",
+    "platform": "squarespace",
+    "source": "reference",
+    "sourceLabel": "Squarespace reference",
+    "summary": "Personal portfolio reference for media presentation and personality-led structure.",
+    "note": "Helpful for creator, media, and personal site direction.",
+    "tags": [
+      "squarespace",
+      "content"
+    ],
+    "sites": [
+      "main",
+      "work"
+    ]
+  },
+  {
+    "title": "Aaron Dromero",
+    "url": "https://aarondromero.com",
+    "platform": "webflow",
+    "source": "reference",
+    "sourceLabel": "Webflow reference",
+    "summary": "Visual-first Webflow reference with motion, hierarchy, and stronger premium pacing.",
+    "note": "Good reference for landing pages and premium portfolio rhythm.",
+    "tags": [
+      "webflow",
+      "marketing",
+      "content"
+    ],
+    "sites": [
+      "main",
+      "work",
+      "marketing"
+    ]
+  },
+  {
+    "title": "Rodukov",
+    "url": "https://rodukov.com",
+    "platform": "webflow",
+    "source": "reference",
+    "sourceLabel": "Webflow reference",
+    "summary": "Cleaner art-direction reference with a more visual rhythm and brand-led feel.",
+    "note": "Useful for clients who want a more custom visual site direction.",
+    "tags": [
+      "webflow",
+      "content"
+    ],
+    "sites": [
+      "main",
+      "work"
+    ]
+  },
+  {
+    "title": "Charli Marie",
+    "url": "https://charlimarie.com",
+    "platform": "webflow",
+    "source": "reference",
+    "sourceLabel": "Webflow reference",
+    "summary": "Creator-site reference for personality-driven storytelling and portfolio positioning.",
+    "note": "Helpful for creator brands and personal portfolio direction.",
+    "tags": [
+      "webflow",
+      "content",
+      "marketing"
+    ],
+    "sites": [
+      "main",
+      "work",
+      "marketing"
+    ]
+  },
+  {
+    "title": "Docenti LMS",
+    "url": "https://lms.docentibusinessschool.com/",
+    "platform": "laravel",
+    "source": "my-work",
+    "sourceLabel": "My work",
+    "summary": "Learning platform with structured workflows, protected content, and application-style delivery.",
+    "note": "Strong proof for Laravel systems, admin workflows, and platform thinking.",
+    "tags": [
+      "laravel",
+      "php",
+      "database",
+      "support"
+    ],
+    "sites": [
+      "main",
+      "tobi",
+      "dev"
+    ]
+  },
+  {
+    "title": "Stripe Card Saving on WordPress",
+    "url": "https://www.upwork.com/freelancers/holyprof1",
+    "platform": "wordpress",
+    "source": "upwork",
+    "sourceLabel": "Upwork case",
+    "summary": "Handled a Stripe setup for saving card details and supporting more advanced payment behavior.",
+    "note": "Good proof for payment integration, WordPress engineering, and API logic.",
+    "tags": [
+      "wordpress",
+      "php",
+      "api",
+      "support",
+      "upwork"
+    ],
+    "sites": [
+      "main",
+      "tobi",
+      "work",
+      "dev"
+    ]
+  },
+  {
+    "title": "PHP Development Support",
+    "url": "https://www.upwork.com/freelancers/holyprof1",
+    "platform": "php",
+    "source": "upwork",
+    "sourceLabel": "Upwork case",
+    "summary": "General-purpose PHP development delivered in a support window with a strong outcome.",
+    "note": "Useful proof for direct PHP support and technical implementation briefs.",
+    "tags": [
+      "php",
+      "laravel",
+      "support",
+      "upwork"
+    ],
+    "sites": [
+      "main",
+      "tobi",
+      "work",
+      "dev"
+    ]
+  },
+  {
+    "title": "Paywall Pick System",
+    "url": "https://www.upwork.com/freelancers/holyprof1",
+    "platform": "php",
+    "source": "upwork",
+    "sourceLabel": "Upwork case",
+    "summary": "Custom PHP work on a paywalled sports leaderboard flow where business logic mattered.",
+    "note": "Useful for backend rules, custom workflows, and business logic delivery.",
+    "tags": [
+      "php",
+      "laravel",
+      "api",
+      "database",
+      "upwork"
+    ],
+    "sites": [
+      "main",
+      "work",
+      "dev"
+    ]
+  },
+  {
+    "title": "Mesfollow Creator Platform",
+    "url": "https://www.upwork.com/freelancers/holyprof1",
+    "platform": "php",
+    "source": "portfolio-case",
+    "sourceLabel": "Portfolio case",
+    "summary": "Paid creator platform work used to show app-like product thinking beyond standard websites.",
+    "note": "Helpful for platform, creator economy, and custom product conversations.",
+    "tags": [
+      "php",
+      "laravel",
+      "database",
+      "api"
+    ],
+    "sites": [
+      "main",
+      "tobi",
+      "work",
+      "dev"
+    ]
+  }
+]

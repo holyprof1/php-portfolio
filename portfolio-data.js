@@ -42,7 +42,7 @@ window.PORTFOLIO_CONTENT = {
       { title: "Website Fixes", text: "Fast troubleshooting for broken pages, forms, and layouts." },
       { title: "eCommerce Support", text: "Store edits, product visibility, shipping, and feed-related work." }
     ],
-    filters: ["all", "wordpress", "php", "laravel", "seo", "support", "ecommerce"],
+    filters: ["all", "wordpress", "shopify", "squarespace", "webflow", "seo"],
     projectsTitle: "Proof of Work",
     projectsIntro: "Relevant work, support cases, and portfolio proof mapped to the kinds of projects clients actually search for.",
     contactTitle: "Send a Project Brief",
@@ -150,15 +150,15 @@ window.PORTFOLIO_CONTENT = {
       { title: "Product Feeds", text: "Feed cleanup, sync direction, and approval support." },
       { title: "Website Updates", text: "Implementing the actual SEO changes inside the site." }
     ],
-    filters: ["all", "seo", "content", "marketing", "support", "ecommerce"],
+    filters: ["all", "seo", "content", "marketing", "ecommerce"],
     projectsTitle: "SEO & Visibility Proof",
     projectsIntro: "Projects and support cases that fit SEO, content growth, feeds, and search visibility work.",
     contactTitle: "Start Marketing Support",
     contactText: "Available for technical SEO, on-page cleanup, content structure, product feed work, Google Shopping support, and visibility improvement projects.",
     faq: [
-      { question: "What does the marketing page focus on?", answer: "It focuses on technical SEO, content structure, product feeds, Google Shopping, visibility support, and implementation work." },
-      { question: "Does this page cover only strategy?", answer: "No. It is built around SEO and marketing work that also requires actual website edits and hands-on delivery." },
-      { question: "Can a one-page SEO profile rank?", answer: "Yes. It can rank for a focused keyword set when the content, metadata, schema, and proof all reinforce the same topic." }
+      { question: "What kind of work belongs on the marketing page?", answer: "This page focuses on SEO websites, content-led websites, ecommerce visibility references, and marketing-friendly project proof." },
+      { question: "Why are the project labels different here?", answer: "The marketing page uses SEO, content, marketing, and ecommerce-style labels so the projects read like marketing proof instead of generic platform talk." },
+      { question: "Can one focused marketing page still rank?", answer: "Yes. A one-page marketing profile can rank when the keyword intent is tight, the proof is relevant, and the structured data supports the topic clearly." }
     ]
   },
   dev: {
@@ -258,7 +258,7 @@ window.PORTFOLIO_CONTENT = {
       { title: "eCommerce Support", text: "Store fixes, shipping rules, product flow, and feed support." },
       { title: "Remote Delivery", text: "Proposal-ready freelance support across mixed website tasks." }
     ],
-    filters: ["all", "wordpress", "php", "seo", "shopify", "support", "upwork", "ecommerce"],
+    filters: ["all", "wordpress", "shopify", "squarespace", "webflow", "seo"],
     projectsTitle: "Client-Facing Proof",
     projectsIntro: "A broad project list for freelance proposals, support work, and mixed client briefs.",
     contactTitle: "Send a Freelance Project",
