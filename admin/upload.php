@@ -31,8 +31,7 @@ $allowed = [
   'jpeg' => 'image/jpeg',
   'png' => 'image/png',
   'webp' => 'image/webp',
-  'gif' => 'image/gif',
-  'svg' => 'image/svg+xml'
+  'gif' => 'image/gif'
 ];
 
 $extension = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));

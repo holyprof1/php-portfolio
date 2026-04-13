@@ -12,7 +12,7 @@ window.PORTFOLIO_PROJECTS = [
     summary: "React-based dashboard and admin interface support for product-style projects that need cleaner structure and stronger UX.",
     note: "Useful placeholder proof for React product work and easy to replace later with a live project.",
     tags: ["frontend", "react", "support", "api"],
-    sites: ["main", "dev"]
+    sites: ["dev"]
   },
   {
     title: "Node.js API Integration Support",
@@ -23,7 +23,7 @@ window.PORTFOLIO_PROJECTS = [
     summary: "Node.js service and API support for custom workflows, third-party connections, and backend implementation.",
     note: "Useful editable proof item for Node.js contract work, integrations, and backend support.",
     tags: ["frontend", "node", "api", "support"],
-    sites: ["main", "dev"]
+    sites: ["dev"]
   },
   {
     title: "iOS App Interface Collaboration",
@@ -34,7 +34,7 @@ window.PORTFOLIO_PROJECTS = [
     summary: "Mobile-friendly UI support and product interface collaboration for iOS-focused app experiences and responsive frontend delivery.",
     note: "Useful editable proof for iOS-facing interface work, app support, and frontend product collaboration.",
     tags: ["frontend", "react", "ios", "support"],
-    sites: ["main", "dev"]
+    sites: ["dev"]
   },
   {
     title: "Website Glow Ghana",

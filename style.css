@@ -111,6 +111,7 @@ body {
 }
 
 .nav-search-button {
+  appearance: none;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -120,6 +121,9 @@ body {
   background: rgba(255, 255, 255, 0.08);
   color: var(--white);
   cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+  white-space: nowrap;
 }
 
 .logo {
@@ -374,14 +378,22 @@ body {
   position: fixed;
   inset: 0;
   display: none;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  padding: 20px;
+  padding: 96px 20px 20px;
   z-index: 1150;
 }
 
+.site-search-modal[hidden] {
+  display: none !important;
+}
+
+.site-search-modal[aria-hidden="true"] {
+  display: none !important;
+}
+
 .site-search-modal.is-open {
-  display: flex;
+  display: flex !important;
 }
 
 .site-search-backdrop {
@@ -402,6 +414,11 @@ body {
   background: linear-gradient(180deg, rgba(18, 31, 49, 0.98), rgba(9, 18, 29, 0.98));
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: var(--shadow-lg);
+}
+
+.site-search-dialog input,
+.site-search-dialog button {
+  font: inherit;
 }
 
 .site-search-close {
@@ -1124,7 +1141,7 @@ body {
   }
 
   .nav-search-button span {
-    display: none;
+    display: inline;
   }
 
   .menu-toggle {
@@ -1150,6 +1167,7 @@ body {
 
   .site-search-dialog {
     padding: 22px;
+    margin-top: 0;
   }
 
   .cv-modal-dialog {

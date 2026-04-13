@@ -275,6 +275,10 @@ function renderProjectList() {
       ${renderProjectAssetField(index, project.image || "")}
       ${renderProjectTextarea("Summary", "summary", project.summary, index, 3)}
       ${renderProjectTextarea("Note", "note", project.note, index, 2)}
+      <div class="project-editor-actions">
+        <button type="button" class="secondary-button duplicate-project-button" data-project-duplicate="${index}">Duplicate This Project</button>
+      </div>
+      ${renderProjectSiteCopy(index, project)}
 
       <div class="checkbox-group project-sites" data-project-sites="${index}">
         <span>Show on</span>
@@ -322,6 +326,19 @@ function bindProjectEditors() {
     });
   });
 
+  projectList.querySelectorAll("[data-project-duplicate]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const index = Number(button.dataset.projectDuplicate);
+      const duplicate = cloneProject(state.projects[index]);
+      duplicate.title = duplicate.title ? `${duplicate.title} Copy` : "Project Copy";
+      state.projects.splice(index + 1, 0, duplicate);
+      renderProjectList();
+      renderDashboardMetrics();
+      syncAdvancedEditors();
+      setStatus("Project duplicated. You can now edit the version for another site.");
+    });
+  });
+
   projectList.querySelectorAll("[data-project-sites]").forEach((group) => {
     group.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
       checkbox.addEventListener("change", () => {
@@ -338,6 +355,34 @@ function bindProjectEditors() {
       if (!input.files?.length) return;
       await handleAssetUpload(input.files[0], "image", Number(input.dataset.projectIndex));
       input.value = "";
+    });
+  });
+
+  projectList.querySelectorAll("[data-project-sitecopy]").forEach((field) => {
+    field.addEventListener("input", () => {
+      const index = Number(field.dataset.projectIndex);
+      const siteKey = field.dataset.projectSite;
+      const name = field.dataset.projectSitecopy;
+      const value = field.value.trim();
+      const project = state.projects[index];
+      project.siteCopy = project.siteCopy || {};
+      project.siteCopy[siteKey] = project.siteCopy[siteKey] || {};
+
+      if (value) {
+        project.siteCopy[siteKey][name] = value;
+      } else {
+        delete project.siteCopy[siteKey][name];
+
+        if (!Object.keys(project.siteCopy[siteKey]).length) {
+          delete project.siteCopy[siteKey];
+        }
+
+        if (!Object.keys(project.siteCopy).length) {
+          delete project.siteCopy;
+        }
+      }
+
+      syncAdvancedEditors();
     });
   });
 }
@@ -399,6 +444,58 @@ function renderProjectTextarea(label, name, value, index, rows) {
     <label>
       <span>${label}</span>
       <textarea rows="${rows}" data-project-textarea="${name}" data-project-index="${index}">${escapeHtml(value || "")}</textarea>
+    </label>
+  `;
+}
+
+function renderProjectSiteCopy(index, project) {
+  return `
+    <div class="project-sitecopy-grid">
+      ${SITE_CONFIG.map((site) => {
+        const copy = project.siteCopy?.[site.key] || {};
+
+        return `
+          <section class="project-sitecopy-card">
+            <div class="panel-head">
+              <span class="section-eyebrow">${site.label}</span>
+              <h5>Override wording</h5>
+            </div>
+            ${renderProjectSiteCopyField("Title override", "title", copy.title || "", index, site.key)}
+            ${renderProjectSiteCopyField("Source label override", "sourceLabel", copy.sourceLabel || "", index, site.key)}
+            ${renderProjectSiteCopyTextarea("Summary override", "summary", copy.summary || "", index, site.key, 3)}
+            ${renderProjectSiteCopyTextarea("Note override", "note", copy.note || "", index, site.key, 2)}
+          </section>
+        `;
+      }).join("")}
+    </div>
+  `;
+}
+
+function renderProjectSiteCopyField(label, name, value, index, siteKey) {
+  return `
+    <label>
+      <span>${label}</span>
+      <input
+        type="text"
+        data-project-sitecopy="${name}"
+        data-project-site="${siteKey}"
+        data-project-index="${index}"
+        value="${escapeAttribute(value || "")}"
+      >
+    </label>
+  `;
+}
+
+function renderProjectSiteCopyTextarea(label, name, value, index, siteKey, rows) {
+  return `
+    <label>
+      <span>${label}</span>
+      <textarea
+        rows="${rows}"
+        data-project-sitecopy="${name}"
+        data-project-site="${siteKey}"
+        data-project-index="${index}"
+      >${escapeHtml(value || "")}</textarea>
     </label>
   `;
 }
@@ -481,6 +578,8 @@ function getFilteredProjects() {
         project.platform,
         project.source,
         project.summary,
+        project.note,
+        ...flattenSiteCopy(project.siteCopy),
         ...(project.tags || [])
       ].join(" ").toLowerCase();
       return haystack.includes(state.projectSearch);
@@ -581,7 +680,8 @@ function sanitizeProjects(projects) {
     note: project.note?.trim() || "",
     image: project.image?.trim() || "",
     tags: Array.isArray(project.tags) ? project.tags.filter(Boolean) : [],
-    sites: Array.isArray(project.sites) ? project.sites.filter(Boolean) : []
+    sites: Array.isArray(project.sites) ? project.sites.filter(Boolean) : [],
+    siteCopy: sanitizeSiteCopy(project.siteCopy)
   }));
 }
 
@@ -613,8 +713,42 @@ function createEmptyProject() {
     note: "",
     image: "",
     tags: [],
-    sites: ["main"]
+    sites: ["main"],
+    siteCopy: {}
   };
+}
+
+function cloneProject(project) {
+  return JSON.parse(JSON.stringify(project || createEmptyProject()));
+}
+
+function sanitizeSiteCopy(siteCopy) {
+  if (!siteCopy || typeof siteCopy !== "object") {
+    return {};
+  }
+
+  return Object.fromEntries(
+    Object.entries(siteCopy)
+      .filter(([siteKey]) => SITE_CONFIG.some((site) => site.key === siteKey))
+      .map(([siteKey, copy]) => [siteKey, {
+        title: copy?.title?.trim() || "",
+        sourceLabel: copy?.sourceLabel?.trim() || "",
+        summary: copy?.summary?.trim() || "",
+        note: copy?.note?.trim() || ""
+      }])
+      .map(([siteKey, copy]) => [siteKey, Object.fromEntries(
+        Object.entries(copy).filter(([, value]) => Boolean(value))
+      )])
+      .filter(([, copy]) => Object.keys(copy).length)
+  );
+}
+
+function flattenSiteCopy(siteCopy) {
+  if (!siteCopy || typeof siteCopy !== "object") {
+    return [];
+  }
+
+  return Object.values(siteCopy).flatMap((copy) => Object.values(copy || {}));
 }
 
 function countProjectsForSite(siteKey) {

@@ -217,6 +217,7 @@ function injectSearchUi() {
   modal.className = "site-search-modal";
   modal.id = "siteSearchModal";
   modal.setAttribute("aria-hidden", "true");
+  modal.hidden = true;
   modal.innerHTML = `
     <div class="site-search-backdrop" data-search-close></div>
     <div class="site-search-dialog" role="dialog" aria-modal="true" aria-labelledby="siteSearchTitle">
@@ -295,6 +296,7 @@ function bindSearchModal(siteKey) {
   const openModal = () => {
     modal.classList.add("is-open");
     modal.setAttribute("aria-hidden", "false");
+    modal.hidden = false;
     document.body.style.overflow = "hidden";
     renderSearchResults("");
     setTimeout(() => input?.focus(), 40);
@@ -303,6 +305,7 @@ function bindSearchModal(siteKey) {
   const closeModal = () => {
     modal.classList.remove("is-open");
     modal.setAttribute("aria-hidden", "true");
+    modal.hidden = true;
     document.body.style.overflow = "";
   };
 
@@ -572,22 +575,41 @@ function getProjectsForSite(siteKey) {
 
   return sharedProjects
     .filter((project) => {
+      const hasSite = Array.isArray(project.sites) && project.sites.includes(siteKey);
+      if (!hasSite) return false;
+
       if (siteKey === "main") {
-        return project.source !== "reference";
+        return project.source !== "reference" && !["node", "react"].includes(project.platform);
       }
 
-      return Array.isArray(project.sites) && project.sites.includes(siteKey);
+      return true;
     })
     .map((project) => ({
-      title: project.title,
+      title: getProjectTitle(project, siteKey),
       type: getProjectType(project, siteKey),
-      description: project.summary,
+      description: getProjectSummary(project, siteKey),
       url: project.url,
       image: project.image,
       tags: getProjectTags(project),
-      note: project.note,
-      sourceLabel: project.sourceLabel
+      note: getProjectNote(project, siteKey),
+      sourceLabel: getProjectSourceLabel(project, siteKey)
     }));
+}
+
+function getProjectTitle(project, siteKey) {
+  return project.siteCopy?.[siteKey]?.title?.trim() || project.title;
+}
+
+function getProjectSummary(project, siteKey) {
+  return project.siteCopy?.[siteKey]?.summary?.trim() || project.summary;
+}
+
+function getProjectNote(project, siteKey) {
+  return project.siteCopy?.[siteKey]?.note?.trim() || project.note;
+}
+
+function getProjectSourceLabel(project, siteKey) {
+  return project.siteCopy?.[siteKey]?.sourceLabel?.trim() || project.sourceLabel;
 }
 
 function getProjectType(project, siteKey) {
