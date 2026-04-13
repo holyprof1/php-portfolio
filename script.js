@@ -126,7 +126,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   renderPortfolioSections(siteKey);
-  renderSiteNetwork(siteKey);
 });
 
 async function loadPortfolioData() {
@@ -673,23 +672,3 @@ function injectStructuredData(siteKey, data, projects) {
   document.head.appendChild(script);
 }
 
-function renderSiteNetwork(siteKey) {
-  const footerLinkGroups = document.querySelectorAll("[data-site-network]");
-  if (!footerLinkGroups.length) return;
-
-  const sites = [
-    { key: "tobi", label: "PHP & WordPress", url: "https://tobi.holyprofweb.com/" },
-    { key: "work", label: "Freelance work", url: "https://work.holyprofweb.com/" },
-    { key: "dev", label: "Development", url: "https://dev.holyprofweb.com/" },
-    { key: "marketing", label: "Marketing", url: "https://marketing.holyprofweb.com/" }
-  ];
-
-  footerLinkGroups.forEach((group) => {
-    group.innerHTML = sites
-      .map((site) => {
-        const currentLabel = site.key === siteKey ? "Current site" : site.label;
-        return `<a href="${site.url}" ${site.key === siteKey ? 'aria-current="page"' : ""}>${currentLabel}</a>`;
-      })
-      .join("");
-  });
-}
