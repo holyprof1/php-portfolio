@@ -34,15 +34,24 @@ window.PORTFOLIO_CONTENT = {
     },
     skillsTitle: "What I Do Best",
     skillsIntro: "Six clear service lanes for the main portfolio.",
-    skillGroups: [
-      { title: "Core Services", items: ["WordPress Development", "PHP Development", "Laravel Development"] },
-      { title: "Growth & Support", items: ["Technical SEO", "Website Fixes", "eCommerce Support"] }
+    skillCards: [
+      { title: "WordPress Development", text: "Custom business websites, updates, and support." },
+      { title: "PHP Development", text: "Backend fixes, custom features, and technical implementation." },
+      { title: "Laravel Development", text: "Structured applications, admin flows, and web systems." },
+      { title: "Technical SEO", text: "Metadata, page structure, indexing, and crawl readiness." },
+      { title: "Website Fixes", text: "Fast troubleshooting for broken pages, forms, and layouts." },
+      { title: "eCommerce Support", text: "Store edits, product visibility, shipping, and feed-related work." }
     ],
     filters: ["all", "wordpress", "php", "laravel", "seo", "support", "ecommerce"],
     projectsTitle: "Proof of Work",
     projectsIntro: "Relevant work, support cases, and portfolio proof mapped to the kinds of projects clients actually search for.",
     contactTitle: "Send a Project Brief",
-    contactText: "Available for WordPress, PHP, Laravel, technical SEO, ecommerce support, bug fixes, and mixed web delivery."
+    contactText: "Available for WordPress, PHP, Laravel, technical SEO, ecommerce support, bug fixes, and mixed web delivery.",
+    faq: [
+      { question: "What kind of projects does Tobi Arowosegbe handle?", answer: "Tobi handles WordPress development, PHP and Laravel work, technical SEO, website fixes, ecommerce support, and mixed digital delivery for businesses." },
+      { question: "Is a one-page portfolio okay for SEO?", answer: "Yes, a one-page portfolio can still rank when the search intent is focused, the metadata is strong, the schema is complete, and each specialist page targets its own keyword lane." },
+      { question: "How can one project update appear across multiple portfolio pages?", answer: "The site uses one shared project source file, so one edit can control the image, tags, and the pages where the project should appear." }
+    ]
   },
   tobi: {
     hero: {
@@ -79,15 +88,24 @@ window.PORTFOLIO_CONTENT = {
     },
     skillsTitle: "What I Use",
     skillsIntro: "Six focused skill signals arranged for clarity.",
-    skillGroups: [
-      { title: "Build Stack", items: ["WordPress", "PHP", "Laravel"] },
-      { title: "Delivery Stack", items: ["MySQL", "API Integration", "Website Fixes"] }
+    skillCards: [
+      { title: "WordPress", text: "Theme work, plugin fixes, site support, and full builds." },
+      { title: "PHP", text: "Custom logic, debugging, and backend cleanup." },
+      { title: "Laravel", text: "Application-style projects, admin flows, and structured delivery." },
+      { title: "MySQL", text: "Database-driven websites and backend support." },
+      { title: "API Integration", text: "Third-party tools, payment logic, and custom connections." },
+      { title: "Website Fixes", text: "Fast troubleshooting for live WordPress and PHP websites." }
     ],
     filters: ["all", "wordpress", "php", "laravel", "support"],
     projectsTitle: "Relevant PHP & WordPress Work",
     projectsIntro: "Proof selected for WordPress, PHP, Laravel, backend fixes, and business website delivery.",
     contactTitle: "Start a PHP or WordPress Project",
-    contactText: "Available for WordPress development, PHP, Laravel, website fixes, migrations, maintenance, and technical support."
+    contactText: "Available for WordPress development, PHP, Laravel, website fixes, migrations, maintenance, and technical support.",
+    faq: [
+      { question: "Does Tobi work on WordPress-only projects?", answer: "Yes. This page is built to target WordPress development, fixes, migrations, maintenance, and related support work." },
+      { question: "Can Tobi handle PHP and Laravel work too?", answer: "Yes. The PHP and WordPress profile also covers Laravel systems, backend fixes, custom features, and technical support." },
+      { question: "Will one page hurt SEO?", answer: "No, not by itself. One focused page can still rank if the keyword targeting is clear and the content is aligned with that search intent." }
+    ]
   },
   marketing: {
     hero: {
@@ -124,15 +142,24 @@ window.PORTFOLIO_CONTENT = {
     },
     skillsTitle: "What I Use",
     skillsIntro: "Six clean capability signals for the SEO and marketing page.",
-    skillGroups: [
-      { title: "Search Growth", items: ["Technical SEO", "On-page SEO", "Content Strategy"] },
-      { title: "Visibility Tools", items: ["Google Shopping", "Product Feeds", "Website Updates"] }
+    skillCards: [
+      { title: "Technical SEO", text: "Metadata, crawl fixes, indexing, and structural improvements." },
+      { title: "On-page SEO", text: "Keyword fit, headings, internal links, and metadata support." },
+      { title: "Content Strategy", text: "Landing pages, content structure, and visibility planning." },
+      { title: "Google Shopping", text: "Merchant Center support and product visibility setup." },
+      { title: "Product Feeds", text: "Feed cleanup, sync direction, and approval support." },
+      { title: "Website Updates", text: "Implementing the actual SEO changes inside the site." }
     ],
     filters: ["all", "seo", "content", "marketing", "support", "ecommerce"],
     projectsTitle: "SEO & Visibility Proof",
     projectsIntro: "Projects and support cases that fit SEO, content growth, feeds, and search visibility work.",
     contactTitle: "Start Marketing Support",
-    contactText: "Available for technical SEO, on-page cleanup, content structure, product feed work, Google Shopping support, and visibility improvement projects."
+    contactText: "Available for technical SEO, on-page cleanup, content structure, product feed work, Google Shopping support, and visibility improvement projects.",
+    faq: [
+      { question: "What does the marketing page focus on?", answer: "It focuses on technical SEO, content structure, product feeds, Google Shopping, visibility support, and implementation work." },
+      { question: "Does this page cover only strategy?", answer: "No. It is built around SEO and marketing work that also requires actual website edits and hands-on delivery." },
+      { question: "Can a one-page SEO profile rank?", answer: "Yes. It can rank for a focused keyword set when the content, metadata, schema, and proof all reinforce the same topic." }
+    ]
   },
   dev: {
     hero: {
@@ -169,15 +196,24 @@ window.PORTFOLIO_CONTENT = {
     },
     skillsTitle: "What I Use",
     skillsIntro: "Six focused technical signals for the development page.",
-    skillGroups: [
-      { title: "Build Stack", items: ["Node.js", "React", "Laravel"] },
-      { title: "Delivery Stack", items: ["PHP", "API Integration", "Database Work"] }
+    skillCards: [
+      { title: "Node.js", text: "Services, backend logic, and API-driven workflows." },
+      { title: "React", text: "Dashboards, interfaces, and frontend product work." },
+      { title: "Laravel", text: "Structured PHP applications and admin systems." },
+      { title: "PHP", text: "Backend fixes, feature work, and production support." },
+      { title: "API Integration", text: "Custom integrations, service connections, and data flow." },
+      { title: "Database Work", text: "Application data structure, queries, and backend reliability." }
     ],
     filters: ["all", "node", "react", "php", "laravel", "api", "support"],
     projectsTitle: "Technical Proof",
     projectsIntro: "Engineering-focused projects, support cases, and implementation proof.",
     contactTitle: "Discuss a Development Project",
-    contactText: "Available for Node.js, React, PHP, Laravel, APIs, backend systems, debugging, and technical contract work."
+    contactText: "Available for Node.js, React, PHP, Laravel, APIs, backend systems, debugging, and technical contract work.",
+    faq: [
+      { question: "What kind of development work is shown here?", answer: "This page focuses on backend systems, APIs, React interfaces, PHP and Laravel delivery, debugging, and custom engineering work." },
+      { question: "Is this page better than the main portfolio for technical jobs?", answer: "Yes. The dev page is narrower and more relevant for technical briefs, engineering conversations, and full stack work." },
+      { question: "Can one page still rank for development keywords?", answer: "Yes, if the page is specific enough, supports the keyword intent, and includes strong proof, metadata, and structured data." }
+    ]
   },
   work: {
     hero: {
@@ -214,14 +250,23 @@ window.PORTFOLIO_CONTENT = {
     },
     skillsTitle: "What I Use",
     skillsIntro: "Six broad service signals for the freelance profile.",
-    skillGroups: [
-      { title: "Client Work", items: ["WordPress", "PHP", "Website Fixes"] },
-      { title: "Support Work", items: ["Technical SEO", "eCommerce Support", "Remote Delivery"] }
+    skillCards: [
+      { title: "WordPress", text: "Support, maintenance, content edits, and full site work." },
+      { title: "PHP", text: "Backend support, technical fixes, and custom logic." },
+      { title: "Website Fixes", text: "Quick issue resolution on live production websites." },
+      { title: "Technical SEO", text: "Metadata, structural fixes, and search-focused site edits." },
+      { title: "eCommerce Support", text: "Store fixes, shipping rules, product flow, and feed support." },
+      { title: "Remote Delivery", text: "Proposal-ready freelance support across mixed website tasks." }
     ],
     filters: ["all", "wordpress", "php", "seo", "shopify", "support", "upwork", "ecommerce"],
     projectsTitle: "Client-Facing Proof",
     projectsIntro: "A broad project list for freelance proposals, support work, and mixed client briefs.",
     contactTitle: "Send a Freelance Project",
-    contactText: "Available for Upwork projects, WordPress, PHP, technical SEO, ecommerce fixes, store support, and mixed remote website work."
+    contactText: "Available for Upwork projects, WordPress, PHP, technical SEO, ecommerce fixes, store support, and mixed remote website work.",
+    faq: [
+      { question: "What is the work page for?", answer: "It is the broad freelance profile for proposals, Upwork conversations, support work, and mixed remote delivery." },
+      { question: "Can the work page cover multiple service types?", answer: "Yes. This page is intentionally broad so it can support mixed briefs that involve websites, support, ecommerce, and SEO-related tasks." },
+      { question: "How are the project cards managed?", answer: "The project cards come from one shared file so one edit can update the image, tags, and the pages where that project should appear." }
+    ]
   }
 };

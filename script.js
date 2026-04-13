@@ -222,12 +222,10 @@ function renderPortfolioSections(siteKey) {
         <p class="section-subtitle">${data.skillsIntro}</p>
       </div>
       <div class="skills-grid skills-grid-dense">
-        ${data.skillGroups.map((group, index) => `
+        ${data.skillCards.map((item, index) => `
           <div class="skill-card" data-aos="fade-up" data-aos-delay="${index * 60}">
-            <h3>${group.title}</h3>
-            <div class="skill-tags">
-              ${group.items.map((item) => `<span class="skill-tag">${item}</span>`).join("")}
-            </div>
+            <h3>${item.title}</h3>
+            <p>${item.text}</p>
           </div>
         `).join("")}
       </div>
@@ -307,6 +305,9 @@ function renderPortfolioSections(siteKey) {
       form.setAttribute("enctype", "text/plain");
     }
   }
+
+  renderFaqSection(data);
+  injectStructuredData(siteKey, data, sharedProjects);
 }
 
 function renderProjectCard(project, index) {
@@ -384,12 +385,7 @@ function getProjectTags(project) {
 
 function getProjectImage(project) {
   if (project.image) return project.image;
-
-  if (!project.url || project.url.includes("upwork.com")) {
-    return `${getAssetPath()}default.png`;
-  }
-
-  return `https://image.thum.io/get/width/1200/noanimate/${project.url}`;
+  return `${getAssetPath()}default.png`;
 }
 
 function bindProjectFilters() {
@@ -454,6 +450,122 @@ function getAssetPath() {
     window.location.pathname.includes("/tobi/")
     ? "../"
     : "";
+}
+
+function renderFaqSection(data) {
+  if (!Array.isArray(data.faq) || !data.faq.length) return;
+
+  let faqSection = document.getElementById("faq");
+  if (!faqSection) {
+    faqSection = document.createElement("section");
+    faqSection.className = "faq";
+    faqSection.id = "faq";
+    faqSection.innerHTML = '<div class="container" id="faqMount"></div>';
+
+    const contactSection = document.getElementById("contact");
+    if (contactSection?.parentNode) {
+      contactSection.parentNode.insertBefore(faqSection, contactSection);
+    }
+  }
+
+  const faqMount = document.getElementById("faqMount");
+  if (!faqMount) return;
+
+  faqMount.innerHTML = `
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-tag">SEO FAQ</span>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="section-subtitle">Extra context for clients and search engines around the work this page targets.</p>
+    </div>
+    <div class="faq-list">
+      ${data.faq.map((item, index) => `
+        <article class="faq-item" data-aos="fade-up" data-aos-delay="${index * 50}">
+          <h3>${item.question}</h3>
+          <p>${item.answer}</p>
+        </article>
+      `).join("")}
+    </div>
+  `;
+}
+
+function injectStructuredData(siteKey, data, projects) {
+  const existing = document.getElementById("dynamicStructuredData");
+  if (existing) existing.remove();
+
+  const urls = {
+    main: "https://tobi.holyprofweb.com/",
+    tobi: "https://tobi.holyprofweb.com/",
+    work: "https://work.holyprofweb.com/",
+    dev: "https://dev.holyprofweb.com/",
+    marketing: "https://marketing.holyprofweb.com/"
+  };
+
+  const pageUrl = urls[siteKey] || urls.main;
+  const pageName = document.title;
+  const description = document.querySelector('meta[name="description"]')?.getAttribute("content") || data.hero.description;
+  const graph = [
+    {
+      "@type": "WebSite",
+      "@id": `${pageUrl}#website`,
+      "url": pageUrl,
+      "name": pageName,
+      "description": description,
+      "publisher": {
+        "@type": "Person",
+        "name": "Tobi Arowosegbe"
+      }
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": `${pageUrl}#page`,
+      "url": pageUrl,
+      "name": pageName,
+      "description": description,
+      "isPartOf": {
+        "@id": `${pageUrl}#website`
+      },
+      "about": {
+        "@type": "Person",
+        "name": "Tobi Arowosegbe"
+      }
+    },
+    {
+      "@type": "ItemList",
+      "@id": `${pageUrl}#projects`,
+      "name": `${pageName} Project List`,
+      "itemListElement": projects.slice(0, 10).map((project, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "url": project.url,
+        "name": project.title
+      }))
+    }
+  ];
+
+  if (Array.isArray(data.faq) && data.faq.length) {
+    graph.push({
+      "@type": "FAQPage",
+      "@id": `${pageUrl}#faq`,
+      "mainEntity": data.faq.map((item) => ({
+        "@type": "Question",
+        "name": item.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": item.answer
+        }
+      }))
+    });
+  }
+
+  const script = document.createElement("script");
+  script.id = "dynamicStructuredData";
+  script.type = "application/ld+json";
+  script.textContent = JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": graph
+  });
+
+  document.head.appendChild(script);
 }
 
 function renderSiteNetwork(siteKey) {
