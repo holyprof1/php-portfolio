@@ -425,6 +425,21 @@ textarea {
   max-width: 100%;
   max-height: 180px;
   border-radius: 12px;
+  margin-top: 10px;
+}
+
+.asset-preview-meta {
+  display: grid;
+  gap: 4px;
+}
+
+.asset-preview-meta strong {
+  color: var(--text);
+}
+
+.asset-preview-meta span {
+  color: var(--muted);
+  font-size: 0.9rem;
 }
 
 .upload-button {

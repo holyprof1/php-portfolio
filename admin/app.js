@@ -19,6 +19,7 @@ const contentEditor = document.getElementById("contentEditor");
 const projectsEditor = document.getElementById("projectsEditor");
 const adminStatus = document.getElementById("adminStatus");
 const adminQuickSearch = document.getElementById("adminQuickSearch");
+const LIVE_PREVIEW_WIDTH = 1200;
 
 const state = {
   content: {},
@@ -271,6 +272,7 @@ function renderProjectList() {
 
       <div class="project-editor-grid">
         ${renderProjectField("Title", "title", project.title, index)}
+        ${renderProjectField("Reference URL", "url", project.url, index, "https://example.com")}
         ${renderProjectField("Image URL", "imageUrl", project.imageUrl, index, "https://example.com/image.jpg")}
         ${renderProjectSelect("Preview image", "imageMode", project.imageMode || "default", index, [
           { value: "saved_preview", label: "Yes, save website preview" },
@@ -285,7 +287,6 @@ function renderProjectList() {
         <summary>More options</summary>
         <div class="project-optional-copy-body">
         <div class="project-editor-grid">
-          ${renderProjectField("Reference URL", "url", project.url, index, "Optional source website")}
           ${renderProjectField("Platform", "platform", project.platform, index, "wordpress, php, laravel, react...")}
           ${renderProjectField("Source", "source", project.source, index, "my-work, upwork, reference")}
           ${renderProjectField("Source label", "sourceLabel", project.sourceLabel, index)}
@@ -467,11 +468,19 @@ function renderProjectSiteCheckbox(siteKey, project) {
 }
 
 function renderProjectAssetField(index, value) {
+  const project = state.projects[index] || {};
   const remoteSource = state.projects[index]?.imageUrl || "";
   const canSaveRemote = isRemoteImageUrl(remoteSource);
-  const helperText = value
-    ? `<img src="${getPreviewHref(value)}" alt="Project preview">`
-    : '<span>Priority is: uploaded or saved local image first, then Image URL, then saved website preview, then default image.</span>';
+  const previewData = getProjectAdminPreview(project, value);
+  const helperText = previewData.image
+    ? `
+      <div class="asset-preview-meta">
+        <strong>${previewData.label}</strong>
+        <span>${previewData.help}</span>
+      </div>
+      <img src="${previewData.image}" alt="Project preview" loading="lazy" referrerpolicy="no-referrer">
+    `
+    : `<span>${previewData.help}</span>`;
 
   return `
     <div class="asset-field project-asset">
@@ -490,6 +499,46 @@ function renderProjectAssetField(index, value) {
       <div class="asset-preview">${helperText}</div>
     </div>
   `;
+}
+
+function getProjectAdminPreview(project, localValue) {
+  if (localValue) {
+    return {
+      image: getPreviewHref(localValue),
+      label: "Saved local image",
+      help: "This is the image already stored on your server."
+    };
+  }
+
+  if (project.savedPreviewImage && project.imageMode === "saved_preview") {
+    return {
+      image: getPreviewHref(project.savedPreviewImage),
+      label: "Saved website preview",
+      help: "This screenshot has already been saved locally."
+    };
+  }
+
+  if (project.imageMode === "saved_preview" && isLivePreviewableUrl(project.url)) {
+    return {
+      image: buildAdminLivePreviewUrl(project.url),
+      label: "Live website preview",
+      help: "This is the screenshot that will be saved if you keep Preview image enabled and save changes."
+    };
+  }
+
+  if (project.imageUrl) {
+    return {
+      image: getPreviewHref(project.imageUrl),
+      label: "Remote image URL",
+      help: "This image is still coming from another server until you save a local copy."
+    };
+  }
+
+  return {
+    image: "",
+    label: "",
+    help: "Priority is: saved local image first, then live website preview or Image URL, then default image."
+  };
 }
 
 function updateSitePath(path, value) {
@@ -938,6 +987,26 @@ function getPreviewHref(path) {
 function isRemoteImageUrl(value) {
   if (!value) return false;
   return /^https?:\/\//i.test(value.trim());
+}
+
+function buildAdminLivePreviewUrl(url) {
+  return `https://s.wordpress.com/mshots/v1/${encodeURIComponent(url)}?w=${LIVE_PREVIEW_WIDTH}`;
+}
+
+function isLivePreviewableUrl(url) {
+  if (!isRemoteImageUrl(url)) return false;
+
+  try {
+    const host = new URL(url).hostname.toLowerCase();
+    return ![
+      "upwork.com",
+      "www.upwork.com",
+      "freelancers.upwork.com",
+      "app.upwork.com"
+    ].includes(host);
+  } catch (error) {
+    return false;
+  }
 }
 
 function setStatus(message, isError = false) {
