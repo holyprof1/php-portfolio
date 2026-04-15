@@ -500,19 +500,28 @@ function renderPortfolioSections(siteKey) {
       </div>
       ${Array.isArray(data.experience) && data.experience.length ? `
         <div class="experience-grid">
-          ${data.experience.map((item, index) => `
+          ${data.experience.map((item, index) => {
+            const role = item.role || item.position || "";
+            const company = item.company || "";
+            const companyUrl = item.companyUrl || "";
+            const period = item.period || "";
+            const location = item.location || item.type || "";
+            const points = Array.isArray(item.points) ? item.points : (item.description ? [item.description] : []);
+
+            return `
             <article class="experience-card" data-aos="fade-up" data-aos-delay="${index * 40}">
               <div class="experience-meta">
-                <span class="experience-period">${item.period || ""}</span>
-                ${item.location ? `<span class="experience-location">${item.location}</span>` : ""}
+                ${period ? `<span class="experience-period">${period}</span>` : ""}
+                ${location ? `<span class="experience-location">${location}</span>` : ""}
               </div>
-              <h3>${item.role || ""}</h3>
-              <p class="experience-company">${item.companyUrl ? `<a href="${item.companyUrl}" target="_blank" rel="noopener">${item.company || ""}</a>` : (item.company || "")}</p>
+              <h3>${role}</h3>
+              <p class="experience-company">${companyUrl ? `<a href="${companyUrl}" target="_blank" rel="noopener">${company}</a>` : company}</p>
               <ul class="experience-points">
-                ${(item.points || []).map((point) => `<li>${point}</li>`).join("")}
+                ${points.map((point) => `<li>${point}</li>`).join("")}
               </ul>
             </article>
-          `).join("")}
+          `;
+          }).join("")}
         </div>
       ` : ""}
       <div class="experience-extras">
