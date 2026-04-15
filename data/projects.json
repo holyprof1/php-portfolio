@@ -1,5 +1,48 @@
 [
   {
+    "title": "PayVessel",
+    "url": "https://payvessel.com/",
+    "platform": "php",
+    "source": "my-work",
+    "sourceLabel": "My work",
+    "summary": "Fintech systems for payment-related workflows with frontend and backend development across secure application features.",
+    "note": "Strong proof for fintech development, payment systems, and real-time processing.",
+    "tags": [
+      "frontend",
+      "php",
+      "laravel",
+      "api",
+      "database",
+      "support"
+    ],
+    "sites": [
+      "main",
+      "tobi",
+      "dev"
+    ]
+  },
+  {
+    "title": "AsyncPay",
+    "url": "https://asyncpay.io/",
+    "platform": "php",
+    "source": "my-work",
+    "sourceLabel": "My work",
+    "summary": "Contract work on payment-focused engineering tasks and delivery support within a live payment product environment.",
+    "note": "Useful proof for fintech contracts, payment system implementation, and API-connected flows.",
+    "tags": [
+      "frontend",
+      "php",
+      "laravel",
+      "api",
+      "support"
+    ],
+    "sites": [
+      "main",
+      "tobi",
+      "dev"
+    ]
+  },
+  {
     "title": "React Dashboard Interface Support",
     "url": "https://www.upwork.com/freelancers/holyprof1",
     "platform": "react",
