@@ -294,6 +294,7 @@ function bindSearchModal(siteKey) {
         <div class="search-result-meta">${item.group}</div>
         <h3>${item.title}</h3>
         <p>${item.description}</p>
+        ${item.url ? `<a href="${item.url}" target="_blank" rel="noopener">View related proof</a>` : ""}
       </article>
     `).join("");
   };
@@ -607,6 +608,7 @@ function renderProjectCard(project, index) {
         <h3>${project.title}</h3>
         <p>${project.description}</p>
         ${project.note ? `<p class="project-note">${project.note}</p>` : ""}
+        ${project.url ? `<a href="${project.url}" target="_blank" rel="noopener" class="project-link">View Reference</a>` : ""}
       </div>
     </div>
   `;
