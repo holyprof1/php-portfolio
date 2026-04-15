@@ -401,7 +401,14 @@ textarea {
 }
 
 .asset-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
   justify-content: flex-start;
+}
+
+.asset-action-button {
+  width: fit-content;
 }
 
 .asset-preview {

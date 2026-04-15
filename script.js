@@ -134,6 +134,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 async function loadPortfolioData() {
   const basePath = getAssetPath();
+  const hasBundledContent = typeof window.PORTFOLIO_CONTENT === "object" && window.PORTFOLIO_CONTENT !== null;
+  const hasBundledProjects = Array.isArray(window.PORTFOLIO_PROJECTS);
+
+  if (hasBundledContent && hasBundledProjects) {
+    return;
+  }
 
   try {
     const [contentResponse, projectsResponse] = await Promise.all([
@@ -288,7 +294,6 @@ function bindSearchModal(siteKey) {
         <div class="search-result-meta">${item.group}</div>
         <h3>${item.title}</h3>
         <p>${item.description}</p>
-        ${item.url ? `<a href="${item.url}" target="_blank" rel="noopener">View related proof</a>` : ""}
       </article>
     `).join("");
   };
@@ -556,7 +561,6 @@ function renderProjectCard(project, index) {
         <h3>${project.title}</h3>
         <p>${project.description}</p>
         ${project.note ? `<p class="project-note">${project.note}</p>` : ""}
-        ${project.url ? `<a href="${project.url}" target="_blank" class="project-link">View Reference</a>` : ""}
       </div>
     </div>
   `;
@@ -655,8 +659,8 @@ function getProjectTags(project) {
 }
 
 function getProjectImage(project) {
-  if (project.imageUrl) return resolveAssetUrl(project.imageUrl);
   if (project.image) return resolveAssetUrl(project.image);
+  if (project.imageUrl) return resolveAssetUrl(project.imageUrl);
   if (project.savedPreviewImage && project.imageMode === "saved_preview") {
     return resolveAssetUrl(project.savedPreviewImage);
   }
@@ -798,17 +802,22 @@ function formatFilterLabel(value) {
 }
 
 function getAssetPath() {
-  const hostname = window.location.hostname;
-  // Check for subdomains (dev, work, marketing) or subdirectories
-  const isSubdomain = hostname.startsWith("dev.") || 
-    hostname.startsWith("work.") || 
-    hostname.startsWith("marketing.");
-  const isSubdirectory = window.location.pathname.includes("/work/") ||
-    window.location.pathname.includes("/dev/") ||
-    window.location.pathname.includes("/marketing/") ||
-    window.location.pathname.includes("/tobi/");
-  
-  return isSubdomain || isSubdirectory ? "../" : "";
+  const hostname = window.location.hostname.toLowerCase();
+  const pathname = window.location.pathname.toLowerCase();
+  const portfolioSites = ["dev", "work", "marketing", "tobi"];
+  const sharedAssetHost = "https://tobi.holyprofweb.com/";
+  const isKnownSubdomain = portfolioSites.some((site) => hostname === `${site}.holyprofweb.com`);
+  const isSubdirectory = portfolioSites.some((site) => pathname === `/${site}` || pathname.startsWith(`/${site}/`));
+
+  if (isKnownSubdomain) {
+    return sharedAssetHost;
+  }
+
+  if (isSubdirectory) {
+    return "../";
+  }
+
+  return "";
 }
 
 function renderFaqSection(data) {

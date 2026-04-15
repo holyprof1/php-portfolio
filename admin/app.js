@@ -243,6 +243,12 @@ function bindSiteEditor() {
       input.value = "";
     });
   });
+
+  siteEditorMount.querySelectorAll("[data-site-remote-save]").forEach((button) => {
+    button.addEventListener("click", async () => {
+      await handleSiteRemoteImageSave(button.dataset.siteRemoteSave);
+    });
+  });
 }
 
 function renderProjectList() {
@@ -265,7 +271,6 @@ function renderProjectList() {
 
       <div class="project-editor-grid">
         ${renderProjectField("Title", "title", project.title, index)}
-        ${renderProjectField("Website URL", "url", project.url, index, "https://example.com")}
         ${renderProjectField("Image URL", "imageUrl", project.imageUrl, index, "https://example.com/image.jpg")}
         ${renderProjectSelect("Preview image", "imageMode", project.imageMode || "default", index, [
           { value: "saved_preview", label: "Yes, save website preview" },
@@ -279,10 +284,11 @@ function renderProjectList() {
       <details class="project-optional-copy">
         <summary>More options</summary>
         <div class="project-optional-copy-body">
-          <div class="project-editor-grid">
-            ${renderProjectField("Platform", "platform", project.platform, index, "wordpress, php, laravel, react...")}
-            ${renderProjectField("Source", "source", project.source, index, "my-work, upwork, reference")}
-            ${renderProjectField("Source label", "sourceLabel", project.sourceLabel, index)}
+        <div class="project-editor-grid">
+          ${renderProjectField("Reference URL", "url", project.url, index, "Optional source website")}
+          ${renderProjectField("Platform", "platform", project.platform, index, "wordpress, php, laravel, react...")}
+          ${renderProjectField("Source", "source", project.source, index, "my-work, upwork, reference")}
+          ${renderProjectField("Source label", "sourceLabel", project.sourceLabel, index)}
             ${renderProjectField("Tags", "tags", (project.tags || []).join(", "), index, "Comma separated")}
           </div>
           ${renderProjectTextarea("Custom summary", "summary", project.summary, index, 3)}
@@ -351,6 +357,12 @@ function bindProjectEditors() {
     });
   });
 
+  projectList.querySelectorAll("[data-project-remote-save]").forEach((button) => {
+    button.addEventListener("click", async () => {
+      await handleRemoteImageSave(Number(button.dataset.projectRemoteSave));
+    });
+  });
+
 }
 
 function renderField(label, path, value, hint = "") {
@@ -372,6 +384,8 @@ function renderTextarea(label, path, value, rows, hint = "") {
 }
 
 function renderAssetField(label, path, value) {
+  const canSaveRemote = isRemoteImageUrl(value);
+
   return `
     <div class="asset-field">
       <label>
@@ -383,6 +397,7 @@ function renderAssetField(label, path, value) {
           <input type="file" accept="image/*" class="asset-upload-input" data-site-path="${path}">
           Upload image
         </label>
+        ${canSaveRemote ? `<button type="button" class="secondary-button asset-action-button" data-site-remote-save="${escapeAttribute(path)}">Save remote copy</button>` : ""}
         <a class="asset-link" href="${getPreviewHref(value)}" target="_blank" rel="noopener">Open file</a>
       </div>
       <div class="asset-preview">${value ? `<img src="${getPreviewHref(value)}" alt="Preview">` : '<span>No image selected yet.</span>'}</div>
@@ -452,10 +467,16 @@ function renderProjectSiteCheckbox(siteKey, project) {
 }
 
 function renderProjectAssetField(index, value) {
+  const remoteSource = state.projects[index]?.imageUrl || "";
+  const canSaveRemote = isRemoteImageUrl(remoteSource);
+  const helperText = value
+    ? `<img src="${getPreviewHref(value)}" alt="Project preview">`
+    : '<span>Priority is: uploaded or saved local image first, then Image URL, then saved website preview, then default image.</span>';
+
   return `
     <div class="asset-field project-asset">
       <label>
-        <span>Uploaded image</span>
+        <span>Saved local image</span>
         <input type="text" data-project-field="image" data-project-index="${index}" value="${escapeAttribute(value)}" placeholder="images/uploads/project.png">
       </label>
       <div class="asset-row">
@@ -463,9 +484,10 @@ function renderProjectAssetField(index, value) {
           <input type="file" accept="image/*" class="project-asset-upload" data-project-index="${index}">
           Upload image
         </label>
+        ${canSaveRemote ? `<button type="button" class="secondary-button asset-action-button" data-project-remote-save="${index}">Save remote copy</button>` : ""}
         <a class="asset-link" href="${getPreviewHref(value)}" target="_blank" rel="noopener">Open file</a>
       </div>
-      <div class="asset-preview">${value ? `<img src="${getPreviewHref(value)}" alt="Project preview">` : '<span>Priority is: Image URL first, then uploaded image, then saved website preview if enabled, then default image.</span>'}</div>
+      <div class="asset-preview">${helperText}</div>
     </div>
   `;
 }
@@ -517,6 +539,16 @@ function setNestedValue(target, path, value) {
   }, target);
 
   branch[last] = value;
+}
+
+function getNestedValue(target, path) {
+  return path.split(".").reduce((current, segment) => {
+    if (!current || typeof current !== "object") {
+      return "";
+    }
+
+    return current[segment];
+  }, target);
 }
 
 function getFilteredProjects() {
@@ -637,6 +669,99 @@ function sanitizeProjects(projects) {
     sites: Array.isArray(project.sites) ? project.sites.filter(Boolean) : [],
     siteCopy: sanitizeSiteCopy(project.siteCopy)
   }));
+}
+
+async function handleRemoteImageSave(projectIndex) {
+  const project = state.projects[projectIndex];
+  if (!project || !isRemoteImageUrl(project.imageUrl)) {
+    setStatus("Set a valid Image URL first before saving a remote copy.", true);
+    return;
+  }
+
+  try {
+    const password = await promptForPassword("save a remote image");
+    if (!password) {
+      setStatus("Remote image save cancelled.");
+      return;
+    }
+
+    setStatus("Saving remote image locally...");
+
+    const response = await fetch("fetch-image.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Admin-Password": password
+      },
+      body: JSON.stringify({
+        url: project.imageUrl,
+        title: project.title || "project-image"
+      })
+    });
+
+    const result = await response.json();
+    if (!response.ok || !result.ok) {
+      if (response.status === 403) state.sessionPassword = "";
+      throw new Error(result.message || "Could not save remote image.");
+    }
+
+    state.projects[projectIndex].image = result.path;
+    renderProjectList();
+    renderDashboardMetrics();
+    syncAdvancedEditors();
+    setStatus("Remote image copied into your local uploads.");
+  } catch (error) {
+    setStatus(error.message.includes("Unexpected token")
+      ? "Remote image save failed. Open the admin on your PHP host instead."
+      : error.message, true);
+  }
+}
+
+async function handleSiteRemoteImageSave(path) {
+  const site = state.content[state.activeSite];
+  const currentValue = getNestedValue(site, path);
+  if (!isRemoteImageUrl(currentValue)) {
+    setStatus("Set a valid remote image URL first before saving a local copy.", true);
+    return;
+  }
+
+  try {
+    const password = await promptForPassword("save a remote image");
+    if (!password) {
+      setStatus("Remote image save cancelled.");
+      return;
+    }
+
+    setStatus("Saving remote image locally...");
+
+    const response = await fetch("fetch-image.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Admin-Password": password
+      },
+      body: JSON.stringify({
+        url: currentValue,
+        title: `${state.activeSite}-${path.replaceAll(".", "-")}`
+      })
+    });
+
+    const result = await response.json();
+    if (!response.ok || !result.ok) {
+      if (response.status === 403) state.sessionPassword = "";
+      throw new Error(result.message || "Could not save remote image.");
+    }
+
+    updateSitePath(path, result.path);
+    renderSiteEditor();
+    renderDashboardMetrics();
+    syncAdvancedEditors();
+    setStatus("Remote image copied into your local uploads.");
+  } catch (error) {
+    setStatus(error.message.includes("Unexpected token")
+      ? "Remote image save failed. Open the admin on your PHP host instead."
+      : error.message, true);
+  }
 }
 
 async function promptForPassword(action) {
@@ -808,6 +933,11 @@ function getPreviewHref(path) {
   }
 
   return `../${path.replace(/^\.?\//, "")}`;
+}
+
+function isRemoteImageUrl(value) {
+  if (!value) return false;
+  return /^https?:\/\//i.test(value.trim());
 }
 
 function setStatus(message, isError = false) {

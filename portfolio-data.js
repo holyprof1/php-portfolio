@@ -372,11 +372,11 @@ window.PORTFOLIO_CONTENT = {
       "tag": "Full stack developer for technical products and systems",
       "title": "Tobi Arowosegbe",
       "typed": [
-        "Node.js & React Developer",
         "PHP & Laravel Engineer",
-        "API & Systems Builder"
+        "API & Systems Builder",
+        "Dashboard & Admin Workflow Support"
       ],
-      "description": "Development profile focused on backend systems, Node.js, React, PHP, Laravel, APIs, debugging, and engineering work where implementation depth matters.",
+      "description": "Development profile focused on backend systems, PHP, Laravel, APIs, dashboards, debugging, and engineering work where implementation depth matters.",
       "primary": {
         "label": "View Dev Work",
         "href": "#projects"
@@ -387,26 +387,26 @@ window.PORTFOLIO_CONTENT = {
       },
       "stats": [
         {
-          "value": "Node.js",
-          "label": "Services and APIs"
-        },
-        {
-          "value": "React",
-          "label": "Interfaces and dashboards"
+          "value": "APIs",
+          "label": "Services and integrations"
         },
         {
           "value": "Laravel",
           "label": "Application logic"
+        },
+        {
+          "value": "PHP",
+          "label": "Backend features and fixes"
         }
       ]
     },
     "about": {
       "title": "Development Focus",
       "subtitle": "A technical profile for software engineering, APIs, backend systems, and full stack implementation.",
-      "heading": "Engineering-first work for products, dashboards, and custom systems",
+      "heading": "Engineering-first work for platforms, dashboards, and custom systems",
       "paragraphs": [
-        "This page is for development-heavy work involving Node.js, React, PHP, Laravel, APIs, backend systems, debugging, and custom feature delivery.",
-        "It is a better fit for technical briefs than the broad portfolio because it keeps the positioning around engineering rather than general website support."
+        "This page is for development-heavy work involving PHP, Laravel, APIs, backend systems, dashboard support, debugging, and custom feature delivery.",
+        "It is a better fit for technical briefs than the broad portfolio because it keeps the positioning around engineering, implementation depth, and system support."
       ],
       "highlights": [
         {
@@ -415,8 +415,8 @@ window.PORTFOLIO_CONTENT = {
           "icon": "server"
         },
         {
-          "title": "React Interfaces",
-          "text": "Dashboard UI, frontend tooling, and app-facing layouts",
+          "title": "Dashboard Support",
+          "text": "Admin workflows, product UI support, and app-facing layouts",
           "icon": "laptop-code"
         },
         {
@@ -436,43 +436,42 @@ window.PORTFOLIO_CONTENT = {
     "skillsIntro": "Six focused technical signals for the development page.",
     "skillCards": [
       {
-        "title": "Node.js",
-        "text": "Services, backend logic, and API-driven workflows."
-      },
-      {
-        "title": "React",
-        "text": "Dashboards, interfaces, and frontend product work."
+        "title": "PHP",
+        "text": "Backend fixes, feature work, and production support."
       },
       {
         "title": "Laravel",
         "text": "Structured PHP applications and admin systems."
       },
       {
-        "title": "PHP",
-        "text": "Backend fixes, feature work, and production support."
-      },
-      {
         "title": "API Integration",
         "text": "Custom integrations, service connections, and data flow."
       },
       {
+        "title": "Dashboard Frontend Support",
+        "text": "Admin interfaces, internal tools, and practical UI delivery."
+      },
+      {
         "title": "Database Work",
         "text": "Application data structure, queries, and backend reliability."
+      },
+      {
+        "title": "Debugging",
+        "text": "Fixes, incident support, and delivery cleanup inside active codebases."
       }
     ],
     "filters": [
       "all",
-      "node",
-      "react",
       "php",
       "laravel",
       "api",
+      "database",
       "support"
     ],
     "projectsTitle": "Technical Proof",
     "projectsIntro": "Engineering-focused projects, support cases, and implementation proof.",
     "contactTitle": "Discuss a Development Project",
-    "contactText": "Available for Node.js, React, PHP, Laravel, APIs, backend systems, dashboards, iOS app interface support, debugging, integrations, and technical contract work. I can step into a codebase, build new features, clean up rough implementation, or support product delivery when the work needs practical engineering follow-through.",
+    "contactText": "Available for PHP, Laravel, APIs, backend systems, dashboards, debugging, integrations, and technical contract work. I can step into a codebase, build new features, clean up rough implementation, or support product delivery when the work needs practical engineering follow-through.",
     "faq": [
       {
         "question": "Do I take dashboard and admin system work?",

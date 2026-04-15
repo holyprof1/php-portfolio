@@ -1,4 +1,26 @@
 <?php
+$allowedOrigins = [
+  'https://holyprofweb.com',
+  'https://www.holyprofweb.com',
+  'https://tobi.holyprofweb.com',
+  'https://dev.holyprofweb.com',
+  'https://work.holyprofweb.com',
+  'https://marketing.holyprofweb.com'
+];
+
+$origin = $_SERVER['HTTP_ORIGIN'] ?? '';
+if ($origin !== '' && in_array($origin, $allowedOrigins, true)) {
+  header('Access-Control-Allow-Origin: ' . $origin);
+  header('Vary: Origin');
+  header('Access-Control-Allow-Methods: POST, OPTIONS');
+  header('Access-Control-Allow-Headers: Content-Type');
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+  http_response_code(204);
+  exit;
+}
+
 header('Content-Type: application/json');
 header('X-Robots-Tag: noindex, nofollow', true);
 
