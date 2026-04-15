@@ -73,6 +73,7 @@
         <li><a href="#about" class="nav-link">About</a></li>
         <li><a href="#skills" class="nav-link">What I Use</a></li>
         <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
       <div class="menu-toggle" id="menuToggle">
@@ -104,6 +105,10 @@
     <div class="container" id="projectsMount"></div>
   </section>
 
+  <section class="about" id="experience">
+    <div class="container" id="experienceMount"></div>
+  </section>
+
   <section class="contact" id="contact">
     <div class="container" id="contactMount"></div>
   </section>
@@ -118,6 +123,28 @@
       </div>
     </div>
   </footer>
+
+  <div class="cv-modal" id="cvModal" aria-hidden="true">
+    <div class="cv-modal-backdrop" data-cv-close></div>
+    <div class="cv-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="cvModalTitle">
+      <button type="button" class="cv-modal-close" id="cvModalClose" aria-label="Close CV preview">x</button>
+      <div class="cv-modal-copy">
+        <span class="section-tag">Developer CV</span>
+        <h2 id="cvModalTitle">Tobi Olumide Arowosegbe</h2>
+        <p>Software Engineer with 7+ years of experience building secure, scalable web applications across fintech, backend systems, dashboards, integrations, and performance-focused product work.</p>
+        <div class="cv-modal-highlights">
+          <span>7+ years experience</span>
+          <span>Fintech systems</span>
+          <span>React, Node.js, PHP</span>
+        </div>
+        <div class="cv-modal-actions">
+          <a href="https://tobi.holyprofweb.com/dev-resume/" class="btn btn-primary" target="_blank" rel="noopener">Open Dev CV</a>
+          <a href="https://tobi.holyprofweb.com/dev-resume/" class="btn btn-outline" target="_blank" rel="noopener">Print / Save PDF</a>
+        </div>
+      </div>
+      <iframe src="https://tobi.holyprofweb.com/dev-resume/" title="Tobi Olumide Arowosegbe developer CV preview" loading="lazy"></iframe>
+    </div>
+  </div>
 
   <script src="https://tobi.holyprofweb.com/projects.js"></script>
   <script src="https://tobi.holyprofweb.com/portfolio-data.js"></script>

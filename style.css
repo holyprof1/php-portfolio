@@ -650,6 +650,76 @@ body {
   gap: 22px;
 }
 
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.experience-card,
+.experience-extra-card {
+  background: var(--card-bg);
+  border-radius: 22px;
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+  padding: 24px;
+}
+
+.experience-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.experience-period,
+.experience-location {
+  display: inline-flex;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(46, 182, 255, 0.12);
+  color: #b8e7ff;
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.experience-card h3,
+.experience-extra-card h3 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.2rem;
+  margin-bottom: 6px;
+}
+
+.experience-company {
+  color: var(--primary-color);
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.experience-points {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--text-light);
+}
+
+.experience-points li {
+  margin-bottom: 10px;
+}
+
+.experience-extras {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 22px;
+}
+
+.experience-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
 .skills-grid-dense {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
@@ -1112,6 +1182,8 @@ body {
   .skills-grid,
   .skills-grid-dense,
   .projects-grid,
+  .experience-grid,
+  .experience-extras,
   .faq-list,
   .about-highlights,
   .contact-layout {
@@ -1153,6 +1225,8 @@ body {
   .skills-grid,
   .skills-grid-dense,
   .projects-grid,
+  .experience-grid,
+  .experience-extras,
   .faq-list,
   .about-highlights,
   .contact-layout,

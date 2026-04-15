@@ -382,8 +382,8 @@ window.PORTFOLIO_CONTENT = {
         "href": "#projects"
       },
       "secondary": {
-        "label": "Discuss a Project",
-        "href": "#contact"
+        "label": "Download CV",
+        "href": "#cv-popup"
       },
       "stats": [
         {
@@ -471,6 +471,97 @@ window.PORTFOLIO_CONTENT = {
     ],
     "projectsTitle": "Technical Proof",
     "projectsIntro": "Engineering-focused projects, support cases, and implementation proof.",
+    "experienceTitle": "Work History",
+    "experienceIntro": "A stronger view of the real engineering environments, systems, and delivery work behind the dev profile.",
+    "experience": [
+      {
+        "role": "Software Engineer",
+        "company": "PayVessel",
+        "period": "2025 - Present",
+        "location": "Fintech",
+        "points": [
+          "Developed and maintained fintech systems across frontend and backend workflows.",
+          "Built secure application features for payment-related flows and system reliability.",
+          "Integrated APIs, handled real-time data processing, and improved user experience across product flows."
+        ]
+      },
+      {
+        "role": "Software Engineer (Remote)",
+        "company": "Kyivstar",
+        "period": "2022 - 2023",
+        "location": "Remote",
+        "points": [
+          "Built and maintained scalable web applications using modern frontend and backend tooling.",
+          "Integrated APIs and improved responsiveness, usability, and delivery speed.",
+          "Supported product implementation with cleaner engineering output and stronger performance."
+        ]
+      },
+      {
+        "role": "Full Stack Developer",
+        "company": "MSORG Developers",
+        "period": "2024 - Present",
+        "location": "Product and client systems",
+        "points": [
+          "Built full web applications using React, Node.js, and PHP.",
+          "Developed backend logic, API integrations, and application-level features.",
+          "Improved system scalability, delivery quality, and technical maintainability."
+        ]
+      },
+      {
+        "role": "Website Developer",
+        "company": "Atlantic Exhibition Nigeria Ltd.",
+        "period": "2024 - Present",
+        "location": "Web platforms and internal systems",
+        "points": [
+          "Developed and maintained web platforms and internal systems for business operations.",
+          "Implemented new features and improved performance across production websites.",
+          "Supported stable delivery for public-facing and internal digital tools."
+        ]
+      },
+      {
+        "role": "Web Developer",
+        "company": "Zocode Technologies",
+        "period": "2019 - 2022",
+        "location": "200+ websites and systems",
+        "points": [
+          "Developed and customized 200+ websites and web systems across multiple industries.",
+          "Built custom features, plugins, backend integrations, and technical improvements.",
+          "Optimized performance and improved system stability on live production websites."
+        ]
+      },
+      {
+        "role": "Software Developer (Freelance)",
+        "company": "Remote Clients",
+        "period": "2018 - Present",
+        "location": "Freelance engineering",
+        "points": [
+          "Built web applications and backend systems for client projects.",
+          "Developed APIs, integrated third-party services, and fixed critical bugs.",
+          "Improved performance, scalability, and long-term maintainability across custom implementations."
+        ]
+      }
+    ],
+    "achievementTitle": "Engineering Highlights",
+    "achievements": [
+      "Contributed to fintech system development at PayVessel.",
+      "Built and maintained 200+ web platforms and applications.",
+      "Delivered scalable, secure, and high-performance solutions across multiple industries."
+    ],
+    "toolsTitle": "Core Stack",
+    "tools": [
+      "JavaScript",
+      "React.js",
+      "Node.js",
+      "PHP",
+      "Python",
+      "MySQL",
+      "Git",
+      "REST APIs",
+      "System Integration",
+      "Performance Optimization",
+      "Authentication Systems",
+      "Secure Data Handling"
+    ],
     "contactTitle": "Discuss a Development Project",
     "contactText": "Available for Node.js, React, PHP, Laravel, APIs, backend systems, dashboards, iOS app interface support, debugging, integrations, and technical contract work. I can step into a codebase, build new features, clean up rough implementation, or support product delivery when the work needs practical engineering follow-through.",
     "faq": [

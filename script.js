@@ -489,6 +489,52 @@ function renderPortfolioSections(siteKey) {
     renderVisibleProjects(sharedProjects);
   }
 
+  const experienceMount = document.getElementById("experienceMount");
+  if (experienceMount && (Array.isArray(data.experience) && data.experience.length || Array.isArray(data.achievements) && data.achievements.length || Array.isArray(data.tools) && data.tools.length)) {
+    experienceMount.innerHTML = `
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">Career Proof</span>
+        <h2 class="section-title">${data.experienceTitle || "Work History"}</h2>
+        <p class="section-subtitle">${data.experienceIntro || "A clearer view of the engineering work behind the portfolio."}</p>
+      </div>
+      ${Array.isArray(data.experience) && data.experience.length ? `
+        <div class="experience-grid">
+          ${data.experience.map((item, index) => `
+            <article class="experience-card" data-aos="fade-up" data-aos-delay="${index * 40}">
+              <div class="experience-meta">
+                <span class="experience-period">${item.period || ""}</span>
+                ${item.location ? `<span class="experience-location">${item.location}</span>` : ""}
+              </div>
+              <h3>${item.role || ""}</h3>
+              <p class="experience-company">${item.company || ""}</p>
+              <ul class="experience-points">
+                ${(item.points || []).map((point) => `<li>${point}</li>`).join("")}
+              </ul>
+            </article>
+          `).join("")}
+        </div>
+      ` : ""}
+      <div class="experience-extras">
+        ${Array.isArray(data.achievements) && data.achievements.length ? `
+          <div class="experience-extra-card" data-aos="fade-up">
+            <h3>${data.achievementTitle || "Highlights"}</h3>
+            <ul class="experience-points">
+              ${data.achievements.map((item) => `<li>${item}</li>`).join("")}
+            </ul>
+          </div>
+        ` : ""}
+        ${Array.isArray(data.tools) && data.tools.length ? `
+          <div class="experience-extra-card" data-aos="fade-up" data-aos-delay="80">
+            <h3>${data.toolsTitle || "Core Stack"}</h3>
+            <div class="experience-stack">
+              ${data.tools.map((tool) => `<span class="skill-tag">${tool}</span>`).join("")}
+            </div>
+          </div>
+        ` : ""}
+      </div>
+    `;
+  }
+
   const contactMount = document.getElementById("contactMount");
   if (contactMount) {
     contactMount.innerHTML = `
