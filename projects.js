@@ -4,26 +4,26 @@
 // - Use tags to control filters and page relevance
 window.PORTFOLIO_PROJECTS = [
   {
-    title: "React Dashboard Interface Support",
-    url: "https://www.upwork.com/freelancers/holyprof1",
-    platform: "react",
-    source: "portfolio-case",
-    sourceLabel: "Portfolio case",
-    summary: "React-based dashboard and admin interface support for product-style projects that need cleaner structure and stronger UX.",
-    note: "Useful placeholder proof for React product work and easy to replace later with a live project.",
-    tags: ["frontend", "react", "support", "api"],
-    sites: ["dev"]
+    title: "PayVessel",
+    url: "https://payvessel.com/",
+    platform: "php",
+    source: "my-work",
+    sourceLabel: "My work",
+    summary: "Fintech systems for payment-related workflows with frontend and backend development across secure application features.",
+    note: "Strong proof for fintech development, payment systems, and real-time processing.",
+    tags: ["frontend", "php", "laravel", "api", "database", "support"],
+    sites: ["main", "tobi", "dev"]
   },
   {
-    title: "Node.js API Integration Support",
-    url: "https://www.upwork.com/freelancers/holyprof1",
-    platform: "node",
-    source: "portfolio-case",
-    sourceLabel: "Portfolio case",
-    summary: "Node.js service and API support for custom workflows, third-party connections, and backend implementation.",
-    note: "Useful editable proof item for Node.js contract work, integrations, and backend support.",
-    tags: ["frontend", "node", "api", "support"],
-    sites: ["dev"]
+    title: "AsyncPay",
+    url: "https://asyncpay.io/",
+    platform: "php",
+    source: "my-work",
+    sourceLabel: "My work",
+    summary: "Contract work on payment-focused engineering tasks and delivery support within a live payment product environment.",
+    note: "Useful proof for fintech contracts, payment system implementation, and API-connected flows.",
+    tags: ["frontend", "php", "laravel", "api", "support"],
+    sites: ["main", "tobi", "dev"]
   },
   {
     title: "iOS App Interface Collaboration",
@@ -343,5 +343,5 @@ window.PORTFOLIO_PROJECTS = [
     note: "Helpful for platform, creator economy, and custom product conversations.",
     tags: ["frontend", "php", "laravel", "database", "api"],
     sites: ["main", "tobi", "work", "dev"]
-  }
+  },
 ];
