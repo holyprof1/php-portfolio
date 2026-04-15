@@ -798,12 +798,17 @@ function formatFilterLabel(value) {
 }
 
 function getAssetPath() {
-  return window.location.pathname.includes("/work/") ||
+  const hostname = window.location.hostname;
+  // Check for subdomains (dev, work, marketing) or subdirectories
+  const isSubdomain = hostname.startsWith("dev.") || 
+    hostname.startsWith("work.") || 
+    hostname.startsWith("marketing.");
+  const isSubdirectory = window.location.pathname.includes("/work/") ||
     window.location.pathname.includes("/dev/") ||
     window.location.pathname.includes("/marketing/") ||
-    window.location.pathname.includes("/tobi/")
-    ? "../"
-    : "";
+    window.location.pathname.includes("/tobi/");
+  
+  return isSubdomain || isSubdirectory ? "../" : "";
 }
 
 function renderFaqSection(data) {

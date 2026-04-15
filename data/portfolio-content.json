@@ -432,6 +432,14 @@
       ],
       "image": "me.png"
     },
+    "experience": [
+      {
+        "company": "PayVessel",
+        "position": "Software Engineer",
+        "type": "Fintech",
+        "description": "Fintech company building innovative payment and financial solutions. Contributed to backend systems, APIs, and core financial platform development."
+      }
+    ],
     "skillsTitle": "What I Use",
     "skillsIntro": "Six focused technical signals for the development page.",
     "skillCards": [
