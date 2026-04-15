@@ -507,7 +507,7 @@ function renderPortfolioSections(siteKey) {
                 ${item.location ? `<span class="experience-location">${item.location}</span>` : ""}
               </div>
               <h3>${item.role || ""}</h3>
-              <p class="experience-company">${item.company || ""}</p>
+              <p class="experience-company">${item.companyUrl ? `<a href="${item.companyUrl}" target="_blank" rel="noopener">${item.company || ""}</a>` : (item.company || "")}</p>
               <ul class="experience-points">
                 ${(item.points || []).map((point) => `<li>${point}</li>`).join("")}
               </ul>
@@ -707,13 +707,36 @@ function getProjectTags(project) {
 }
 
 function getProjectImage(project) {
-  if (project.image) return resolveAssetUrl(project.image);
-  if (project.imageUrl) return resolveAssetUrl(project.imageUrl);
   if (project.savedPreviewImage && project.imageMode === "saved_preview") {
     return resolveAssetUrl(project.savedPreviewImage);
   }
 
+  if (project.url && project.imageMode === "saved_preview" && !project.image && !project.imageUrl && !shouldSkipLivePreview(project.url)) {
+    return buildLivePreviewUrl(project.url);
+  }
+
+  if (project.image) return resolveAssetUrl(project.image);
+  if (project.imageUrl) return resolveAssetUrl(project.imageUrl);
+
   return resolveAssetUrl("default.png");
+}
+
+function buildLivePreviewUrl(url) {
+  return `https://s.wordpress.com/mshots/v1/${encodeURIComponent(url)}?w=1200`;
+}
+
+function shouldSkipLivePreview(url) {
+  try {
+    const host = new URL(url).hostname.toLowerCase();
+    return [
+      "upwork.com",
+      "www.upwork.com",
+      "freelancers.upwork.com",
+      "app.upwork.com"
+    ].includes(host);
+  } catch (error) {
+    return true;
+  }
 }
 
 function resolveAssetUrl(path) {

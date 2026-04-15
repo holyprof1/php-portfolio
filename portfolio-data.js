@@ -477,12 +477,25 @@ window.PORTFOLIO_CONTENT = {
       {
         "role": "Software Engineer",
         "company": "PayVessel",
+        "companyUrl": "https://payvessel.com/",
         "period": "2025 - Present",
         "location": "Fintech",
         "points": [
           "Developed and maintained fintech systems across frontend and backend workflows.",
           "Built secure application features for payment-related flows and system reliability.",
           "Integrated APIs, handled real-time data processing, and improved user experience across product flows."
+        ]
+      },
+      {
+        "role": "Contract Software Engineer",
+        "company": "AsyncPay",
+        "companyUrl": "https://asyncpay.io/",
+        "period": "3 Months Contract",
+        "location": "Contract",
+        "points": [
+          "Worked as contract staff on payment-focused engineering tasks and delivery support.",
+          "Contributed to application improvements, API-connected flows, and implementation follow-through.",
+          "Supported reliable execution inside a live payment product environment."
         ]
       },
       {
@@ -499,6 +512,7 @@ window.PORTFOLIO_CONTENT = {
       {
         "role": "Full Stack Developer",
         "company": "MSORG Developers",
+        "companyUrl": "https://msorgdevelopers.com/",
         "period": "2024 - Present",
         "location": "Product and client systems",
         "points": [
