@@ -711,18 +711,77 @@ function getProjectImage(project) {
     return resolveAssetUrl(project.savedPreviewImage);
   }
 
-  if (project.url && project.imageMode === "saved_preview" && !project.image && !project.imageUrl && !shouldSkipLivePreview(project.url)) {
-    return buildLivePreviewUrl(project.url);
-  }
-
   if (project.image) return resolveAssetUrl(project.image);
   if (project.imageUrl) return resolveAssetUrl(project.imageUrl);
+  if (project.url && !shouldSkipLivePreview(project.url)) return buildLivePreviewUrl(project.url);
 
-  return resolveAssetUrl("default.png");
+  return buildProjectPlaceholder(project);
 }
 
 function buildLivePreviewUrl(url) {
   return `https://s.wordpress.com/mshots/v1/${encodeURIComponent(url)}?w=1200`;
+}
+
+function buildProjectPlaceholder(project) {
+  const title = escapeSvgText(project.title || "Project");
+  const type = escapeSvgText(project.type || project.platform || "Portfolio");
+  const accent = getPlatformAccent(project.platform);
+  const accentSoft = `${accent}33`;
+  const svg = `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-label="${title}">
+      <defs>
+        <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#0d1b2a"/>
+          <stop offset="100%" stop-color="#132238"/>
+        </linearGradient>
+        <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="${accent}"/>
+          <stop offset="100%" stop-color="#ffffff"/>
+        </linearGradient>
+      </defs>
+      <rect width="1200" height="750" fill="url(#bg)"/>
+      <circle cx="1040" cy="110" r="180" fill="${accentSoft}"/>
+      <circle cx="180" cy="650" r="210" fill="${accentSoft}"/>
+      <rect x="70" y="70" width="1060" height="610" rx="36" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.10)"/>
+      <rect x="120" y="120" width="190" height="52" rx="26" fill="${accentSoft}"/>
+      <text x="215" y="153" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700" fill="#d9f3ff">${type}</text>
+      <text x="120" y="290" font-family="Poppins, Arial, sans-serif" font-size="72" font-weight="800" fill="#ffffff">${title}</text>
+      <text x="120" y="360" font-family="Inter, Arial, sans-serif" font-size="28" fill="#9fb3c8">Portfolio proof item</text>
+      <rect x="120" y="430" width="300" height="8" rx="4" fill="url(#accent)"/>
+      <rect x="120" y="500" width="460" height="18" rx="9" fill="rgba(255,255,255,0.10)"/>
+      <rect x="120" y="536" width="390" height="18" rx="9" fill="rgba(255,255,255,0.08)"/>
+      <rect x="120" y="572" width="320" height="18" rx="9" fill="rgba(255,255,255,0.06)"/>
+    </svg>
+  `.trim();
+
+  return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
+}
+
+function getPlatformAccent(platform) {
+  const map = {
+    react: "#61dafb",
+    node: "#7cc84a",
+    php: "#8892bf",
+    laravel: "#ff5842",
+    wordpress: "#46b6ff",
+    shopify: "#95bf47",
+    squarespace: "#ffffff",
+    webflow: "#4353ff",
+    seo: "#f7c948",
+    api: "#00c2a8",
+    marketing: "#ff7a59"
+  };
+
+  return map[(platform || "").toLowerCase()] || "#46b6ff";
+}
+
+function escapeSvgText(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
 }
 
 function shouldSkipLivePreview(url) {
