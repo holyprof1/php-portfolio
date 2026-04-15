@@ -4,6 +4,39 @@
 // - Use tags to control filters and page relevance
 window.PORTFOLIO_PROJECTS = [
   {
+    title: "React Dashboard Interface Support",
+    url: "https://www.upwork.com/freelancers/holyprof1",
+    platform: "react",
+    source: "portfolio-case",
+    sourceLabel: "Portfolio case",
+    summary: "React-based dashboard and admin interface support for product-style projects that need cleaner structure and stronger UX.",
+    note: "Useful placeholder proof for React product work and easy to replace later with a live project.",
+    tags: ["frontend", "react", "support", "api"],
+    sites: ["dev"]
+  },
+  {
+    title: "Node.js API Integration Support",
+    url: "https://www.upwork.com/freelancers/holyprof1",
+    platform: "node",
+    source: "portfolio-case",
+    sourceLabel: "Portfolio case",
+    summary: "Node.js service and API support for custom workflows, third-party connections, and backend implementation.",
+    note: "Useful editable proof item for Node.js contract work, integrations, and backend support.",
+    tags: ["frontend", "node", "api", "support"],
+    sites: ["dev"]
+  },
+  {
+    title: "iOS App Interface Collaboration",
+    url: "https://www.upwork.com/freelancers/holyprof1",
+    platform: "react",
+    source: "portfolio-case",
+    sourceLabel: "Portfolio case",
+    summary: "Mobile-friendly UI support and product interface collaboration for iOS-focused app experiences and responsive frontend delivery.",
+    note: "Useful editable proof for iOS-facing interface work, app support, and frontend product collaboration.",
+    tags: ["frontend", "react", "ios", "support"],
+    sites: ["dev"]
+  },
+  {
     title: "Website Glow Ghana",
     url: "https://websiteglowgh.com/",
     platform: "wordpress",
