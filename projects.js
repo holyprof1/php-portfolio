@@ -11,6 +11,7 @@ window.PORTFOLIO_PROJECTS = [
     sourceLabel: "My work",
     summary: "Fintech systems for payment-related workflows with frontend and backend development across secure application features.",
     note: "Strong proof for fintech development, payment systems, and real-time processing.",
+    image: "images/uploads/payvessel-preview.png",
     tags: ["frontend", "php", "laravel", "api", "database", "support"],
     sites: ["main", "tobi", "dev"]
   },
@@ -22,6 +23,7 @@ window.PORTFOLIO_PROJECTS = [
     sourceLabel: "My work",
     summary: "Contract work on payment-focused engineering tasks and delivery support within a live payment product environment.",
     note: "Useful proof for fintech contracts, payment system implementation, and API-connected flows.",
+    image: "images/uploads/asyncpay-preview.png",
     tags: ["frontend", "php", "laravel", "api", "support"],
     sites: ["main", "tobi", "dev"]
   },
@@ -44,6 +46,7 @@ window.PORTFOLIO_PROJECTS = [
     sourceLabel: "My work",
     summary: "Business website delivery for a Ghana-based brand with service presentation, trust-building structure, and client-focused messaging.",
     note: "Useful proof for WordPress delivery, business websites, and cross-border remote client work.",
+    image: "images/uploads/websiteglowghana-preview.png",
     tags: ["frontend", "wordpress", "content", "support", "seo"],
     sites: ["main", "tobi", "work"]
   },
@@ -55,6 +58,7 @@ window.PORTFOLIO_PROJECTS = [
     sourceLabel: "My work",
     summary: "Corporate website work with stronger structure, clearer service communication, and practical business-facing delivery.",
     note: "Strong fit for company websites, service pages, and implementation work.",
+    image: "images/uploads/megastruct-preview.png",
     tags: ["frontend", "wordpress", "content", "support"],
     sites: ["main", "tobi", "work"]
   },
@@ -66,6 +70,7 @@ window.PORTFOLIO_PROJECTS = [
     sourceLabel: "My work",
     summary: "Business website project focused on presentation, credibility, and a cleaner digital experience for the brand.",
     note: "Helpful proof for service businesses, corporate communication, and SEO-aware page structure.",
+    image: "images/uploads/radiantccafrica-preview.png",
     tags: ["frontend", "wordpress", "content", "seo", "support"],
     sites: ["main", "tobi", "work", "marketing"]
   },
@@ -77,6 +82,7 @@ window.PORTFOLIO_PROJECTS = [
     sourceLabel: "Marketing work",
     summary: "Marketing-focused work involving visibility support, positioning, and website updates tied to growth outcomes.",
     note: "Useful proof for SEO support, marketing implementation, and conversion-minded website changes.",
+    image: "images/uploads/proxyclub-preview.png",
     tags: ["frontend", "marketing", "seo", "content", "support"],
     sites: ["main", "work", "marketing"]
   },
@@ -88,6 +94,7 @@ window.PORTFOLIO_PROJECTS = [
     sourceLabel: "My work",
     summary: "Corporate recruiting website with clearer trust signals and stronger service presentation.",
     note: "Good fit for WordPress business website and service-brand delivery.",
+    image: "images/uploads/knptalentgroup-preview.png",
     tags: ["frontend", "wordpress", "support", "content"],
     sites: ["main", "tobi", "work"]
   },
@@ -99,6 +106,7 @@ window.PORTFOLIO_PROJECTS = [
     sourceLabel: "My work",
     summary: "Corporate event website with stronger structure, cleaner messaging, and business-facing delivery.",
     note: "Useful for service websites, brand presentation, and SEO-aware structure.",
+    image: "images/uploads/atlanticexhibition-preview.png",
     tags: ["frontend", "wordpress", "seo", "marketing", "support"],
     sites: ["main", "tobi", "work", "marketing"]
   },
@@ -110,6 +118,7 @@ window.PORTFOLIO_PROJECTS = [
     sourceLabel: "My work",
     summary: "Personal portfolio website used to organise proof across full stack development, SEO, and freelance work.",
     note: "Useful as proof of structure, branding, resume presentation, and portfolio positioning.",
+    image: "images/uploads/portfoliowebsite-preview.png",
     tags: ["frontend", "wordpress", "content", "seo"],
     sites: ["main", "tobi", "work"]
   },
@@ -121,6 +130,7 @@ window.PORTFOLIO_PROJECTS = [
     sourceLabel: "My work",
     summary: "Service-led website with broader digital positioning and clearer client entry points.",
     note: "Good for website presentation, marketing-friendly structure, and service delivery.",
+    image: "images/uploads/talosmart-preview.png",
     tags: ["frontend", "wordpress", "marketing", "content"],
     sites: ["main", "tobi", "work", "marketing"]
   },
@@ -132,6 +142,7 @@ window.PORTFOLIO_PROJECTS = [
     sourceLabel: "My work",
     summary: "Digital services site with stronger SEO and marketing relevance in its structure and messaging.",
     note: "Strong fit for SEO, marketing, and growth-support positioning.",
+    image: "images/uploads/kresteldigital-preview.png",
     tags: ["wordpress", "seo", "marketing", "content"],
     sites: ["work", "marketing"]
   },
@@ -143,6 +154,7 @@ window.PORTFOLIO_PROJECTS = [
     sourceLabel: "My work",
     summary: "Media-forward website where content flow and visibility support matter more than raw platform talk.",
     note: "Useful for content-led websites, brand positioning, and SEO-friendly structure.",
+    image: "images/uploads/savvymediaafrica-preview.png",
     tags: ["wordpress", "seo", "marketing", "content"],
     sites: ["work", "marketing"]
   },
@@ -154,6 +166,7 @@ window.PORTFOLIO_PROJECTS = [
     sourceLabel: "Shopify reference",
     summary: "Shopify storefront reference for product presentation, merchandising, and clean ecommerce layout.",
     note: "Useful as a store reference for ecommerce structure and visual product flow.",
+    image: "images/uploads/tubowoman-preview.png",
     tags: ["shopify", "ecommerce", "marketing"],
     sites: ["work", "marketing"]
   },
@@ -165,6 +178,7 @@ window.PORTFOLIO_PROJECTS = [
     sourceLabel: "Shopify reference",
     summary: "Product-led Shopify reference with stronger brand feel and clearer merchandising rhythm.",
     note: "Good reference for cleaner Shopify storefront direction.",
+    image: "images/uploads/lmlplanner-preview.png",
     tags: ["shopify", "ecommerce", "marketing"],
     sites: ["work", "marketing"]
   },
@@ -176,6 +190,7 @@ window.PORTFOLIO_PROJECTS = [
     sourceLabel: "Shopify reference",
     summary: "Well-known ecommerce reference for navigation clarity, product pages, and conversion-minded store flow.",
     note: "Helpful benchmark for polished ecommerce structure.",
+    image: "images/uploads/allbirds-preview.png",
     tags: ["shopify", "ecommerce", "marketing", "seo"],
     sites: ["work", "marketing"]
   },
@@ -187,6 +202,7 @@ window.PORTFOLIO_PROJECTS = [
     sourceLabel: "Shopify reference",
     summary: "Strong storefront reference for merchandising density, brand energy, and campaign-led ecommerce.",
     note: "Useful for high-energy ecommerce and performance-minded store direction.",
+    image: "images/uploads/gymshark-preview.png",
     tags: ["shopify", "ecommerce", "marketing"],
     sites: ["main", "work", "marketing"]
   },
@@ -198,6 +214,7 @@ window.PORTFOLIO_PROJECTS = [
     sourceLabel: "Shopify reference",
     summary: "Beauty ecommerce reference for aggressive merchandising, launches, and campaign-style presentation.",
     note: "Strong reference for beauty and lifestyle ecommerce direction.",
+    image: "images/uploads/colourpop-preview.png",
     tags: ["shopify", "ecommerce", "marketing"],
     sites: ["main", "work", "marketing"]
   },
@@ -209,6 +226,7 @@ window.PORTFOLIO_PROJECTS = [
     sourceLabel: "Squarespace reference",
     summary: "Portfolio-style Squarespace reference for softer branding and personal service presentation.",
     note: "Useful for personal brands, portfolios, and visual-first website structure.",
+    image: "images/uploads/dolaphoto-preview.png",
     tags: ["squarespace", "content"],
     sites: ["work"]
   },
@@ -220,6 +238,7 @@ window.PORTFOLIO_PROJECTS = [
     sourceLabel: "Squarespace reference",
     summary: "Editorial personal-brand reference with a cleaner content-led layout style.",
     note: "Good fit for personal brand and content presentation reference.",
+    image: "images/uploads/jonndonovan-preview.png",
     tags: ["squarespace", "content"],
     sites: ["work"]
   },
@@ -231,6 +250,7 @@ window.PORTFOLIO_PROJECTS = [
     sourceLabel: "Squarespace reference",
     summary: "Straightforward content-led Squarespace reference for consultants, creators, and coaches.",
     note: "Useful benchmark for simple and effective personal websites.",
+    image: "images/uploads/markfoster-preview.png",
     tags: ["squarespace", "content"],
     sites: ["work"]
   },
@@ -242,6 +262,7 @@ window.PORTFOLIO_PROJECTS = [
     sourceLabel: "Squarespace reference",
     summary: "Visual portfolio reference with a cleaner design-led presentation style.",
     note: "Useful when a project needs a creative portfolio direction.",
+    image: "images/uploads/betatakaki-preview.png",
     tags: ["squarespace", "content"],
     sites: ["work"]
   },
@@ -253,6 +274,7 @@ window.PORTFOLIO_PROJECTS = [
     sourceLabel: "Squarespace reference",
     summary: "Personal portfolio reference for media presentation and personality-led structure.",
     note: "Helpful for creator, media, and personal site direction.",
+    image: "images/uploads/tylercellison-preview.png",
     tags: ["squarespace", "content"],
     sites: ["work"]
   },
@@ -264,6 +286,7 @@ window.PORTFOLIO_PROJECTS = [
     sourceLabel: "Webflow reference",
     summary: "Visual-first Webflow reference with motion, hierarchy, and stronger premium pacing.",
     note: "Good reference for landing pages and premium portfolio rhythm.",
+    image: "images/uploads/aarondromero-preview.png",
     tags: ["webflow", "marketing", "content"],
     sites: ["work", "marketing"]
   },
@@ -275,6 +298,7 @@ window.PORTFOLIO_PROJECTS = [
     sourceLabel: "Webflow reference",
     summary: "Cleaner art-direction reference with a more visual rhythm and brand-led feel.",
     note: "Useful for clients who want a more custom visual site direction.",
+    image: "images/uploads/rodukov-preview.png",
     tags: ["webflow", "content"],
     sites: ["work"]
   },
@@ -286,6 +310,7 @@ window.PORTFOLIO_PROJECTS = [
     sourceLabel: "Webflow reference",
     summary: "Creator-site reference for personality-driven storytelling and portfolio positioning.",
     note: "Helpful for creator brands and personal portfolio direction.",
+    image: "images/uploads/charlimarie-preview.png",
     tags: ["webflow", "content", "marketing"],
     sites: ["work", "marketing"]
   },
@@ -297,6 +322,7 @@ window.PORTFOLIO_PROJECTS = [
     sourceLabel: "My work",
     summary: "Learning platform with structured workflows, protected content, and application-style delivery.",
     note: "Strong proof for Laravel systems, admin workflows, and platform thinking.",
+    image: "images/uploads/docentilms-preview.png",
     tags: ["frontend", "laravel", "php", "database", "support"],
     sites: ["main", "tobi", "dev"]
   },

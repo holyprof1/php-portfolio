@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="LQgfP8I8J7wtP5_SeIc4oNozcUB-mGLRxsJkFZN0gJY" />
+  <meta name="description" content="What PHP and Laravel development actually involves, realistic timelines, and how to tell a competent PHP developer in Nigeria from someone copying tutorials.">
+  <meta name="keywords" content="PHP developer Nigeria, Laravel developer Nigeria, hire PHP developer Nigeria, PHP development Lagos">
+  <meta name="author" content="Tobi Arowosegbe">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="PHP Developer in Nigeria: What to Expect When You Hire One">
+  <meta property="og:description" content="What PHP and Laravel development actually involves, realistic timelines, and how to vet a competent PHP developer.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://blog.holyprofweb.com/php-developer-nigeria-what-to-expect/">
+  <meta property="og:image" content="https://tobi.holyprofweb.com/default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PHP Developer in Nigeria: What to Expect When You Hire One">
+  <meta name="twitter:description" content="What PHP and Laravel development actually involves, and how to vet a competent PHP developer in Nigeria.">
+  <link rel="canonical" href="https://blog.holyprofweb.com/php-developer-nigeria-what-to-expect/">
+  <title>PHP Developer in Nigeria: What to Expect When You Hire One</title>
+  <link rel="stylesheet" href="../blog.css">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "PHP Developer in Nigeria: What to Expect When You Hire One",
+      "description": "What PHP and Laravel development actually involves, realistic timelines, and how to vet a competent PHP developer.",
+      "author": { "@type": "Person", "name": "Tobi Arowosegbe", "url": "https://tobi.holyprofweb.com/" },
+      "publisher": { "@type": "Person", "name": "Tobi Arowosegbe" },
+      "datePublished": "2026-08-11",
+      "dateModified": "2026-08-11",
+      "mainEntityOfPage": "https://blog.holyprofweb.com/php-developer-nigeria-what-to-expect/",
+      "image": "https://tobi.holyprofweb.com/default.png"
+    }
+  </script>
+</head>
+<body>
+  <nav class="blog-nav">
+    <div class="brand">TOBI<span>.</span>BLOG</div>
+    <div class="links">
+      <a href="../">All Posts</a>
+      <a href="https://dev.holyprofweb.com/">Dev Portfolio</a>
+      <a href="https://tobi.holyprofweb.com/#contact">Contact</a>
+    </div>
+  </nav>
+
+  <article class="post">
+    <div class="eyebrow">Hiring Guide</div>
+    <h1>PHP Developer in Nigeria: What to Expect When You Hire One</h1>
+    <div class="byline">By Tobi Arowosegbe &middot; PHP &amp; Laravel developer, Lagos &middot; Updated August 2026</div>
+
+    <p>PHP still runs a large share of the internet, and in Nigeria specifically, it's the backbone of most WordPress sites, a huge share of fintech backend work, and most custom business systems built by local development shops. But "PHP developer" covers a wide skill range, from someone who can patch a WordPress plugin to someone who can build a payment processing backend from scratch.</p>
+
+    <h2>What PHP work actually looks like</h2>
+    <p>In practice, PHP development work in Nigeria falls into a few common categories:</p>
+    <ul>
+      <li><strong>WordPress/plugin-level PHP</strong> &mdash; customizing theme functions, fixing plugin conflicts, writing small custom plugins. Lower complexity, faster turnaround.</li>
+      <li><strong>Laravel application development</strong> &mdash; building custom business systems: booking platforms, dashboards, internal tools, learning management systems, marketplaces.</li>
+      <li><strong>API and integration work</strong> &mdash; connecting a system to payment gateways (Paystack, Flutterwave, Stripe), SMS/email providers, or third-party services.</li>
+      <li><strong>Fintech and payment-adjacent backend work</strong> &mdash; higher stakes, requires more care around security, transaction integrity, and testing.</li>
+    </ul>
+
+    <h2>Realistic timelines</h2>
+    <p>Timelines get abused constantly in freelance quoting, so here's what's actually realistic:</p>
+    <ul>
+      <li><strong>Small PHP fix or plugin customization:</strong> 1&ndash;3 days</li>
+      <li><strong>Custom Laravel MVP (auth, dashboard, core feature set):</strong> 3&ndash;6 weeks</li>
+      <li><strong>Payment gateway integration:</strong> 3&ndash;10 days depending on gateway and testing requirements</li>
+      <li><strong>Full custom platform (multi-role, admin panel, reporting):</strong> 2&ndash;4 months</li>
+    </ul>
+    <p>If someone quotes a custom Laravel platform with user roles, payments, and an admin dashboard in "one week," that's not ambition, it's a warning sign about testing and code quality being skipped.</p>
+
+    <h2>How to vet a PHP developer before hiring</h2>
+    <ol>
+      <li><strong>Ask to see actual code, not just a live site.</strong> A GitHub link with real commit history tells you far more than a portfolio screenshot. Clean, consistent code with sensible naming and no obvious duplication is a good sign.</li>
+      <li><strong>Ask how they handle errors and edge cases.</strong> A developer who only talks about the "happy path" and never mentions validation, error handling, or what happens when an API call fails is inexperienced with production systems.</li>
+      <li><strong>Ask about testing.</strong> Even basic manual test coverage of critical flows (payments, auth, data changes) before launch is the minimum bar. Automated tests (PHPUnit, Pest) are a strong positive signal for anything handling money or sensitive data.</li>
+      <li><strong>Ask what framework and PHP version they're using.</strong> Modern Laravel on a current PHP version (8.1+) is the standard expectation in 2026. Raw, unframeworked PHP for anything beyond a simple site is usually a sign of either inexperience or unnecessarily reinventing solved problems.</li>
+      <li><strong>Ask who owns the code and server access after delivery.</strong> Same principle as WordPress hiring &mdash; you should own the repository and hosting, full stop.</li>
+    </ol>
+
+    <h2>Red flags specific to PHP/backend hiring</h2>
+    <ul>
+      <li>No version control (Git) being used at all for a system with any real complexity.</li>
+      <li>Storing passwords or card details in plain text, or logging sensitive data insecurely &mdash; a serious security failure, not a style choice.</li>
+      <li>Refusing to explain their approach to database structure when asked directly.</li>
+      <li>No staging/test environment before deploying changes to a live, in-use system.</li>
+    </ul>
+
+    <h2>Fintech and payment work specifically</h2>
+    <p>If you're hiring for anything payment-adjacent, the bar should be higher than general web work. Ask specifically about how they handle idempotency (preventing duplicate transactions), webhook verification, and what happens if a payment provider's API times out mid-transaction. A developer who has actually shipped payment systems will have opinions on all three without prompting.</p>
+
+    <div class="cta">
+      <p>I build custom PHP and Laravel systems &mdash; from business dashboards to fintech-facing backend work &mdash; for clients in Nigeria and internationally.</p>
+      <a class="btn" href="https://wa.me/2347036074565" target="_blank" rel="noopener">Discuss your project</a>
+    </div>
+  </article>
+
+  <footer class="blog-footer">
+    <p>Written by <a href="https://tobi.holyprofweb.com/">Tobi Arowosegbe</a> &mdash; Full stack developer, WordPress developer, and technical SEO specialist in Lagos, Nigeria.</p>
+    <a href="../">More posts</a>
+    <a href="https://dev.holyprofweb.com/">Dev portfolio</a>
+  </footer>
+</body>
+</html>

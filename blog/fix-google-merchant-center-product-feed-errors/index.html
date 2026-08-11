@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="LQgfP8I8J7wtP5_SeIc4oNozcUB-mGLRxsJkFZN0gJY" />
+  <meta name="description" content="The most common Google Merchant Center disapprovals and product feed errors on Nigerian ecommerce stores, and exactly how to fix each one.">
+  <meta name="keywords" content="Google Merchant Center Nigeria, product feed errors, Merchant Center disapproved, fix product feed, ecommerce SEO Nigeria">
+  <meta name="author" content="Tobi Arowosegbe">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="How to Fix Google Merchant Center Product Feed Errors">
+  <meta property="og:description" content="The most common Merchant Center disapprovals and feed errors on Nigerian ecommerce stores, and how to fix each one.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://blog.holyprofweb.com/fix-google-merchant-center-product-feed-errors/">
+  <meta property="og:image" content="https://tobi.holyprofweb.com/default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Fix Google Merchant Center Product Feed Errors">
+  <meta name="twitter:description" content="The most common Merchant Center disapprovals and feed errors, and how to fix each one.">
+  <link rel="canonical" href="https://blog.holyprofweb.com/fix-google-merchant-center-product-feed-errors/">
+  <title>How to Fix Google Merchant Center Product Feed Errors</title>
+  <link rel="stylesheet" href="../blog.css">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "How to Fix Google Merchant Center Product Feed Errors",
+      "description": "The most common Merchant Center disapprovals and feed errors on Nigerian ecommerce stores, and how to fix each one.",
+      "author": { "@type": "Person", "name": "Tobi Arowosegbe", "url": "https://tobi.holyprofweb.com/" },
+      "publisher": { "@type": "Person", "name": "Tobi Arowosegbe" },
+      "datePublished": "2026-08-11",
+      "dateModified": "2026-08-11",
+      "mainEntityOfPage": "https://blog.holyprofweb.com/fix-google-merchant-center-product-feed-errors/",
+      "image": "https://tobi.holyprofweb.com/default.png"
+    }
+  </script>
+</head>
+<body>
+  <nav class="blog-nav">
+    <div class="brand">TOBI<span>.</span>BLOG</div>
+    <div class="links">
+      <a href="../">All Posts</a>
+      <a href="https://marketing.holyprofweb.com/">SEO &amp; Marketing</a>
+      <a href="https://tobi.holyprofweb.com/#contact">Contact</a>
+    </div>
+  </nav>
+
+  <article class="post">
+    <div class="eyebrow">Ecommerce SEO</div>
+    <h1>How to Fix Google Merchant Center Product Feed Errors</h1>
+    <div class="byline">By Tobi Arowosegbe &middot; Technical SEO specialist, Lagos &middot; Updated August 2026</div>
+
+    <p>Google Merchant Center is unforgiving. A feed with a handful of formatting problems can result in half your catalog silently disapproved, with no traffic impact you'd notice unless you check the Diagnostics tab regularly. This is the fix-list I go through on almost every ecommerce SEO engagement, ranked by how often I actually see each one.</p>
+
+    <h2>1. Missing or mismatched GTIN/MPN</h2>
+    <p><strong>The error:</strong> "Missing value [gtin]" or a GTIN/brand/MPN mismatch.</p>
+    <p><strong>The fix:</strong> For branded products, supply a correct GTIN (barcode number) wherever one exists. If you're selling a genuinely unique or custom product with no GTIN, explicitly set <code>identifier_exists = false</code> in the feed rather than leaving the field empty &mdash; leaving it blank is what triggers the disapproval, not the absence of a GTIN itself.</p>
+
+    <h2>2. Image link issues</h2>
+    <p><strong>The error:</strong> "Image link, crawl issue" or "Image too small."</p>
+    <p><strong>The fix:</strong> Product images need to be reachable by Googlebot directly (no login walls, no CDN blocking the crawler), at least 100&times;100px (800&times;800px+ recommended for apparel), with no promotional text or watermarks overlaid on the image itself &mdash; that's a policy violation, not just a quality suggestion.</p>
+
+    <h2>3. Price or availability mismatch</h2>
+    <p><strong>The error:</strong> "Price mismatch" between what's in your feed and what's shown on your landing page at the moment Google checks it.</p>
+    <p><strong>The fix:</strong> This is almost always a sync problem &mdash; your feed says one price, your site (after a currency plugin, a sale, or a caching issue) shows another. If you're on WooCommerce, use a feed plugin (Google Listings & Ads, or a dedicated feed plugin) that pulls live from your actual product data rather than a stale exported CSV. Clear caching after price changes.</p>
+
+    <h2>4. Missing shipping information</h2>
+    <p><strong>The error:</strong> "Missing shipping information," especially common for stores targeting Nigeria where shipping setup in Merchant Center is often skipped entirely.</p>
+    <p><strong>The fix:</strong> Set up shipping settings directly in Merchant Center (flat rate, or rules by region) rather than relying only on your site's checkout logic &mdash; Google reads the Merchant Center configuration, not your site's shipping calculator.</p>
+
+    <h2>5. Policy violations for restricted or misrepresented content</h2>
+    <p><strong>The error:</strong> Account-level suspension or product-level disapproval for "misrepresentation" or restricted content.</p>
+    <p><strong>The fix:</strong> Common, avoidable triggers: exaggerated claims ("cures," "guaranteed" without substantiation for health/beauty products), missing business contact information on your site, or a checkout process that doesn't clearly show total price including any fees before payment. Fix the underlying page, then request a review &mdash; don't just resubmit the same feed.</p>
+
+    <h2>6. Feed not updating / stale data</h2>
+    <p><strong>The error:</strong> No explicit error, but product data in Google Shopping doesn't reflect recent site changes.</p>
+    <p><strong>The fix:</strong> Check your feed's fetch schedule in Merchant Center. Manually uploaded CSV feeds are the most common cause of staleness &mdash; switch to a scheduled fetch (Google pulling from a URL on a set interval) or an API-connected plugin so updates propagate without manual re-uploads.</p>
+
+    <div class="callout">
+      Merchant Center errors compound: one structural issue in your feed template can cause dozens of individual product disapprovals that look unrelated in the Diagnostics view. Fix the template-level cause first, then re-check the count before chasing individual SKUs.
+    </div>
+
+    <h2>How to check your current feed health</h2>
+    <ol>
+      <li>Go to Merchant Center &rarr; Products &rarr; Diagnostics.</li>
+      <li>Sort issues by number of affected products, not alphabetically &mdash; fix the highest-impact issue first.</li>
+      <li>Use the "Preview" option on a sample product to see exactly what Google is reading from your feed right now.</li>
+      <li>After fixing the feed source, request a re-crawl rather than waiting for the next scheduled fetch.</li>
+    </ol>
+
+    <div class="cta">
+      <p>I audit and fix Merchant Center feeds and technical SEO issues for ecommerce stores selling to Nigerian and international customers.</p>
+      <a class="btn" href="https://wa.me/2347036074565" target="_blank" rel="noopener">Get your feed audited</a>
+    </div>
+  </article>
+
+  <footer class="blog-footer">
+    <p>Written by <a href="https://tobi.holyprofweb.com/">Tobi Arowosegbe</a> &mdash; Full stack developer, WordPress developer, and technical SEO specialist in Lagos, Nigeria.</p>
+    <a href="../">More posts</a>
+    <a href="https://marketing.holyprofweb.com/">SEO &amp; Marketing portfolio</a>
+  </footer>
+</body>
+</html>

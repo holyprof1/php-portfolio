@@ -19,6 +19,7 @@ Tobi Arowosegbe (also known as Tobi Holyprof) has 7+ years of experience buildin
 - [SEO and marketing portfolio](https://marketing.holyprofweb.com/): technical SEO, landing pages, Merchant Center fixes, product feeds, visibility growth.
 - [Resume](https://tobi.holyprofweb.com/resume/)
 - [Developer CV](https://tobi.holyprofweb.com/dev-resume/)
+- [Blog](https://blog.holyprofweb.com/): guides on WordPress, PHP/Laravel, technical SEO, Google Merchant Center, website pricing, and hiring developers in Nigeria.
 
 ## What Tobi can be hired for
 
