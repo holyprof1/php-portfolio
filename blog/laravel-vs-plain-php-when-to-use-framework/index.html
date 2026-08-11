@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="LQgfP8I8J7wtP5_SeIc4oNozcUB-mGLRxsJkFZN0gJY" />
+  <meta name="description" content="Laravel vs plain PHP: when a framework is worth the overhead, when raw PHP is the right call, and how to decide for your next project.">
+  <meta name="keywords" content="Laravel vs PHP, when to use Laravel, plain PHP vs framework, Laravel Nigeria">
+  <meta name="author" content="Tobi Arowosegbe">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Laravel vs Plain PHP: When to Use a Framework">
+  <meta property="og:description" content="When a framework earns its overhead, and when raw PHP is the smarter call.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://blog.holyprofweb.com/laravel-vs-plain-php-when-to-use-framework/">
+  <meta property="og:image" content="https://tobi.holyprofweb.com/default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Laravel vs Plain PHP: When to Use a Framework">
+  <link rel="canonical" href="https://blog.holyprofweb.com/laravel-vs-plain-php-when-to-use-framework/">
+  <title>Laravel vs Plain PHP: When to Use a Framework</title>
+  <link rel="stylesheet" href="../blog.css">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Laravel vs Plain PHP: When to Use a Framework",
+      "author": { "@type": "Person", "name": "Tobi Arowosegbe", "url": "https://tobi.holyprofweb.com/" },
+      "publisher": { "@type": "Person", "name": "Tobi Arowosegbe" },
+      "datePublished": "2026-08-11",
+      "dateModified": "2026-08-11",
+      "mainEntityOfPage": "https://blog.holyprofweb.com/laravel-vs-plain-php-when-to-use-framework/"
+    }
+  </script>
+</head>
+<body>
+  <nav class="blog-nav">
+    <div class="brand">TOBI<span>.</span>BLOG</div>
+    <div class="links"><a href="../">All Posts</a><a href="https://dev.holyprofweb.com/">Dev Portfolio</a><a href="https://tobi.holyprofweb.com/#contact">Contact</a></div>
+  </nav>
+
+  <article class="post">
+    <div class="eyebrow">PHP</div>
+    <h1>Laravel vs Plain PHP: When to Use a Framework</h1>
+    <div class="byline">By Tobi Arowosegbe &middot; PHP &amp; Laravel developer, Lagos &middot; Updated August 2026</div>
+
+    <p>Not every PHP project needs Laravel, and treating "use a framework" as a default without thinking about it leads to either wasted overhead on tiny projects or, worse, unmaintainable spaghetti on projects that actually needed the structure.</p>
+
+    <h2>When plain PHP is the right call</h2>
+    <ul>
+      <li><strong>Small, single-purpose scripts</strong> &mdash; a contact form handler, a webhook receiver, a simple CSV export. Pulling in a full framework for a 50-line script is unnecessary weight.</li>
+      <li><strong>Extending an existing WordPress site.</strong> WordPress has its own structure (hooks, actions, filters); wrapping Laravel around WordPress work fights the platform instead of working with it.</li>
+      <li><strong>Extremely tight hosting constraints</strong> where every bit of overhead matters, and the project's scope is genuinely small enough to stay simple.</li>
+      <li><strong>Learning fundamentals.</strong> If you're teaching yourself backend development, understanding raw PHP &mdash; request handling, sessions, database queries with PDO &mdash; before jumping to a framework gives you a much stronger foundation for understanding what Laravel is actually doing for you underneath.</li>
+    </ul>
+
+    <h2>When Laravel is clearly worth it</h2>
+    <ul>
+      <li><strong>Any project with user authentication.</strong> Laravel's built-in auth scaffolding (including roles, permissions via packages like Spatie) saves real time and avoids the security mistakes common in hand-rolled auth systems.</li>
+      <li><strong>Anything with a real database layer.</strong> Eloquent ORM, migrations, and seeders make schema changes and data relationships far more maintainable than raw SQL scattered through the codebase.</li>
+      <li><strong>Multi-developer projects.</strong> Laravel's conventions mean a new developer joining the project can find their way around quickly, rather than learning one developer's personal, undocumented structure.</li>
+      <li><strong>Anything that will grow.</strong> A project that starts small but has a realistic chance of growing into user roles, notifications, background jobs, and API endpoints is much easier to extend within Laravel's structure than to retrofit onto a plain-PHP codebase after the fact.</li>
+      <li><strong>Projects needing queues, scheduled tasks, or background jobs</strong> &mdash; sending emails, processing uploads, running reports &mdash; Laravel's queue system handles this cleanly; building it from scratch in plain PHP is real, avoidable engineering effort.</li>
+    </ul>
+
+    <h2>The middle ground: lightweight frameworks</h2>
+    <p>For projects that feel too big for plain PHP but genuinely don't need Laravel's full weight, Slim or Lumen (Laravel's lighter sibling, though now less actively maintained) can be a reasonable middle ground &mdash; though in practice, on 2026 hosting, Laravel's overhead is rarely the actual bottleneck, so this middle ground is less necessary than it used to be.</p>
+
+    <h2>The real decision factor</h2>
+    <p>Ask one question: will this project need auth, a real database with relationships, or grow in scope over the next year? If yes to any of those, Laravel pays for its setup cost quickly. If the honest answer is "no, this stays small and simple," plain PHP is the right, unpretentious choice.</p>
+
+    <div class="cta">
+      <p>Need a Laravel application built properly, or a plain-PHP script done without unnecessary overhead? I do both, deliberately.</p>
+      <a class="btn" href="https://wa.me/2347036074565" target="_blank" rel="noopener">Discuss your project</a>
+    </div>
+  </article>
+
+  <footer class="blog-footer">
+    <p>Written by <a href="https://tobi.holyprofweb.com/">Tobi Arowosegbe</a> &mdash; Full stack developer, WordPress developer, and technical SEO specialist in Lagos, Nigeria.</p>
+    <a href="../">More posts</a><a href="https://dev.holyprofweb.com/">Dev portfolio</a>
+  </footer>
+</body>
+</html>

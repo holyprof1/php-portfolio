@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="LQgfP8I8J7wtP5_SeIc4oNozcUB-mGLRxsJkFZN0gJY" />
+  <meta name="description" content="A case study on building fintech frontend interfaces for PayVessel and AsyncPay: the engineering constraints, the stack, and what shipping in a security-conscious product environment actually involves.">
+  <meta name="keywords" content="PayVessel developer, AsyncPay developer, fintech frontend developer Nigeria, React fintech Nigeria">
+  <meta name="author" content="Tobi Arowosegbe">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Building Fintech Frontends: A PayVessel &amp; AsyncPay Case Study">
+  <meta property="og:description" content="What it actually takes to build frontend interfaces for live payment products.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://blog.holyprofweb.com/payvessel-asyncpay-fintech-frontend-case-study/">
+  <meta property="og:image" content="https://tobi.holyprofweb.com/images/uploads/payvessel-preview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Building Fintech Frontends: A PayVessel &amp; AsyncPay Case Study">
+  <link rel="canonical" href="https://blog.holyprofweb.com/payvessel-asyncpay-fintech-frontend-case-study/">
+  <title>Building Fintech Frontends: A PayVessel &amp; AsyncPay Case Study</title>
+  <link rel="stylesheet" href="../blog.css">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Building Fintech Frontends: A PayVessel & AsyncPay Case Study",
+      "description": "What it actually takes to build frontend interfaces for live payment products.",
+      "author": { "@type": "Person", "name": "Tobi Arowosegbe", "url": "https://tobi.holyprofweb.com/" },
+      "publisher": { "@type": "Person", "name": "Tobi Arowosegbe" },
+      "datePublished": "2026-08-11",
+      "dateModified": "2026-08-11",
+      "mainEntityOfPage": "https://blog.holyprofweb.com/payvessel-asyncpay-fintech-frontend-case-study/"
+    }
+  </script>
+</head>
+<body>
+  <nav class="blog-nav">
+    <div class="brand">TOBI<span>.</span>BLOG</div>
+    <div class="links">
+      <a href="../">All Posts</a>
+      <a href="https://dev.holyprofweb.com/">Dev Portfolio</a>
+      <a href="https://tobi.holyprofweb.com/#contact">Contact</a>
+    </div>
+  </nav>
+
+  <article class="post">
+    <div class="eyebrow">Case Study</div>
+    <h1>Building Fintech Frontends: A PayVessel &amp; AsyncPay Case Study</h1>
+    <div class="byline">By Tobi Arowosegbe &middot; Full stack frontend developer &middot; Updated August 2026</div>
+
+    <p>Building frontend interfaces for a payment product is a different discipline from building a marketing site or a WordPress storefront. The tolerance for bugs is lower, the UI has to communicate trust and precision, and every screen sits on top of real money moving through real accounts. This is a look at what that work actually involves, based on frontend work for PayVessel and contract work on AsyncPay.</p>
+
+    <h2>The stack</h2>
+    <p>Both products lean on <strong>React.js and TailwindCSS</strong> for the frontend, talking to PHP/Laravel-based backend services. React's component model fits payment UIs well &mdash; the same transaction card, status badge, and form validation patterns repeat across dozens of screens, so building them once as reusable, well-tested components pays off quickly.</p>
+
+    <h2>What's actually different about fintech frontend work</h2>
+    <ul>
+      <li><strong>State has to be exact.</strong> A transaction status shown as "pending" when it's actually "failed" isn't a cosmetic bug &mdash; it's a trust-breaking one. UI state needs to track backend truth closely, with clear loading and error states instead of silent gaps.</li>
+      <li><strong>Forms need real validation, not just "required" attributes.</strong> Amount fields, account numbers, and reference codes need format validation before submission, with clear inline errors &mdash; users are entering financial data, not filling a contact form.</li>
+      <li><strong>Security-conscious UI decisions.</strong> Sensitive values (account numbers, balances) get masked by default with explicit reveal actions. Session timeouts need visible warnings, not silent logouts mid-task.</li>
+      <li><strong>Performance matters more than it looks.</strong> Users checking a transaction status or balance want it fast &mdash; a slow-loading dashboard on a financial product reads as unreliable, even if the backend is fine.</li>
+    </ul>
+
+    <h2>Working inside an existing security-conscious codebase</h2>
+    <p>Contract work on an established fintech product like AsyncPay means working within existing conventions, review processes, and security constraints rather than making unilateral architecture decisions. That includes respecting existing state management patterns, following established API contract shapes exactly, and treating code review feedback on anything touching payments or auth as non-negotiable rather than a suggestion.</p>
+
+    <h2>What this proves for a hiring manager or client</h2>
+    <p>Shipping usable, reliable frontend work in a live payment environment demonstrates a few things that are hard to fake: comfort with API-driven state, discipline around edge cases (failed payments, expired sessions, network errors mid-transaction), and the judgment to know when a UI shortcut is fine and when it genuinely isn't &mdash; a distinction that matters far more in fintech than in most other frontend work.</p>
+
+    <div class="cta">
+      <p>Building or scaling a fintech product's frontend? I've shipped production UI for payment-facing platforms and understand what the work actually requires.</p>
+      <a class="btn" href="https://wa.me/2347036074565" target="_blank" rel="noopener">Let's talk about your product</a>
+    </div>
+  </article>
+
+  <footer class="blog-footer">
+    <p>Written by <a href="https://tobi.holyprofweb.com/">Tobi Arowosegbe</a> &mdash; Full stack developer, WordPress developer, and technical SEO specialist in Lagos, Nigeria.</p>
+    <a href="../">More posts</a>
+    <a href="https://dev.holyprofweb.com/">Dev portfolio</a>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="LQgfP8I8J7wtP5_SeIc4oNozcUB-mGLRxsJkFZN0gJY" />
+  <meta name="description" content="Common PHP security mistakes that get Nigerian business websites hacked: SQL injection, weak sessions, exposed .env files, and how to actually fix them.">
+  <meta name="keywords" content="PHP security mistakes, PHP website hacked, SQL injection PHP, PHP security Nigeria">
+  <meta name="author" content="Tobi Arowosegbe">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Common PHP Security Mistakes That Get Nigerian Websites Hacked">
+  <meta property="og:description" content="SQL injection, weak sessions, exposed .env files, and how to actually fix them.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://blog.holyprofweb.com/php-security-mistakes-nigerian-websites-hacked/">
+  <meta property="og:image" content="https://tobi.holyprofweb.com/default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Common PHP Security Mistakes That Get Nigerian Websites Hacked">
+  <link rel="canonical" href="https://blog.holyprofweb.com/php-security-mistakes-nigerian-websites-hacked/">
+  <title>Common PHP Security Mistakes That Get Nigerian Websites Hacked</title>
+  <link rel="stylesheet" href="../blog.css">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Common PHP Security Mistakes That Get Nigerian Websites Hacked",
+      "author": { "@type": "Person", "name": "Tobi Arowosegbe", "url": "https://tobi.holyprofweb.com/" },
+      "publisher": { "@type": "Person", "name": "Tobi Arowosegbe" },
+      "datePublished": "2026-08-11",
+      "dateModified": "2026-08-11",
+      "mainEntityOfPage": "https://blog.holyprofweb.com/php-security-mistakes-nigerian-websites-hacked/"
+    }
+  </script>
+</head>
+<body>
+  <nav class="blog-nav">
+    <div class="brand">TOBI<span>.</span>BLOG</div>
+    <div class="links"><a href="../">All Posts</a><a href="https://dev.holyprofweb.com/">Dev Portfolio</a><a href="https://tobi.holyprofweb.com/#contact">Contact</a></div>
+  </nav>
+
+  <article class="post">
+    <div class="eyebrow">PHP</div>
+    <h1>Common PHP Security Mistakes That Get Nigerian Websites Hacked</h1>
+    <div class="byline">By Tobi Arowosegbe &middot; PHP developer, Lagos &middot; Updated August 2026</div>
+
+    <p>Custom PHP applications get compromised through a small, repeating set of mistakes. If you're running custom PHP (not just WordPress) for your business, this is the list to check.</p>
+
+    <h2>1. SQL injection via unescaped input</h2>
+    <p>Building SQL queries by directly concatenating user input is still, in 2026, one of the most common vulnerabilities I find in custom Nigerian business systems. <strong>The fix: always use prepared statements</strong> (PDO or MySQLi with bound parameters), never string-concatenate variables into a query. This is not optional or a "nice to have" &mdash; it's the baseline requirement for any code touching a database with user input.</p>
+
+    <h2>2. Exposed <code>.env</code> files and credentials</h2>
+    <p>Database passwords, API keys, and payment gateway secrets sitting in a <code>.env</code> file that's accidentally web-accessible (not blocked by <code>.htaccess</code> or outside the public web root) is a disturbingly common find. Anyone who guesses or finds the URL gets your full credential set. <strong>The fix:</strong> keep <code>.env</code> and any config files with secrets outside the publicly served directory, or explicitly block access to them in your web server config.</p>
+
+    <h2>3. Weak or missing session security</h2>
+    <p>Sessions without proper expiration, session IDs passed in URLs (exposing them in browser history and server logs), or no regeneration of the session ID after login all weaken authentication. <strong>The fix:</strong> use <code>session_regenerate_id()</code> after login, set secure session cookie flags, and enforce reasonable session timeouts.</p>
+
+    <h2>4. Trusting client-side validation alone</h2>
+    <p>JavaScript form validation is a UX nicety, not a security control &mdash; anyone can bypass it with browser dev tools or a direct API call. <strong>The fix:</strong> validate and sanitize every input again on the server, regardless of what client-side checks already ran.</p>
+
+    <h2>5. File upload vulnerabilities</h2>
+    <p>Allowing file uploads without checking the actual file type (not just the extension, which is trivially spoofed) can let an attacker upload a PHP file disguised as an image and execute it. <strong>The fix:</strong> validate file content type properly, store uploads outside the web-executable directory where possible, and never allow uploaded files to execute as PHP.</p>
+
+    <h2>6. Outdated PHP versions with known vulnerabilities</h2>
+    <p>Running PHP 7.4 or earlier (end of life, no security patches) because "it still works" leaves known, publicly documented vulnerabilities unpatched. <strong>The fix:</strong> stay on a currently supported PHP version (8.1+ as of 2026), and actually test the upgrade rather than avoiding it indefinitely out of fear of breaking something.</p>
+
+    <h2>7. Verbose error messages in production</h2>
+    <p>Leaving <code>display_errors</code> on in production shows attackers your file paths, database structure, and stack traces whenever something goes wrong &mdash; a reconnaissance gift. <strong>The fix:</strong> disable <code>display_errors</code> in production, log errors server-side instead, and show generic error pages to visitors.</p>
+
+    <div class="callout">
+      Most of these aren't exotic attacks &mdash; they're automated bots scanning for exactly these known, common mistakes at scale. Fixing all seven items above closes the door on the overwhelming majority of opportunistic attacks a small business site will ever face.
+    </div>
+
+    <div class="cta">
+      <p>Want a security review of your custom PHP application before something goes wrong?</p>
+      <a class="btn" href="https://wa.me/2347036074565" target="_blank" rel="noopener">Get a security audit</a>
+    </div>
+  </article>
+
+  <footer class="blog-footer">
+    <p>Written by <a href="https://tobi.holyprofweb.com/">Tobi Arowosegbe</a> &mdash; Full stack developer, WordPress developer, and technical SEO specialist in Lagos, Nigeria.</p>
+    <a href="../">More posts</a><a href="https://dev.holyprofweb.com/">Dev portfolio</a>
+  </footer>
+</body>
+</html>

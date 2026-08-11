@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="LQgfP8I8J7wtP5_SeIc4oNozcUB-mGLRxsJkFZN0gJY" />
+  <meta name="description" content="How to migrate a WordPress site to new hosting or a new domain without losing Google rankings: the redirect, indexing, and DNS steps that matter.">
+  <meta name="keywords" content="WordPress migration Nigeria, migrate website without losing SEO, WordPress hosting migration, change domain keep rankings">
+  <meta name="author" content="Tobi Arowosegbe">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="How to Migrate a WordPress Site Without Losing SEO Rankings">
+  <meta property="og:description" content="The redirect, indexing, and DNS steps that protect your rankings during a site migration.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://blog.holyprofweb.com/migrate-wordpress-site-without-losing-seo/">
+  <meta property="og:image" content="https://tobi.holyprofweb.com/default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Migrate a WordPress Site Without Losing SEO Rankings">
+  <link rel="canonical" href="https://blog.holyprofweb.com/migrate-wordpress-site-without-losing-seo/">
+  <title>How to Migrate a WordPress Site Without Losing SEO Rankings</title>
+  <link rel="stylesheet" href="../blog.css">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "How to Migrate a WordPress Site Without Losing SEO Rankings",
+      "author": { "@type": "Person", "name": "Tobi Arowosegbe", "url": "https://tobi.holyprofweb.com/" },
+      "publisher": { "@type": "Person", "name": "Tobi Arowosegbe" },
+      "datePublished": "2026-08-11",
+      "dateModified": "2026-08-11",
+      "mainEntityOfPage": "https://blog.holyprofweb.com/migrate-wordpress-site-without-losing-seo/"
+    }
+  </script>
+</head>
+<body>
+  <nav class="blog-nav">
+    <div class="brand">TOBI<span>.</span>BLOG</div>
+    <div class="links"><a href="../">All Posts</a><a href="https://marketing.holyprofweb.com/">SEO &amp; Marketing</a><a href="https://tobi.holyprofweb.com/#contact">Contact</a></div>
+  </nav>
+
+  <article class="post">
+    <div class="eyebrow">WordPress</div>
+    <h1>How to Migrate a WordPress Site Without Losing SEO Rankings</h1>
+    <div class="byline">By Tobi Arowosegbe &middot; Technical SEO specialist, Lagos &middot; Updated August 2026</div>
+
+    <p>Migrations &mdash; new hosting, a new domain, or moving from a subdomain to a root domain &mdash; are one of the most common ways businesses accidentally destroy months or years of SEO progress. The good news: done correctly, ranking loss is preventable, not inevitable.</p>
+
+    <h2>Before you touch anything: create a full backup and a URL inventory</h2>
+    <p>Export a full list of your current site's indexed URLs (Google Search Console's Coverage report, or crawl the site with Screaming Frog) before making any changes. You need this list to verify every important page survives the move with a working redirect.</p>
+
+    <h2>If you're changing hosting only (same domain)</h2>
+    <ol>
+      <li>Set up the site fully on the new host first, without pointing the domain there yet.</li>
+      <li>Test thoroughly on the new host's temporary URL or by editing your local hosts file to preview it.</li>
+      <li>Update DNS to point to the new host, and keep the old host active for 24&ndash;48 hours until DNS propagation completes everywhere.</li>
+      <li>Verify the site loads correctly from multiple locations/networks before decommissioning old hosting.</li>
+    </ol>
+
+    <h2>If you're changing domains</h2>
+    <p>This is the higher-risk migration. The critical step: <strong>301 redirect every old URL to its corresponding new URL, one-to-one</strong>, not just a blanket redirect of everything to the new homepage. A blanket homepage redirect tells Google every old page is now the same page, which tanks rankings instead of preserving them.</p>
+    <ul>
+      <li>Map old URL &rarr; new URL for every indexed page, especially your highest-traffic pages.</li>
+      <li>Set up 301 (permanent) redirects, not 302 (temporary) &mdash; the redirect type genuinely affects how Google treats the ranking transfer.</li>
+      <li>Update internal links across the site to point directly to new URLs, not through the redirect chain.</li>
+      <li>Submit the new domain as a property in Google Search Console and submit its sitemap.</li>
+      <li>Use the "Change of Address" tool in Search Console if you're moving between two already-verified properties.</li>
+    </ul>
+
+    <h2>After migration: monitor closely for 2&ndash;4 weeks</h2>
+    <ul>
+      <li>Watch Search Console's Coverage report for a spike in 404s or "not found" errors &mdash; that signals a missed redirect.</li>
+      <li>Check that your top pages are still ranking for their target keywords; some temporary fluctuation is normal, a total disappearance is not.</li>
+      <li>Confirm structured data, meta tags, and canonical URLs all migrated correctly and reference the new domain/URLs, not leftover references to the old one.</li>
+      <li>Re-verify Google Analytics and any conversion tracking is firing correctly on the new setup.</li>
+    </ul>
+
+    <div class="callout">
+      The single most common migration mistake I see: forgetting to update the canonical tag and internal links to the new URLs, leaving them pointing at the old domain even after redirects are in place. This confuses Google about which version is authoritative and slows the ranking transfer significantly.
+    </div>
+
+    <div class="cta">
+      <p>Planning a migration and want it done without losing your rankings? I handle the full redirect mapping and post-migration monitoring.</p>
+      <a class="btn" href="https://wa.me/2347036074565" target="_blank" rel="noopener">Plan your migration</a>
+    </div>
+  </article>
+
+  <footer class="blog-footer">
+    <p>Written by <a href="https://tobi.holyprofweb.com/">Tobi Arowosegbe</a> &mdash; Full stack developer, WordPress developer, and technical SEO specialist in Lagos, Nigeria.</p>
+    <a href="../">More posts</a><a href="https://marketing.holyprofweb.com/">SEO &amp; Marketing portfolio</a>
+  </footer>
+</body>
+</html>

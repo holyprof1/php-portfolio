@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="LQgfP8I8J7wtP5_SeIc4oNozcUB-mGLRxsJkFZN0gJY" />
+  <meta name="description" content="How to protect a WordPress website from hackers in Nigeria: the real causes of infections, hardening steps, and what to do if you're already hacked.">
+  <meta name="keywords" content="WordPress security Nigeria, WordPress hacked fix, protect WordPress site Nigeria, WordPress malware removal Nigeria">
+  <meta name="author" content="Tobi Arowosegbe">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="WordPress Security: How to Protect Your Site From Hackers in Nigeria">
+  <meta property="og:description" content="Real causes of WordPress infections in Nigeria, hardening steps, and recovery if you're already hacked.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://blog.holyprofweb.com/wordpress-security-protect-site-from-hackers-nigeria/">
+  <meta property="og:image" content="https://tobi.holyprofweb.com/default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="WordPress Security: How to Protect Your Site From Hackers in Nigeria">
+  <link rel="canonical" href="https://blog.holyprofweb.com/wordpress-security-protect-site-from-hackers-nigeria/">
+  <title>WordPress Security: How to Protect Your Site From Hackers in Nigeria</title>
+  <link rel="stylesheet" href="../blog.css">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "WordPress Security: How to Protect Your Site From Hackers in Nigeria",
+      "author": { "@type": "Person", "name": "Tobi Arowosegbe", "url": "https://tobi.holyprofweb.com/" },
+      "publisher": { "@type": "Person", "name": "Tobi Arowosegbe" },
+      "datePublished": "2026-08-11",
+      "dateModified": "2026-08-11",
+      "mainEntityOfPage": "https://blog.holyprofweb.com/wordpress-security-protect-site-from-hackers-nigeria/"
+    }
+  </script>
+</head>
+<body>
+  <nav class="blog-nav">
+    <div class="brand">TOBI<span>.</span>BLOG</div>
+    <div class="links"><a href="../">All Posts</a><a href="https://tobi.holyprofweb.com/">Portfolio</a><a href="https://tobi.holyprofweb.com/#contact">Contact</a></div>
+  </nav>
+
+  <article class="post">
+    <div class="eyebrow">WordPress</div>
+    <h1>WordPress Security: How to Protect Your Site From Hackers in Nigeria</h1>
+    <div class="byline">By Tobi Arowosegbe &middot; WordPress developer, Lagos &middot; Updated August 2026</div>
+
+    <p>WordPress powers a huge share of Nigerian business websites, which also makes it a huge, well-understood target. Almost every hacked WordPress site I've cleaned up traces back to one of a handful of avoidable causes. Here's what actually protects a site, and what to do if it's already too late.</p>
+
+    <h2>The most common causes of infection, in order</h2>
+    <ol>
+      <li><strong>Nulled (pirated) premium themes and plugins.</strong> By far the single biggest cause I see. Nulled plugins are frequently modified to include backdoors before being redistributed &mdash; you're not just skipping a license fee, you're installing malware deliberately.</li>
+      <li><strong>Outdated WordPress core, themes, or plugins.</strong> Known vulnerabilities in old versions are actively scanned for by automated bots, not targeted attacks &mdash; your site doesn't need to be "interesting" to get hit.</li>
+      <li><strong>Weak admin passwords and no login protection.</strong> Brute-force login bots try thousands of common passwords automatically; "admin123" style passwords get cracked in minutes.</li>
+      <li><strong>Outdated PHP versions</strong> with known, unpatched vulnerabilities left running because "the site still works."</li>
+    </ol>
+
+    <h2>Hardening checklist</h2>
+    <ul>
+      <li>Only use themes/plugins from WordPress.org, a reputable marketplace (Envato), or the official developer &mdash; never a "nulled" download site.</li>
+      <li>Update WordPress core, themes, and plugins on a regular schedule, not "whenever I remember."</li>
+      <li>Use a strong, unique admin password and enable two-factor authentication (Wordfence and many security plugins support this free).</li>
+      <li>Limit login attempts to block brute-force bots (Wordfence, Limit Login Attempts Reloaded).</li>
+      <li>Rename the default <code>/wp-admin</code> login path or add basic HTTP auth in front of it for an extra layer.</li>
+      <li>Keep automated, offsite backups &mdash; not just backups stored on the same server, which get wiped along with everything else in a serious compromise.</li>
+      <li>Run a security scanner (Wordfence, Sucuri) regularly, not just after something already looks wrong.</li>
+    </ul>
+
+    <h2>If your site is already hacked</h2>
+    <ol>
+      <li><strong>Take it offline or put it in maintenance mode</strong> to stop it serving malware to visitors or search engines while you work.</li>
+      <li><strong>Change every password</strong> &mdash; WordPress admin, hosting/cPanel, database, and FTP/SSH. Assume all of them are compromised.</li>
+      <li><strong>Scan for and remove malicious files.</strong> Look for unfamiliar PHP files, especially in <code>wp-content/uploads</code> (which shouldn't contain executable PHP at all) and modified core files.</li>
+      <li><strong>Check for backdoors</strong> &mdash; hidden admin users, scheduled tasks (cron jobs) you didn't create, or injected code in theme files.</li>
+      <li><strong>Restore from a known-clean backup</strong> if the infection is deep, rather than chasing every injected file individually.</li>
+      <li><strong>Request a review in Google Search Console</strong> if the site was flagged as hacked, once you've confirmed it's actually clean.</li>
+    </ol>
+
+    <div class="callout">
+      A "cleaned" site that still has the original vulnerability (an old plugin, a weak password) will get reinfected, often within days. Cleanup without hardening isn't a fix, it's a pause.
+    </div>
+
+    <div class="cta">
+      <p>Hacked WordPress site, or want it hardened before that happens? I handle both cleanup and prevention.</p>
+      <a class="btn" href="https://wa.me/2347036074565" target="_blank" rel="noopener">Get emergency help</a>
+    </div>
+  </article>
+
+  <footer class="blog-footer">
+    <p>Written by <a href="https://tobi.holyprofweb.com/">Tobi Arowosegbe</a> &mdash; Full stack developer, WordPress developer, and technical SEO specialist in Lagos, Nigeria.</p>
+    <a href="../">More posts</a><a href="https://tobi.holyprofweb.com/">Portfolio</a>
+  </footer>
+</body>
+</html>

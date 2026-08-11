@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="LQgfP8I8J7wtP5_SeIc4oNozcUB-mGLRxsJkFZN0gJY" />
+  <meta name="description" content="React vs vanilla JavaScript: when a UI framework actually earns its complexity, and when plain JS is the faster, simpler, better choice.">
+  <meta name="keywords" content="React vs vanilla JavaScript, when to use React, do I need React, plain JavaScript vs framework">
+  <meta name="author" content="Tobi Arowosegbe">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="React vs Vanilla JavaScript: When You Actually Need a Framework">
+  <meta property="og:description" content="When React earns its complexity, and when plain JS is the better choice.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://blog.holyprofweb.com/react-vs-vanilla-javascript-when-you-need-framework/">
+  <meta property="og:image" content="https://tobi.holyprofweb.com/default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="React vs Vanilla JavaScript: When You Actually Need a Framework">
+  <link rel="canonical" href="https://blog.holyprofweb.com/react-vs-vanilla-javascript-when-you-need-framework/">
+  <title>React vs Vanilla JavaScript: When You Actually Need a Framework</title>
+  <link rel="stylesheet" href="../blog.css">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "React vs Vanilla JavaScript: When You Actually Need a Framework",
+      "author": { "@type": "Person", "name": "Tobi Arowosegbe", "url": "https://tobi.holyprofweb.com/" },
+      "publisher": { "@type": "Person", "name": "Tobi Arowosegbe" },
+      "datePublished": "2026-08-11",
+      "dateModified": "2026-08-11",
+      "mainEntityOfPage": "https://blog.holyprofweb.com/react-vs-vanilla-javascript-when-you-need-framework/"
+    }
+  </script>
+</head>
+<body>
+  <nav class="blog-nav">
+    <div class="brand">TOBI<span>.</span>BLOG</div>
+    <div class="links"><a href="../">All Posts</a><a href="https://dev.holyprofweb.com/">Dev Portfolio</a><a href="https://tobi.holyprofweb.com/#contact">Contact</a></div>
+  </nav>
+
+  <article class="post">
+    <div class="eyebrow">JavaScript</div>
+    <h1>React vs Vanilla JavaScript: When You Actually Need a Framework</h1>
+    <div class="byline">By Tobi Arowosegbe &middot; Frontend developer, Lagos &middot; Updated August 2026</div>
+
+    <p>React gets reached for by default now, even for projects that don't need it. That's not free &mdash; it adds build tooling, bundle size, and a learning curve. Here's how to actually decide.</p>
+
+    <h2>When plain JavaScript is the right call</h2>
+    <ul>
+      <li><strong>Marketing/brochure websites</strong> with mostly static content and light interactivity (a mobile menu, a form, some scroll animations). This is most of what a small business actually needs, and it's this portfolio site's own stack &mdash; plain JS, no framework, and it loads fast because of it.</li>
+      <li><strong>SEO-critical content sites</strong> where you want the simplest possible path to fast load times and easy crawlability, without a JavaScript framework's hydration overhead getting in the way.</li>
+      <li><strong>Small, contained widgets</strong> &mdash; a single interactive component embedded in an otherwise static or WordPress-driven page.</li>
+      <li><strong>When your team doesn't have React expertise</strong> and the project timeline doesn't allow for the ramp-up.</li>
+    </ul>
+
+    <h2>When React genuinely earns its complexity</h2>
+    <ul>
+      <li><strong>Complex, stateful UIs</strong> &mdash; dashboards, multi-step forms, real-time data displays &mdash; where manually tracking DOM updates in vanilla JS becomes genuinely hard to maintain as complexity grows.</li>
+      <li><strong>Applications with many interconnected, reusable UI pieces</strong> that need to stay in sync &mdash; React's component model and state management solve real, otherwise messy problems here.</li>
+      <li><strong>Team projects</strong> where multiple developers need a shared, predictable structure to work within.</li>
+      <li><strong>Products that will keep growing in feature complexity</strong> over months or years &mdash; the upfront structure pays off as scope increases.</li>
+    </ul>
+
+    <h2>The honest cost of defaulting to React</h2>
+    <p>A React app for a five-page business site typically means a build step, a larger JavaScript bundle sent to every visitor, and slower initial load compared to a well-built plain HTML/CSS/JS site &mdash; a real cost on the mobile networks most Nigerian visitors use. If the interactivity you actually need is a mobile menu and a contact form, that overhead buys you nothing.</p>
+
+    <h2>A quick test</h2>
+    <p>Ask: does this page need to track and react to changing state across multiple interconnected components? If yes, React is solving a real problem for you. If the honest answer is "not really, it's mostly content with a bit of interactivity," plain JavaScript will be faster to build, faster to load, and simpler to maintain.</p>
+
+    <div class="cta">
+      <p>Not sure whether your next project needs React or would be better and faster as plain JavaScript? I'll give you a straight answer.</p>
+      <a class="btn" href="https://wa.me/2347036074565" target="_blank" rel="noopener">Ask me directly</a>
+    </div>
+  </article>
+
+  <footer class="blog-footer">
+    <p>Written by <a href="https://tobi.holyprofweb.com/">Tobi Arowosegbe</a> &mdash; Full stack developer, WordPress developer, and technical SEO specialist in Lagos, Nigeria.</p>
+    <a href="../">More posts</a><a href="https://dev.holyprofweb.com/">Dev portfolio</a>
+  </footer>
+</body>
+</html>
