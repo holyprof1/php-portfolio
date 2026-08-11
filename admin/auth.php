@@ -2,7 +2,7 @@
 
 function loadAdminPasswordHash(): string
 {
-  return '$2y$10$rwTM.MdDQLoBdgwljsoNQ.2QrtmqhkyL2fp1wgBzMfQnYS0vHMCwW';
+  return '$2y$10$jKK2tOpmsEwk4x2D1VZPYeU0bT3.cWzV7UpIMKz/TuGsAK./lQ9xi';
 }
 
 function requireAdminPassword(): void
