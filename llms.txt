@@ -1,0 +1,30 @@
+# Tobi Arowosegbe
+
+> Full stack developer, WordPress developer, PHP/Laravel developer, technical SEO specialist, and digital marketer based in Lagos, Nigeria. Available for freelance and contract web development, WordPress, SEO, and digital marketing work.
+
+Tobi Arowosegbe (also known as Tobi Holyprof) has 7+ years of experience building and maintaining websites, fixing WordPress and PHP sites, doing technical SEO, and running digital marketing campaigns for businesses in Nigeria and internationally. He has trained 100+ people in WordPress, frontend development, and digital marketing, and has delivered 200+ websites.
+
+## Contact
+
+- Email: admin@holyprofweb.com
+- WhatsApp: +234 703 607 4565
+- GitHub: https://github.com/holyprof1
+- Upwork: https://www.upwork.com/freelancers/holyprof1
+
+## Portfolio sections
+
+- [Main portfolio](https://tobi.holyprofweb.com/): full stack development, WordPress, PHP, technical SEO, digital marketing, web design, and ecommerce delivery.
+- [Developer portfolio](https://dev.holyprofweb.com/): Node.js, React, PHP, Laravel, APIs, backend systems, and dashboards.
+- [Freelance work portfolio](https://work.holyprofweb.com/): Upwork projects, WordPress support, PHP development, technical SEO, ecommerce fixes.
+- [SEO and marketing portfolio](https://marketing.holyprofweb.com/): technical SEO, landing pages, Merchant Center fixes, product feeds, visibility growth.
+- [Resume](https://tobi.holyprofweb.com/resume/)
+- [Developer CV](https://tobi.holyprofweb.com/dev-resume/)
+
+## What Tobi can be hired for
+
+- WordPress development, theme/plugin customization, and site fixes
+- PHP and Laravel application development and maintenance
+- Frontend development with HTML, CSS, JavaScript, and React
+- Technical SEO: site audits, indexing fixes, structured data, Merchant Center and product feed troubleshooting
+- Digital marketing: campaign setup, social media growth, content strategy
+- Ecommerce support and website migrations

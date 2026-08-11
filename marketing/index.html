@@ -26,7 +26,18 @@
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12" defer></script>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
-  <link rel="stylesheet" href="https://tobi.holyprofweb.com/style.css?v=20260415c">
+  <script>
+    (function () {
+      const host = window.location.hostname.toLowerCase();
+      const isLocal = host === "127.0.0.1" || host === "localhost" || host === "";
+      window.PORTFOLIO_SHARED_BASE = isLocal ? "../" : "https://tobi.holyprofweb.com/";
+      window.PORTFOLIO_SHARED_VERSION = "20260415e";
+    })();
+  </script>
+  <link id="sharedStyleSheet" rel="stylesheet" href="../style.css?v=20260415e">
+  <script>
+    document.getElementById("sharedStyleSheet").href = `${window.PORTFOLIO_SHARED_BASE}style.css?v=${window.PORTFOLIO_SHARED_VERSION}`;
+  </script>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -119,8 +130,13 @@
     </div>
   </footer>
 
-  <script src="https://tobi.holyprofweb.com/projects.js?v=20260415c"></script>
-  <script src="https://tobi.holyprofweb.com/portfolio-data.js?v=20260415c"></script>
-  <script src="https://tobi.holyprofweb.com/script.js?v=20260415c"></script>
+  <script id="sharedProjectsScript" src="../projects.js?v=20260415e"></script>
+  <script id="sharedContentScript" src="../portfolio-data.js?v=20260415e"></script>
+  <script id="sharedAppScript" src="../script.js?v=20260415e"></script>
+  <script>
+    document.getElementById("sharedProjectsScript").src = `${window.PORTFOLIO_SHARED_BASE}projects.js?v=${window.PORTFOLIO_SHARED_VERSION}`;
+    document.getElementById("sharedContentScript").src = `${window.PORTFOLIO_SHARED_BASE}portfolio-data.js?v=${window.PORTFOLIO_SHARED_VERSION}`;
+    document.getElementById("sharedAppScript").src = `${window.PORTFOLIO_SHARED_BASE}script.js?v=${window.PORTFOLIO_SHARED_VERSION}`;
+  </script>
 </body>
 </html>

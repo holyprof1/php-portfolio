@@ -732,7 +732,8 @@ function buildLivePreviewUrl(url) {
 }
 
 function buildProjectPlaceholder(project) {
-  const title = escapeSvgText(project.title || "Project");
+  const shortTitle = getProjectPlaceholderTitle(project.title || "Project");
+  const title = escapeSvgText(shortTitle);
   const type = escapeSvgText(project.type || project.platform || "Portfolio");
   const accent = getPlatformAccent(project.platform);
   const accentSoft = `${accent}33`;
@@ -764,6 +765,14 @@ function buildProjectPlaceholder(project) {
   `.trim();
 
   return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
+}
+
+function getProjectPlaceholderTitle(value) {
+  return String(value)
+    .trim()
+    .split(/\s+/)
+    .slice(0, 2)
+    .join(" ") || "Project";
 }
 
 function getPlatformAccent(platform) {

@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="LQgfP8I8J7wtP5_SeIc4oNozcUB-mGLRxsJkFZN0gJY" />
   <meta name="description" content="Full stack developer in Nigeria for Node.js, React, PHP, Laravel, APIs, backend systems, dashboards, and technical product work.">
   <meta name="keywords" content="full stack developer Nigeria, Node.js developer Nigeria, React developer Nigeria, PHP developer Nigeria, API developer Nigeria">
   <meta name="author" content="Tobi Arowosegbe">
@@ -26,7 +27,18 @@
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12" defer></script>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
-  <link rel="stylesheet" href="https://tobi.holyprofweb.com/style.css?v=20260415c">
+  <script>
+    (function () {
+      const host = window.location.hostname.toLowerCase();
+      const isLocal = host === "127.0.0.1" || host === "localhost" || host === "";
+      window.PORTFOLIO_SHARED_BASE = isLocal ? "../" : "https://tobi.holyprofweb.com/";
+      window.PORTFOLIO_SHARED_VERSION = "20260415e";
+    })();
+  </script>
+  <link id="sharedStyleSheet" rel="stylesheet" href="../style.css?v=20260415e">
+  <script>
+    document.getElementById("sharedStyleSheet").href = `${window.PORTFOLIO_SHARED_BASE}style.css?v=${window.PORTFOLIO_SHARED_VERSION}`;
+  </script>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -101,12 +113,12 @@
     <div class="container" id="skillsMount"></div>
   </section>
 
-  <section class="projects" id="projects">
-    <div class="container" id="projectsMount"></div>
-  </section>
-
   <section class="about" id="experience">
     <div class="container" id="experienceMount"></div>
+  </section>
+
+  <section class="projects" id="projects">
+    <div class="container" id="projectsMount"></div>
   </section>
 
   <section class="contact" id="contact">
@@ -138,16 +150,29 @@
           <span>React, Node.js, PHP</span>
         </div>
         <div class="cv-modal-actions">
-          <a href="https://tobi.holyprofweb.com/dev-resume/" class="btn btn-primary" target="_blank" rel="noopener">Open Dev CV</a>
-          <a href="https://tobi.holyprofweb.com/dev-resume/" class="btn btn-outline" target="_blank" rel="noopener">Print / Save PDF</a>
+          <a id="devCvOpenLink" href="../dev-resume/" class="btn btn-primary" target="_blank" rel="noopener">Open Dev CV</a>
+          <a id="devCvPrintLink" href="../dev-resume/" class="btn btn-outline" target="_blank" rel="noopener">Print / Save PDF</a>
         </div>
       </div>
-      <iframe src="https://tobi.holyprofweb.com/dev-resume/" title="Tobi Olumide Arowosegbe developer CV preview" loading="lazy"></iframe>
+      <iframe id="devCvFrame" src="../dev-resume/" title="Tobi Olumide Arowosegbe developer CV preview" loading="lazy"></iframe>
     </div>
   </div>
 
-  <script src="https://tobi.holyprofweb.com/projects.js?v=20260415c"></script>
-  <script src="https://tobi.holyprofweb.com/portfolio-data.js?v=20260415c"></script>
-  <script src="https://tobi.holyprofweb.com/script.js?v=20260415c"></script>
+  <script>
+    (function () {
+      const resumePath = `${window.PORTFOLIO_SHARED_BASE}dev-resume/`;
+      document.getElementById("devCvOpenLink").href = resumePath;
+      document.getElementById("devCvPrintLink").href = resumePath;
+      document.getElementById("devCvFrame").src = resumePath;
+    })();
+  </script>
+  <script id="sharedProjectsScript" src="../projects.js?v=20260415e"></script>
+  <script id="sharedContentScript" src="../portfolio-data.js?v=20260415e"></script>
+  <script id="sharedAppScript" src="../script.js?v=20260415e"></script>
+  <script>
+    document.getElementById("sharedProjectsScript").src = `${window.PORTFOLIO_SHARED_BASE}projects.js?v=${window.PORTFOLIO_SHARED_VERSION}`;
+    document.getElementById("sharedContentScript").src = `${window.PORTFOLIO_SHARED_BASE}portfolio-data.js?v=${window.PORTFOLIO_SHARED_VERSION}`;
+    document.getElementById("sharedAppScript").src = `${window.PORTFOLIO_SHARED_BASE}script.js?v=${window.PORTFOLIO_SHARED_VERSION}`;
+  </script>
 </body>
 </html>
