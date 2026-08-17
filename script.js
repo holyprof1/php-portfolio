@@ -380,8 +380,8 @@ function renderPortfolioSections(siteKey) {
       ${data.hero.typed ? `<h2 class="hero-subtitle" data-aos="fade-up" data-aos-delay="180"><span class="typed-text" id="pageTyped"></span></h2>` : ""}
       <p class="hero-description" data-aos="fade-up" data-aos-delay="240">${data.hero.description}</p>
       <div class="hero-cta" data-aos="fade-up" data-aos-delay="300">
-        <a href="${data.hero.primary.href}" class="btn btn-primary">${data.hero.primary.label}</a>
-        <a href="${data.hero.secondary.href}" class="btn btn-outline">${data.hero.secondary.label}</a>
+        <a href="${data.hero.primary.href}" class="btn btn-primary"${isExternalUrl(data.hero.primary.href) ? ' target="_blank" rel="noopener"' : ""}>${data.hero.primary.label}</a>
+        <a href="${data.hero.secondary.href}" class="btn btn-outline"${isExternalUrl(data.hero.secondary.href) ? ' target="_blank" rel="noopener"' : ""}>${data.hero.secondary.label}</a>
       </div>
       ${data.hero.stats ? `
         <div class="hero-stats hero-stats-compact" data-aos="fade-up" data-aos-delay="360">
@@ -800,6 +800,10 @@ function escapeSvgText(value) {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#39;");
+}
+
+function isExternalUrl(url) {
+  return /^https?:\/\//i.test(url || "");
 }
 
 function shouldSkipLivePreview(url) {
