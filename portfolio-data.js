@@ -14,8 +14,8 @@ window.PORTFOLIO_CONTENT = {
         "href": "https://wa.me/2347036074565"
       },
       "secondary": {
-        "label": "Download CV",
-        "href": "#cv-popup"
+        "label": "See My Work",
+        "href": "#projects"
       },
       "stats": [
         {
@@ -611,7 +611,7 @@ window.PORTFOLIO_CONTENT = {
         "href": "#projects"
       },
       "secondary": {
-        "label": "Contact",
+        "label": "GET ME",
         "href": "#contact"
       },
       "stats": [
