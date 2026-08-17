@@ -32,10 +32,10 @@
       const host = window.location.hostname.toLowerCase();
       const isLocal = host === "127.0.0.1" || host === "localhost" || host === "";
       window.PORTFOLIO_SHARED_BASE = isLocal ? "../" : "https://tobi.holyprofweb.com/";
-      window.PORTFOLIO_SHARED_VERSION = "20260817a";
+      window.PORTFOLIO_SHARED_VERSION = "20260817b";
     })();
   </script>
-  <link id="sharedStyleSheet" rel="stylesheet" href="../style.css?v=20260817a">
+  <link id="sharedStyleSheet" rel="stylesheet" href="../style.css?v=20260817b">
   <script>
     document.getElementById("sharedStyleSheet").href = `${window.PORTFOLIO_SHARED_BASE}style.css?v=${window.PORTFOLIO_SHARED_VERSION}`;
   </script>
@@ -166,9 +166,9 @@
       document.getElementById("devCvFrame").src = resumePath;
     })();
   </script>
-  <script id="sharedProjectsScript" src="../projects.js?v=20260817a"></script>
-  <script id="sharedContentScript" src="../portfolio-data.js?v=20260817a"></script>
-  <script id="sharedAppScript" src="../script.js?v=20260817a"></script>
+  <script id="sharedProjectsScript" src="../projects.js?v=20260817b"></script>
+  <script id="sharedContentScript" src="../portfolio-data.js?v=20260817b"></script>
+  <script id="sharedAppScript" src="../script.js?v=20260817b"></script>
   <script>
     document.getElementById("sharedProjectsScript").src = `${window.PORTFOLIO_SHARED_BASE}projects.js?v=${window.PORTFOLIO_SHARED_VERSION}`;
     document.getElementById("sharedContentScript").src = `${window.PORTFOLIO_SHARED_BASE}portfolio-data.js?v=${window.PORTFOLIO_SHARED_VERSION}`;
