@@ -52,13 +52,25 @@ window.PORTFOLIO_PROJECTS = [
   },
   {
     title: "Megastruct",
-    url: "https://megastruct.com",
+    url: "https://radiantccafrica.com/megastruct-africa/",
     platform: "wordpress",
     source: "my-work",
     sourceLabel: "My work",
     summary: "Corporate website work with stronger structure, clearer service communication, and practical business-facing delivery.",
     note: "Strong fit for company websites, service pages, and implementation work.",
     image: "images/uploads/megastruct-preview.png",
+    tags: ["frontend", "wordpress", "content", "support"],
+    sites: ["main", "tobi", "work"]
+  },
+  {
+    title: "Messodex West Africa",
+    url: "https://radiantccafrica.com/messodex-west-africa/",
+    platform: "wordpress",
+    source: "my-work",
+    sourceLabel: "My work",
+    summary: "Business website work for a West Africa-facing brand with clearer structure, service presentation, and credible page design.",
+    note: "Useful proof for corporate websites, regional business brands, and WordPress delivery.",
+    image: "images/uploads/messodex-preview.png",
     tags: ["frontend", "wordpress", "content", "support"],
     sites: ["main", "tobi", "work"]
   },
