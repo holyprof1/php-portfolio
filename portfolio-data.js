@@ -10,7 +10,7 @@ window.PORTFOLIO_CONTENT = {
       ],
       "description": "Main portfolio for Tobi Arowosegbe covering full stack development, WordPress development, PHP, technical SEO, digital marketing support, web design, ecommerce support, and mixed client delivery.",
       "primary": {
-        "label": "Contact Me",
+        "label": "GET ME",
         "href": "https://wa.me/2347036074565"
       },
       "secondary": {
